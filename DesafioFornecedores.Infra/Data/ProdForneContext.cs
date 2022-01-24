@@ -13,7 +13,14 @@ namespace DesafioFornecedores.Infra.Data
         {
         }
 
+        public DbSet<Image>  Images {get; set;}
         public DbSet<Product> Products {get; set;}
+        public DbSet<Category>  Categories {get; set;}
+        public DbSet<SupplierJuridical> SupplierJuridical {get; set;}
+        public DbSet<SupplierPhysical> SupplierPhysical {get; set;}
+        public DbSet<Phone>  Phones {get; set;}
+        public DbSet<Email>  Emails {get; set;}
+        public DbSet<Address>  Addresses {get; set;}
 
         public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess,
                                                   CancellationToken cancellationToken = default)

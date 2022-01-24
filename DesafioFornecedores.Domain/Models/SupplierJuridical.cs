@@ -5,17 +5,23 @@ namespace DesafioFornecedores.Domain.Models
 {
     public class SupplierJuridical : Supplier
     {
+
         public string CompanyName { get;private set; }
         public string FantasyName { get; private set; }
         public string Cnpj { get;private set; }
         public DateTime OpenDate { get;private set; }
 
-        public SupplierJuridical(string companyName, string fantasyName, string cnpj)
+        public SupplierJuridical(string companyName, string fantasyName, string cnpj,
+                                bool active, string email, string zipCode, string street, string numberAddress,
+                                string neighborhood, string city, string state, string ddd, string numberPhone)
+                                : base(active, email, zipCode, street, numberAddress, neighborhood, city, state,
+                                      ddd, numberPhone)
         {
             SetCompanyName(companyName);
             SetFantasyName(fantasyName);
             SetCnpj(cnpj);
         }
+
 
         public void SetCompanyName(string companyName){
             StringEmptyOrNull(companyName,"Company name");

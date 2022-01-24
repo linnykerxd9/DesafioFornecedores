@@ -1,8 +1,11 @@
+using System;
+using System.Collections.Generic;
+using DesafioFornecedores.Domain.Interface;
 using DesafioFornecedores.Domain.Tools;
 
 namespace DesafioFornecedores.Domain.Models
 {
-    public class Product : Entity
+    public class Product : Entity, IAggregateRoot
     {
         public string Name { get; private set; }
         public string BarCode { get; private set; }
@@ -10,15 +13,20 @@ namespace DesafioFornecedores.Domain.Models
         public bool Active { get; private set; }
         public decimal PriceSales { get; private set; }
         public decimal PricePurchase { get; private set; }
+        public Guid CategoryId { get;private set; }
 
+        private List<Image> Image { get; set; }
+        public IReadOnlyCollection<Image> Images { get{ return Image;} }
         protected Product() { }
-        public Product(string name, string barCode, int quantityStock, bool active, decimal priceSales, decimal pricePurchase)
+        public Product(string name, string barCode, int quantityStock, decimal priceSales, decimal pricePurchase, bool active,Guid categoryId,string imagePath)
         {
             SetName(name);
             SetBarCode(barCode);
             SetQuantityStock(quantityStock);
             SetPriceSales(priceSales);
             SetPricePurchase(pricePurchase);
+            SetCategoryId(categoryId);
+            SetImage(new Image(imagePath,this.Id));
             Active = active;
         }
         public void SetName(string name){
@@ -45,6 +53,16 @@ namespace DesafioFornecedores.Domain.Models
                 throw new DomainExceptions("sale price can not be negative");
             
             PricePurchase = privePurchase;
+        }
+        public void SetImage(Image image){
+            if(image == null) throw new DomainExceptions("Image is null");
+
+            Image.Add(image);
+        }       
+        public void SetCategoryId(Guid id){
+            if(string.IsNullOrEmpty(id.ToString())) throw new DomainExceptions("Category Id is null or empty");
+
+            CategoryId = id;
         }
         public void Activate() {
             Active = true;

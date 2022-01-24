@@ -9,13 +9,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DesafioFornecedores.Infra.Repository
 {
-    public class Repository<T> : IRepository<T> where T : Entity
+    public abstract class Repository<T> : IRepository<T> where T : Entity, IAggregateRoot
     {
-        private ProdForneContext _context;
+        protected readonly ProdForneContext _context;
         protected readonly DbSet<T> _dbSet;
-
         public Repository(ProdForneContext context)
         {
+            _context = context;
             this._dbSet = context.Set<T>();
         }
 
@@ -29,20 +29,27 @@ namespace DesafioFornecedores.Infra.Repository
             await _dbSet.AddAsync(entity);
         }
 
-        public Task Remove(T entity)
+        public async Task Remove(T entity)
         {
             _dbSet.Remove(entity);
-            return Task.CompletedTask;
+            await Task.CompletedTask;
         }
 
-        public  Task Update(T entity)
+        public async Task Update(T entity)
         {
             _dbSet.Update(entity);
-            return Task.CompletedTask;
+            await Task.CompletedTask;
         }
+
+        public async Task<int> SaveChanges()
+        {
+            return await _context.SaveChangesAsync();
+        }
+
         public void Dispose()
         {
            _context?.Dispose();
         }
+
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using DesafioFornecedores.Domain.Tools;
 
 namespace DesafioFornecedores.Domain.Models
@@ -12,10 +13,10 @@ namespace DesafioFornecedores.Domain.Models
         public string Neighborhood { get; private set; }
         public string City { get; private set; }
         public string State { get; private set; }
-
+        public Guid SupplierId { get; private set; }
         protected Address() { }
         
-        public Address(string zipCode, string street, string number, string neighborhood, string city, string state)
+        public Address(string zipCode, string street, string number, string neighborhood, string city, string state, Guid supplierId)
         {
             SetZipCode(zipCode);
             SetStreet(street);
@@ -23,6 +24,7 @@ namespace DesafioFornecedores.Domain.Models
             SetNeighborhood(neighborhood);
             SetCity(city);
             SetState(state);
+            SetSupplierId(supplierId);
         }
 
         public void SetZipCode(string zipcode)
@@ -70,7 +72,11 @@ namespace DesafioFornecedores.Domain.Models
 
             State = state;
         }
+         public void SetSupplierId(Guid id){
+            if(string.IsNullOrEmpty(id.ToString())) throw new DomainExceptions("Id is null or empty");
 
+            SupplierId = id;
+        }
 
         private void StringEmptyOrNull(string text,string message){
              if(string.IsNullOrEmpty(text))
