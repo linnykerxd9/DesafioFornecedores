@@ -10,8 +10,6 @@ namespace DesafioFornecedores.Infra.Mapping
         {
             builder.HasKey(k => k.Id);
             
-            builder.HasOne(x => x.SupplierId.ToString()).WithOne().HasForeignKey<Supplier>(x => x.Id);
-
             builder.Property(x => x.Ddd)
                    .IsRequired()
                    .HasColumnType("varchar(3)");

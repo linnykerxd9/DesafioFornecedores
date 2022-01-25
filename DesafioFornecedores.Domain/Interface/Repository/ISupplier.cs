@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using DesafioFornecedores.Domain.Models;
 
-namespace DesafioFornecedores.Domain.Interface
+namespace DesafioFornecedores.Domain.Interface.Repository
 {
     public interface ISupplier
     {

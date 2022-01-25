@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DesafioFornecedores.Domain.Interface;
+using DesafioFornecedores.Domain.Interface.Repository;
 using DesafioFornecedores.Domain.Models;
 using DesafioFornecedores.Infra.Data;
 
@@ -7,11 +9,8 @@ namespace DesafioFornecedores.Infra.Repository
 {
     public class ProductRepository : Repository<Product>, IProductsRepository
     {
-        private readonly ProdForneContext _context;
-
         public ProductRepository(ProdForneContext context) : base(context)
         {
-            _context = context;
         }
         public async Task InsertImage(Image image)
         {
@@ -22,6 +21,11 @@ namespace DesafioFornecedores.Infra.Repository
         {
             _context.Images.Remove(image);
             return Task.CompletedTask;
+        }
+
+        public Task<IEnumerable<Product>> ToList()
+        {
+            throw new System.NotImplementedException();
         }
 
         public  Task Update(Image image)

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "DesafioFornecedores.Domain/1.0.0": {
+        "runtime": {
+          "DesafioFornecedores.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DesafioFornecedores.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

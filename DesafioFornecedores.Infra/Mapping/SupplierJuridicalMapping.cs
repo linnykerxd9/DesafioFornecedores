@@ -10,7 +10,15 @@ namespace DesafioFornecedores.Infra.Mapping
         {
             builder.HasKey(k => k.Id);
 
+            builder.Property(x => x.CompanyName)
+                   .IsRequired();
 
+            builder.Property(x => x.FantasyName)
+                   .IsRequired();
+
+            builder.Property(x => x.Cnpj)
+                   .IsRequired()
+                   .HasColumnType("varchar(14)");
 
             builder.ToTable("TB_SupplierJuridical");
         }

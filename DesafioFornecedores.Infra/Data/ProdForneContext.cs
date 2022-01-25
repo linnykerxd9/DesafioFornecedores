@@ -52,7 +52,14 @@ namespace DesafioFornecedores.Infra.Data
             {
                 relationship.DeleteBehavior = DeleteBehavior.ClientSetNull;
             }
-            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<SupplierJuridical>(entity => entity.HasIndex(e => e.Cnpj).IsUnique());
+            modelBuilder.Entity<SupplierJuridical>(entity => entity.HasIndex(e => e.FantasyName).IsUnique());
+
+            modelBuilder.Entity<SupplierPhysical>(entity => entity.HasIndex(e => e.Cpf).IsUnique());
+            modelBuilder.Entity<SupplierPhysical>(entity => entity.HasIndex(e => e.FantasyName).IsUnique());
+
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProdForneContext).Assembly);
         }
     }
 }

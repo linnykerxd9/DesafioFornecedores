@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using DesafioFornecedores.Domain.Interface;
+using DesafioFornecedores.Domain.Interface.Repository;
 using DesafioFornecedores.Domain.Tools;
 
 namespace DesafioFornecedores.Domain.Models

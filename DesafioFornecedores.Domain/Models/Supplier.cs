@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DesafioFornecedores.Domain.Interface;
+using DesafioFornecedores.Domain.Interface.Repository;
 
 namespace DesafioFornecedores.Domain.Models
 {

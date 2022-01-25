@@ -1,9 +1,8 @@
 using System;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using DesafioFornecedores.Domain.Models;
 
-namespace DesafioFornecedores.Domain.Interface
+namespace DesafioFornecedores.Domain.Interface.Repository
 {
     public interface IRepository<T> : IDisposable where T : IAggregateRoot
     {

@@ -1,0 +1,10 @@
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.Domain\obj\Debug\netcoreapp3.1\DesafioFornecedores.Domain.csproj.AssemblyReference.cache
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.Domain\obj\Debug\netcoreapp3.1\DesafioFornecedores.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.Domain\obj\Debug\netcoreapp3.1\DesafioFornecedores.Domain.AssemblyInfoInputs.cache
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.Domain\obj\Debug\netcoreapp3.1\DesafioFornecedores.Domain.AssemblyInfo.cs
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.Domain\obj\Debug\netcoreapp3.1\DesafioFornecedores.Domain.csproj.CoreCompileInputs.cache
+c:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.Domain\bin\Debug\netcoreapp3.1\DesafioFornecedores.Domain.deps.json
+c:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.Domain\bin\Debug\netcoreapp3.1\DesafioFornecedores.Domain.dll
+c:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.Domain\bin\Debug\netcoreapp3.1\DesafioFornecedores.Domain.pdb
+c:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.Domain\obj\Debug\netcoreapp3.1\DesafioFornecedores.Domain.dll
+c:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.Domain\obj\Debug\netcoreapp3.1\DesafioFornecedores.Domain.pdb

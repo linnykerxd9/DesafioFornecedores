@@ -10,8 +10,6 @@ namespace DesafioFornecedores.Infra.Mapping
         {
             builder.HasKey(k => k.Id);
 
-            builder.HasOne(x => x.CategoryId.ToString()).WithOne().HasForeignKey<Category>(x => x.Id);
-
             builder.Property(x => x.Name)
                    .IsRequired();
 
@@ -25,10 +23,11 @@ namespace DesafioFornecedores.Infra.Mapping
                    .IsRequired();
 
             builder.Property(x => x.PricePurchase)
-                   .IsRequired();        
+                   .IsRequired();
 
             builder.Property(x => x.Active)
                    .IsRequired();
+
             builder.ToTable("TB_Product");
         }
     }

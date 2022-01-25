@@ -11,7 +11,6 @@ namespace DesafioFornecedores.Infra.Mapping
         {
             builder.HasKey(x => x.Id);
 
-            builder.HasOne(x => x.ProductId.ToString()).WithOne().HasForeignKey<Product>(x => x.Id);
 
             builder.Property(x => x.ImagePath)
                    .IsRequired();

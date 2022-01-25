@@ -1,5 +1,6 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using DesafioFornecedores.Domain.Interface;
+using DesafioFornecedores.Domain.Interface.Repository;
 using DesafioFornecedores.Domain.Models;
 using DesafioFornecedores.Infra.Data;
 
@@ -39,5 +40,9 @@ namespace DesafioFornecedores.Infra.Repository
            return Task.CompletedTask;
         }
 
+        public Task<IEnumerable<SupplierJuridical>> ToList()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
