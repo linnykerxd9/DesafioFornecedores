@@ -43,12 +43,15 @@ namespace DesafioFornecedores.WebApp
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<ProdForneContext>(options => options.UseSqlServer(
+                    Configuration.GetConnectionString("ConnectionDevForne")));
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddDbContext<ProdForneContext>(options => options.UseSqlServer(
-                    Configuration.GetConnectionString("ConnectionDevForne")));
+            services.AddScoped<ProdForneContext>();
             services.AddScoped<ICategoryRepository,CategoryRepository>();
             services.AddScoped<IProductsRepository, ProductRepository>();
             services.AddScoped<ISupplierJuridicalRepository, SupplierJuridicalRepository>();
@@ -59,7 +62,6 @@ namespace DesafioFornecedores.WebApp
             services.AddScoped<ISupplierJuridicalService, SupplierJuridicalService>();
             services.AddScoped<ISupplierPhysicalService, SupplierPhysicalService>();
 
-            services.AddScoped<ProdForneContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
