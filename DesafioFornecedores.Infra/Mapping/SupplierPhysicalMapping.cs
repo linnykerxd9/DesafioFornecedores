@@ -8,7 +8,6 @@ namespace DesafioFornecedores.Infra.Mapping
     {
         public void Configure(EntityTypeBuilder<SupplierPhysical> builder)
         {
-            builder.HasKey(k => k.Id);
 
             builder.Property(x => x.FullName)
                    .IsRequired();
@@ -20,7 +19,6 @@ namespace DesafioFornecedores.Infra.Mapping
             builder.Property(x => x.BirthDate)
                    .IsRequired();
 
-            builder.ToTable("TB_SupplierPhysical");
         }
     }
 }

@@ -14,7 +14,11 @@ namespace DesafioFornecedores.Domain.Models
         private List<Phone> Phone { get; set; }
         public IReadOnlyCollection<Phone> Phones { get{ return Phone;} }
 
-        public Supplier(bool active,Email email, Address address, Phone phone,string fantasyName)
+        public Supplier()
+        {
+        }
+
+        public Supplier(bool active, Address address,Email email, Phone phone,string fantasyName)
         {
             Active = active;
             SetAddress(address);

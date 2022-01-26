@@ -11,9 +11,13 @@ namespace DesafioFornecedores.Domain.Models
         public Guid SupplierId {get; private set;}
         public DateTime OpenDate { get;private set; }
 
+        public SupplierJuridical()
+        {
+        }
+
         public SupplierJuridical(string companyName, string fantasyName, string cnpj, Guid supplierId,
                                 bool active, Email email, Address address,Phone phone)
-                                : base(active, email, address, phone, fantasyName)
+                                : base(active,address, email, phone, fantasyName)
         {
             SetSupplierId(supplierId);
             SetCompanyName(companyName);

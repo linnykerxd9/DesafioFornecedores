@@ -10,10 +10,13 @@ namespace DesafioFornecedores.Domain.Models
         public DateTime BirthDate  { get;private  set; }
         public Guid SupplierId {get; private set;}
 
+        public SupplierPhysical()
+        {
+        }
 
         public SupplierPhysical(string fantasyName, string fullName, string cpf, DateTime birthDate,Guid supplierId,
                                bool active, Email email, Address address,Phone phone)
-                                : base(active, email, address, phone,fantasyName)
+                                : base(active,address,email, phone,fantasyName)
         {
             SetFullName(fullName);
             SetCpf(cpf);

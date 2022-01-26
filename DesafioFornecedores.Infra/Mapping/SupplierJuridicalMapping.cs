@@ -8,7 +8,6 @@ namespace DesafioFornecedores.Infra.Mapping
     {
         public void Configure(EntityTypeBuilder<SupplierJuridical> builder)
         {
-            builder.HasKey(k => k.Id);
 
             builder.Property(x => x.CompanyName)
                    .IsRequired();
@@ -17,7 +16,6 @@ namespace DesafioFornecedores.Infra.Mapping
                    .IsRequired()
                    .HasColumnType("varchar(14)");
 
-            builder.ToTable("TB_SupplierJuridical");
         }
     }
 }
