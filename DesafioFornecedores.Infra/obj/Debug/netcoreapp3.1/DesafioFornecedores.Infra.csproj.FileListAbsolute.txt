@@ -14,3 +14,18 @@ c:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.Infr
 c:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.Infra\obj\Debug\netcoreapp3.1\DesafioFornecedores.Infra.dll
 c:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.Infra\obj\Debug\netcoreapp3.1\DesafioFornecedores.Infra.pdb
 c:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.Infra\obj\Debug\netcoreapp3.1\DesafioFornecedores.Infra.genruntimeconfig.cache
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.Infra\bin\Debug\netcoreapp3.1\DesafioFornecedores.Infra.deps.json
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.Infra\bin\Debug\netcoreapp3.1\DesafioFornecedores.Infra.runtimeconfig.json
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.Infra\bin\Debug\netcoreapp3.1\DesafioFornecedores.Infra.runtimeconfig.dev.json
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.Infra\bin\Debug\netcoreapp3.1\DesafioFornecedores.Infra.dll
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.Infra\bin\Debug\netcoreapp3.1\DesafioFornecedores.Infra.pdb
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.Infra\bin\Debug\netcoreapp3.1\DesafioFornecedores.Domain.dll
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.Infra\bin\Debug\netcoreapp3.1\DesafioFornecedores.Domain.pdb
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.Infra\obj\Debug\netcoreapp3.1\DesafioFornecedores.Infra.csproj.AssemblyReference.cache
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.Infra\obj\Debug\netcoreapp3.1\DesafioFornecedores.Infra.AssemblyInfoInputs.cache
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.Infra\obj\Debug\netcoreapp3.1\DesafioFornecedores.Infra.AssemblyInfo.cs
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.Infra\obj\Debug\netcoreapp3.1\DesafioFornecedores.Infra.csproj.CoreCompileInputs.cache
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.Infra\obj\Debug\netcoreapp3.1\DesafioFornecedores.Infra.csproj.CopyComplete
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.Infra\obj\Debug\netcoreapp3.1\DesafioFornecedores.Infra.dll
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.Infra\obj\Debug\netcoreapp3.1\DesafioFornecedores.Infra.pdb
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.Infra\obj\Debug\netcoreapp3.1\DesafioFornecedores.Infra.genruntimeconfig.cache
