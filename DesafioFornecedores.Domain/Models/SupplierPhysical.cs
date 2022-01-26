@@ -5,19 +5,20 @@ namespace DesafioFornecedores.Domain.Models
 {
     public class SupplierPhysical : Supplier
     {
-        public string FantasyName { get;private  set; }
         public string FullName { get; private set; }
         public string Cpf { get; private set; }
         public DateTime BirthDate  { get;private  set; }
+        public Guid SupplierId {get; private set;}
 
-        public SupplierPhysical(string fantasyName, string fullName, string cpf, DateTime birthDate,
+
+        public SupplierPhysical(string fantasyName, string fullName, string cpf, DateTime birthDate,Guid supplierId,
                                bool active, Email email, Address address,Phone phone)
-                                : base(active, email, address, phone)
+                                : base(active, email, address, phone,fantasyName)
         {
-            SetFantasyName(fantasyName);
             SetFullName(fullName);
             SetCpf(cpf);
             SetBirthDate(birthDate);
+            SetSupplierId(supplierId);
         }
 
         public void SetFullName(string fullName){
@@ -26,12 +27,7 @@ namespace DesafioFornecedores.Domain.Models
 
             FullName = fullName;
         }
-        public void SetFantasyName(string fantasyName){
-            StringEmptyOrNull(fantasyName,"Fantasy name");
-            SizeIsValid(fantasyName.Length,2,100,"Fantasy");
-
-            FantasyName = fantasyName;
-        }
+      
         public void SetCpf(string cpf){
             if(!cpf.IsCpf())
                 throw new DomainExceptions("Cpf is invalid");
@@ -57,5 +53,11 @@ namespace DesafioFornecedores.Domain.Models
                 if(value < lengMin || value> lengMax)
                 throw new DomainExceptions($"the {message} name can only be between {lengMin} to {lengMax} characters");
          }
+
+          public void SetSupplierId(Guid id){
+            StringEmptyOrNull(id.ToString(),"Supplier Id");
+            
+            SupplierId = id;
+        }
     }
 }

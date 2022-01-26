@@ -8,12 +8,9 @@ namespace DesafioFornecedores.Infra.Mapping
     {
         public void Configure(EntityTypeBuilder<SupplierPhysical> builder)
         {
-             builder.HasKey(k => k.Id);
+            builder.HasKey(k => k.Id);
 
             builder.Property(x => x.FullName)
-                   .IsRequired();
-
-            builder.Property(x => x.FantasyName)
                    .IsRequired();
 
             builder.Property(x => x.Cpf)

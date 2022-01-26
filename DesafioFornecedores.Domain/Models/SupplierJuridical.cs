@@ -7,16 +7,16 @@ namespace DesafioFornecedores.Domain.Models
     {
 
         public string CompanyName { get;private set; }
-        public string FantasyName { get; private set; }
         public string Cnpj { get;private set; }
+        public Guid SupplierId {get; private set;}
         public DateTime OpenDate { get;private set; }
 
-        public SupplierJuridical(string companyName, string fantasyName, string cnpj,
+        public SupplierJuridical(string companyName, string fantasyName, string cnpj, Guid supplierId,
                                 bool active, Email email, Address address,Phone phone)
-                                : base(active, email, address, phone)
+                                : base(active, email, address, phone, fantasyName)
         {
+            SetSupplierId(supplierId);
             SetCompanyName(companyName);
-            SetFantasyName(fantasyName);
             SetCnpj(cnpj);
         }
 
@@ -27,12 +27,7 @@ namespace DesafioFornecedores.Domain.Models
 
             CompanyName = companyName;
         }
-        public void SetFantasyName(string fantasyName){
-            StringEmptyOrNull(fantasyName,"Fantasy name");
-            SizeIsValid(fantasyName.Length,2,100,"Fantasy");
 
-            FantasyName = fantasyName;
-        }
         public void SetCnpj(string cnpj){
             if(!cnpj.IsCnpj())
                 throw new DomainExceptions("Cnpj is invalid");
@@ -45,7 +40,11 @@ namespace DesafioFornecedores.Domain.Models
 
             OpenDate = date;
         }
+        public void SetSupplierId(Guid id){
+            StringEmptyOrNull(id.ToString(),"Supplier Id");
 
+            SupplierId = id;
+        }
 
         private void StringEmptyOrNull(string text,string message){
              if(string.IsNullOrEmpty(text))

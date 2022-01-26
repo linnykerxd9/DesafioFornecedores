@@ -16,6 +16,8 @@ namespace DesafioFornecedores.Infra.Data
         public DbSet<Image>  Images {get; set;}
         public DbSet<Product> Products {get; set;}
         public DbSet<Category>  Categories {get; set;}
+
+        public DbSet<Supplier> Suppliers { get; set;}
         public DbSet<SupplierJuridical> SupplierJuridical {get; set;}
         public DbSet<SupplierPhysical> SupplierPhysical {get; set;}
         public DbSet<Phone>  Phones {get; set;}
@@ -54,10 +56,8 @@ namespace DesafioFornecedores.Infra.Data
             }
 
             modelBuilder.Entity<SupplierJuridical>(entity => entity.HasIndex(e => e.Cnpj).IsUnique());
-            modelBuilder.Entity<SupplierJuridical>(entity => entity.HasIndex(e => e.FantasyName).IsUnique());
-
             modelBuilder.Entity<SupplierPhysical>(entity => entity.HasIndex(e => e.Cpf).IsUnique());
-            modelBuilder.Entity<SupplierPhysical>(entity => entity.HasIndex(e => e.FantasyName).IsUnique());
+            modelBuilder.Entity<Supplier>(entity => entity.HasIndex(e => e.FantasyName).IsUnique());
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProdForneContext).Assembly);
         }

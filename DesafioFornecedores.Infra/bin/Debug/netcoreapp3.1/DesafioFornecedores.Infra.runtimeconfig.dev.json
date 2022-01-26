@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\Viviane\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Viviane\\.nuget\\packages"
+      "C:\\Users\\jramosli\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\jramosli\\.nuget\\packages"
     ]
   }
 }
