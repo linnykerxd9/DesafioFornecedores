@@ -4,6 +4,7 @@ using DesafioFornecedores.Domain.Interface;
 using DesafioFornecedores.Domain.Interface.Repository;
 using DesafioFornecedores.Domain.Models;
 using DesafioFornecedores.Infra.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace DesafioFornecedores.Infra.Repository
 {
@@ -23,9 +24,9 @@ namespace DesafioFornecedores.Infra.Repository
             return Task.CompletedTask;
         }
 
-        public Task<IEnumerable<Product>> ToList()
+        public async Task<IEnumerable<Product>> ToList()
         {
-            throw new System.NotImplementedException();
+            return await _dbSet.Include("Images").Include("Categories").ToListAsync();
         }
 
         public  Task Update(Image image)

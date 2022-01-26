@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using DesafioFornecedores.Domain.Interface.Repository;
 using DesafioFornecedores.Domain.Models;
 using DesafioFornecedores.Infra.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace DesafioFornecedores.Infra.Repository
 {
@@ -12,9 +13,9 @@ namespace DesafioFornecedores.Infra.Repository
         {
         }
 
-        public Task<IEnumerable<Category>> ToList()
+        public async Task<IEnumerable<Category>> ToList()
         {
-            throw new System.NotImplementedException();
+           return await _dbSet.Include("Products").ToListAsync();
         }
     }
 }

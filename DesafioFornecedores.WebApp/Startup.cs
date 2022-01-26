@@ -17,12 +17,20 @@ namespace DesafioFornecedores.WebApp
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public IConfiguration Configuration { get; }
+        /*public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-        }
+        }*/
+        public Startup(IHostEnvironment hostEnvironment){
+            var builder = new ConfigurationBuilder()
+                              .SetBasePath(hostEnvironment.ContentRootPath)
+                              .AddJsonFile("appsettings.json",true,true)
+                              .AddJsonFile($"appsettings.{hostEnvironment.EnvironmentName}.json",true,true)
+                              .AddEnvironmentVariable();
 
-        public IConfiguration Configuration { get; }
+            Configuration = builder.Build();
+        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -34,6 +42,8 @@ namespace DesafioFornecedores.WebApp
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddScoped<ICategoryRepository,CategoryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

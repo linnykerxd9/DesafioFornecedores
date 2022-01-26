@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using DesafioFornecedores.Domain.Interface.Repository;
 using DesafioFornecedores.Domain.Models;
 using DesafioFornecedores.Infra.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace DesafioFornecedores.Infra.Repository
 {
@@ -40,9 +41,9 @@ namespace DesafioFornecedores.Infra.Repository
            return Task.CompletedTask;
         }
 
-        public Task<IEnumerable<SupplierJuridical>> ToList()
+        public async Task<IEnumerable<SupplierJuridical>> ToList()
         {
-            throw new System.NotImplementedException();
+            return await _dbSet.Include("Emails").Include("Addresses").Include("Phones").ToListAsync();
         }
     }
 }

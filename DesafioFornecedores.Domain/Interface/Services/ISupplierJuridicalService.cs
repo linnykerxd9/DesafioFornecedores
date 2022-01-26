@@ -8,6 +8,6 @@ namespace DesafioFornecedores.Domain.Interface.Services
     {
         Task<IEnumerable<SupplierJuridical>> ToList();
 
-        Task AddCategory(SupplierJuridical supplierJuridical);
+        Task AddSupplierJuridical(SupplierJuridical supplierJuridical);
     }
 }
