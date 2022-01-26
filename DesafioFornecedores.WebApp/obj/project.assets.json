@@ -1727,6 +1727,31 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "DesafioFornecedores.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/DesafioFornecedores.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DesafioFornecedores.Domain.dll": {}
+        }
+      },
+      "DesafioFornecedores.Infra/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "DesafioFornecedores.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "3.1.22",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.22"
+        },
+        "compile": {
+          "bin/placeholder/DesafioFornecedores.Infra.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DesafioFornecedores.Infra.dll": {}
+        }
       }
     }
   },
@@ -6138,10 +6163,22 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "DesafioFornecedores.Domain/1.0.0": {
+      "type": "project",
+      "path": "../DesafioFornecedores.Domain/DesafioFornecedores.Domain.csproj",
+      "msbuildProject": "../DesafioFornecedores.Domain/DesafioFornecedores.Domain.csproj"
+    },
+    "DesafioFornecedores.Infra/1.0.0": {
+      "type": "project",
+      "path": "../DesafioFornecedores.Infra/DesafioFornecedores.Infra.csproj",
+      "msbuildProject": "../DesafioFornecedores.Infra/DesafioFornecedores.Infra.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "DesafioFornecedores.Domain >= 1.0.0",
+      "DesafioFornecedores.Infra >= 1.0.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 3.1.22",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.22",
       "Microsoft.AspNetCore.Identity.UI >= 3.1.22",
@@ -6176,7 +6213,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj": {
+              "projectPath": "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj"
+            },
+            "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Infra\\DesafioFornecedores.Infra.csproj": {
+              "projectPath": "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Infra\\DesafioFornecedores.Infra.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

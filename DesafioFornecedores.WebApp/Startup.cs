@@ -1,3 +1,8 @@
+using DesafioFornecedores.Domain.Interface.Repository;
+using DesafioFornecedores.Domain.Interface.Services;
+using DesafioFornecedores.Infra.Data;
+using DesafioFornecedores.Infra.Repository;
+using DesafioFornecedores.Infra.Services;
 using DesafioFornecedores.WebApp.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,7 +32,7 @@ namespace DesafioFornecedores.WebApp
                               .SetBasePath(hostEnvironment.ContentRootPath)
                               .AddJsonFile("appsettings.json",true,true)
                               .AddJsonFile($"appsettings.{hostEnvironment.EnvironmentName}.json",true,true)
-                              .AddEnvironmentVariable();
+                              .AddEnvironmentVariables();
 
             Configuration = builder.Build();
         }
@@ -42,8 +47,19 @@ namespace DesafioFornecedores.WebApp
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
-
+            services.AddDbContext<ProdForneContext>(options => options.UseSqlServer(
+                    Configuration.GetConnectionString("ConnectionDevForne")));
             services.AddScoped<ICategoryRepository,CategoryRepository>();
+            services.AddScoped<IProductsRepository, ProductRepository>();
+            services.AddScoped<ISupplierJuridicalRepository, SupplierJuridicalRepository>();
+            services.AddScoped<ISupplierPhysicalRepository, SupplierPhysicalRepository>();
+
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ISupplierJuridicalService, SupplierJuridicalService>();
+            services.AddScoped<ISupplierPhysicalService, SupplierPhysicalService>();
+
+            services.AddScoped<ProdForneContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
