@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj": {}
+    "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj": {}
   },
   "projects": {
-    "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj": {
+    "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj",
         "projectName": "DesafioFornecedores.Domain",
-        "projectPath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj",
+        "projectPath": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj",
         "packagesPath": "C:\\Users\\jramosli\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\obj\\",
+        "outputPath": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jramosli\\AppData\\Roaming\\NuGet\\NuGet.Config"

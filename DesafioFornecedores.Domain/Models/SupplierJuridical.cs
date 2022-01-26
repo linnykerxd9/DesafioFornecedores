@@ -12,10 +12,8 @@ namespace DesafioFornecedores.Domain.Models
         public DateTime OpenDate { get;private set; }
 
         public SupplierJuridical(string companyName, string fantasyName, string cnpj,
-                                bool active, string email, string zipCode, string street, string numberAddress,
-                                string neighborhood, string city, string state, string ddd, string numberPhone)
-                                : base(active, email, zipCode, street, numberAddress, neighborhood, city, state,
-                                      ddd, numberPhone)
+                                bool active, Email email, Address address,Phone phone)
+                                : base(active, email, address, phone)
         {
             SetCompanyName(companyName);
             SetFantasyName(fantasyName);

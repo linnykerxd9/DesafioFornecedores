@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WyH+7JS/yjUozQRG/DLNjdrMXNO0ITbCMEzhIXXLywjNmNPI5vdasPeqi1FecEqR6mEjT6jYFC3oMvrZst9nQw==",
+  "dgSpecHash": "EUjLYzMg8X2RM9akaVZX7Q/Aj9H+s/gNxQERK2LeaEVxOsokeg7unkYQwTGDI2EYtkJpo1U+G7KavcER5QRoeQ==",
   "success": true,
-  "projectFilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Infra\\DesafioFornecedores.Infra.csproj",
+  "projectFilePath": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Infra\\DesafioFornecedores.Infra.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jramosli\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\jramosli\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
