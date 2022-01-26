@@ -12,7 +12,6 @@ namespace DesafioFornecedores.Infra.Data
         public ProdForneContext(DbContextOptions<ProdForneContext> options) : base(options)
         {
         }
-
         public DbSet<Image>  Images {get; set;}
         public DbSet<Product> Products {get; set;}
         public DbSet<Category>  Categories {get; set;}
