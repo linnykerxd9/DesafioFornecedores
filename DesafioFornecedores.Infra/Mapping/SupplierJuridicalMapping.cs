@@ -16,6 +16,7 @@ namespace DesafioFornecedores.Infra.Mapping
             builder.Property(x => x.FantasyName)
                    .IsRequired();
 
+
             builder.Property(x => x.Cnpj)
                    .IsRequired()
                    .HasColumnType("varchar(14)");

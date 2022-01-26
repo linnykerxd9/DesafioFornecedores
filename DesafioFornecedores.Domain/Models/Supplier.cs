@@ -12,13 +12,12 @@ namespace DesafioFornecedores.Domain.Models
         private List<Phone> Phone { get; set; }
         public IReadOnlyCollection<Phone> Phones { get{ return Phone;} }
 
-        public Supplier(bool active,string email, string zipCode, string street, string numberAddress,
-                        string neighborhood, string city, string state, string ddd, string numberPhone)
+        public Supplier(bool active,Email email, Address address, Phone phone)
         {
             Active = active;
-            SetAddress(new Address(zipCode,street,numberAddress,neighborhood,city,state,this.Id));
-            SetEmail(new Email(email,this.Id));
-            SetPhone(new Phone(ddd,numberPhone,this.Id));
+            SetAddress(address);
+            SetEmail(email);
+            SetPhone(phone);
         }
         protected void Activate() {
             Active = true;
