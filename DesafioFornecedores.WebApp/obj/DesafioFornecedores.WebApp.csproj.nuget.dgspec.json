@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\DesafioFornecedores.WebApp.csproj": {}
+    "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\DesafioFornecedores.WebApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj": {
+    "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj",
         "projectName": "DesafioFornecedores.Domain",
-        "projectPath": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj",
-        "packagesPath": "C:\\Users\\jramosli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\obj\\",
+        "projectPath": "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj",
+        "packagesPath": "C:\\Users\\Viviane\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jramosli\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Viviane\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -52,34 +54,36 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Infra\\DesafioFornecedores.Infra.csproj": {
+    "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Infra\\DesafioFornecedores.Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Infra\\DesafioFornecedores.Infra.csproj",
+        "projectUniqueName": "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Infra\\DesafioFornecedores.Infra.csproj",
         "projectName": "DesafioFornecedores.Infra",
-        "projectPath": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Infra\\DesafioFornecedores.Infra.csproj",
-        "packagesPath": "C:\\Users\\jramosli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Infra\\obj\\",
+        "projectPath": "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Infra\\DesafioFornecedores.Infra.csproj",
+        "packagesPath": "C:\\Users\\Viviane\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Infra\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jramosli\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Viviane\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj": {
-                "projectPath": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj"
+              "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj": {
+                "projectPath": "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj"
               }
             }
           }
@@ -130,37 +134,39 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\DesafioFornecedores.WebApp.csproj": {
+    "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\DesafioFornecedores.WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\DesafioFornecedores.WebApp.csproj",
+        "projectUniqueName": "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\DesafioFornecedores.WebApp.csproj",
         "projectName": "DesafioFornecedores.WebApp",
-        "projectPath": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\DesafioFornecedores.WebApp.csproj",
-        "packagesPath": "C:\\Users\\jramosli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\obj\\",
+        "projectPath": "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\DesafioFornecedores.WebApp.csproj",
+        "packagesPath": "C:\\Users\\Viviane\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jramosli\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Viviane\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj": {
-                "projectPath": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj"
+              "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj": {
+                "projectPath": "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj"
               },
-              "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Infra\\DesafioFornecedores.Infra.csproj": {
-                "projectPath": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Infra\\DesafioFornecedores.Infra.csproj"
+              "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Infra\\DesafioFornecedores.Infra.csproj": {
+                "projectPath": "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Infra\\DesafioFornecedores.Infra.csproj"
               }
             }
           }
@@ -216,6 +222,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.18, 3.1.18]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -224,7 +236,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }

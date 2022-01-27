@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj": {}
+    "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj": {
+    "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj",
         "projectName": "DesafioFornecedores.Domain",
-        "projectPath": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj",
-        "packagesPath": "C:\\Users\\jramosli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.Domain\\obj\\",
+        "projectPath": "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Domain\\DesafioFornecedores.Domain.csproj",
+        "packagesPath": "C:\\Users\\Viviane\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Viviane\\Desktop\\Nova pasta\\NTT DATA\\Trilha\\Desafio 3 camadas\\DesafioFornecedores\\DesafioFornecedores.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jramosli\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Viviane\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -52,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }
