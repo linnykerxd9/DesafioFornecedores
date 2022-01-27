@@ -20,18 +20,21 @@ namespace DesafioFornecedores.WebApp.Controllers
         }
 
         [AllowAnonymous]
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
         [AllowAnonymous]
+        [HttpGet]
         public IActionResult Privacy()
         {
             return View();
         }
         
         [AllowAnonymous]
+        [HttpGet]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -1,0 +1,42 @@
+@{
+    ViewData["Title"] = "Supplier";
+}
+
+<div class="text">
+    <h1 class="display-4">Supplier</h1>
+</div>
+<div>
+    <a asp-action="CreatePhysical" asp-controller="Supplier" class="btn btn-primary">New Supplier Physical</a>
+    <a asp-action="CreateJuridical"  asp-controller="Supplier" class="btn btn-primary">New Supplier Juridical</a>
+</div>
+<br/>
+<br/>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>at</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>witter</td>
+    </tr>
+  </tbody>
+</table>

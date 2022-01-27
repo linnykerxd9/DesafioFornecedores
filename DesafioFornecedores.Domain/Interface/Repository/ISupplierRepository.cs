@@ -1,10 +1,12 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DesafioFornecedores.Domain.Models;
 
 namespace DesafioFornecedores.Domain.Interface.Repository
 {
-    public interface ISupplier
+    public interface ISupplierRepository : IRepository<Supplier>
     {
+        Task<IEnumerable<Supplier>> ToList();
         Task UpdateEmail(Email email);
 
         Task UpdateAddress(Address address);

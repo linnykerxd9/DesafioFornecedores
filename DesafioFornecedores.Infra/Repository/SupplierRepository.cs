@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using DesafioFornecedores.Domain.Interface.Repository;
 using DesafioFornecedores.Domain.Models;
@@ -7,13 +9,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DesafioFornecedores.Infra.Repository
 {
-    public class SupplierJuridicalRepository : Repository<SupplierJuridical>, ISupplierJuridicalRepository
+    public class SupplierRepository : Repository<Supplier>, ISupplierRepository
     {
-        public SupplierJuridicalRepository(ProdForneContext context) : base(context)
+        public SupplierRepository(ProdForneContext context) : base(context)
         {
         }
-
-        public async Task InsertPhone(Phone phone)
+       public async Task InsertPhone(Phone phone)
         {
            await _context.Phones.AddAsync(phone);
         }
@@ -40,10 +41,12 @@ namespace DesafioFornecedores.Infra.Repository
              _context.Emails.Update(email);
            return Task.CompletedTask;
         }
-
-        public async Task<IEnumerable<SupplierJuridical>> ToList()
+        public async Task<IEnumerable<Supplier>> ToList()
         {
-            return await _dbSet.Include("Emails").Include("Addresses").Include("Phones").ToListAsync();
+            return await _context.Suppliers.Include("Emails")
+                                           .Include("Phones")
+                                           .Include("Addresses")
+                                           .ToListAsync();
         }
     }
 }

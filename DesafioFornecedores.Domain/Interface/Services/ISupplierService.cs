@@ -4,10 +4,10 @@ using DesafioFornecedores.Domain.Models;
 
 namespace DesafioFornecedores.Domain.Interface.Services
 {
-    public interface ISupplierJuridicalService
+    public interface ISupplierService
     {
-        Task<IEnumerable<SupplierJuridical>> ToList();
+         Task<IEnumerable<Supplier>> ToList();
 
-        Task AddSupplierJuridical(SupplierJuridical supplierJuridical);
+         Task AddSupplier(Supplier supplier);
     }
 }

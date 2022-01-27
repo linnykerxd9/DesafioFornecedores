@@ -14407,6 +14407,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Supplier\\CreateJuridical.cshtml",
+      "TargetPath": "Views\\Supplier\\CreateJuridical.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
@@ -14419,6 +14424,16 @@
     {
       "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Supplier\\Index.cshtml",
+      "TargetPath": "Views\\Supplier\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Supplier\\CreatePhysical.cshtml",
+      "TargetPath": "Views\\Supplier\\CreatePhysical.cshtml",
       "FileKind": "mvc"
     },
     {
