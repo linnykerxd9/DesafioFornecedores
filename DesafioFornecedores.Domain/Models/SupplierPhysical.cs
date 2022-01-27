@@ -8,20 +8,18 @@ namespace DesafioFornecedores.Domain.Models
         public string FullName { get; private set; }
         public string Cpf { get; private set; }
         public DateTime BirthDate  { get;private  set; }
-        public Guid SupplierId {get; private set;}
 
         public SupplierPhysical()
         {
         }
 
-        public SupplierPhysical(string fantasyName, string fullName, string cpf, DateTime birthDate,Guid supplierId,
+        public SupplierPhysical(string fantasyName, string fullName, string cpf, DateTime birthDate,
                                bool active, Email email, Address address,Phone phone)
                                 : base(active,address,email, phone,fantasyName)
         {
             SetFullName(fullName);
             SetCpf(cpf);
             SetBirthDate(birthDate);
-            SetSupplierId(supplierId);
         }
 
         public void SetFullName(string fullName){
@@ -56,11 +54,5 @@ namespace DesafioFornecedores.Domain.Models
                 if(value < lengMin || value> lengMax)
                 throw new DomainExceptions($"the {message} name can only be between {lengMin} to {lengMax} characters");
          }
-
-          public void SetSupplierId(Guid id){
-            StringEmptyOrNull(id.ToString(),"Supplier Id");
-            
-            SupplierId = id;
-        }
     }
 }

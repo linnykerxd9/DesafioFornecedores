@@ -8,18 +8,16 @@ namespace DesafioFornecedores.Domain.Models
 
         public string CompanyName { get;private set; }
         public string Cnpj { get;private set; }
-        public Guid SupplierId {get; private set;}
         public DateTime OpenDate { get;private set; }
 
         public SupplierJuridical()
         {
         }
 
-        public SupplierJuridical(string companyName, string fantasyName, string cnpj, Guid supplierId,
+        public SupplierJuridical(string companyName, string fantasyName, string cnpj,
                                 bool active, Email email, Address address,Phone phone)
                                 : base(active,address, email, phone, fantasyName)
         {
-            SetSupplierId(supplierId);
             SetCompanyName(companyName);
             SetCnpj(cnpj);
         }
@@ -43,11 +41,6 @@ namespace DesafioFornecedores.Domain.Models
                 throw new DomainExceptions("Date invalid");
 
             OpenDate = date;
-        }
-        public void SetSupplierId(Guid id){
-            StringEmptyOrNull(id.ToString(),"Supplier Id");
-
-            SupplierId = id;
         }
 
         private void StringEmptyOrNull(string text,string message){
