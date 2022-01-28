@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using DesafioFornecedores.Domain.Interface.Services;
@@ -13,16 +14,17 @@ namespace DesafioFornecedores.WebApp.Controllers
     {
 
         private readonly ISupplierService _supplierService;
-        private readonly IMapper _mapper;
-        public SupplierController(ISupplierService supplierService, IMapper mapper)
+
+        public SupplierController(ISupplierService supplierService, IMapper mapper, INotificationService notificationService)
+                                 : base(mapper, notificationService)
         {
             _supplierService = supplierService;
-            _mapper = mapper;
         }
 
         [AllowAnonymous]
         [HttpGet]
         public IActionResult Index(){
+            var suppliers = _supplierService.Find();
             return View();
         }
 
@@ -33,8 +35,15 @@ namespace DesafioFornecedores.WebApp.Controllers
         }
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult CreateJuridical(SupplierViewModel viewModel){
-            return View();
+        public async Task<IActionResult> CreateJuridical(SupplierViewModel viewModel){
+            if(ModelState.IsValid) return View(viewModel);
+
+            var supplierJuridical = _mapper.Map<SupplierJuridical>(viewModel);
+            await _supplierService.AddSupplier(supplierJuridical);
+
+            if(OperationValid()) return View(viewModel);
+
+            return RedirectToAction(nameof(Index));
         }
 
         [AllowAnonymous]
@@ -45,11 +54,14 @@ namespace DesafioFornecedores.WebApp.Controllers
         [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> CreatePhysical(SupplierViewModel viewModel){
-            if(!ModelState.IsValid) return View(viewModel);
+            if(ModelState.IsValid) return View(viewModel);
 
-            var funcionario = _mapper.Map<SupplierPhysical>(viewModel);
-            await _supplierService.AddSupplier(funcionario);
-            return View();
+            var supplierPhysical = _mapper.Map<SupplierPhysical>(viewModel);
+            await _supplierService.AddSupplier(supplierPhysical);
+
+            if(OperationValid()) return View(viewModel);
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

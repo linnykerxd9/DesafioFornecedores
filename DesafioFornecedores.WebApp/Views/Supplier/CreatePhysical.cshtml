@@ -38,7 +38,7 @@
   </div> 
    <div class="mb-3">
     <label asp-for="BirthDate" class="form-label"></label>
-    <input asp-for="BirthDate" type="datetime" class="form-control">
+    <input asp-for="BirthDate" type="date" class="form-control">
   </div>
   <div class="mb-3">
     <label asp-for="FantasyName" class="form-label"></label>
@@ -95,7 +95,7 @@
 </form>
 
 
-@section Scripts {
+@section Scripts{
     @{
       await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }

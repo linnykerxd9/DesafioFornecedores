@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using DesafioFornecedores.Domain.Interface.Repository;
@@ -43,10 +44,18 @@ namespace DesafioFornecedores.Infra.Repository
         }
         public async Task<IEnumerable<Supplier>> ToList()
         {
-            return await _context.Suppliers.Include("Emails")
-                                           .Include("Phones")
-                                           .Include("Addresses")
+            return await _context.SupplierPhysical
                                            .ToListAsync();
+        }
+
+        public  async Task<SupplierJuridical> FindJuridical(Expression<Func<SupplierJuridical, bool>> expression)
+        {
+           return await _context.SupplierJuridical.Where(expression).FirstOrDefaultAsync();
+        }
+
+          public  async Task<SupplierPhysical> FindPhysical(Expression<Func<SupplierPhysical, bool>> expression)
+        {
+           return await _context.SupplierPhysical.Where(expression).FirstOrDefaultAsync();
         }
     }
 }

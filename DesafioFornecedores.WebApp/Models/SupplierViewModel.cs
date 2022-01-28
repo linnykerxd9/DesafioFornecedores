@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace DesafioFornecedores.WebApp.Models
 {
@@ -13,16 +14,15 @@ namespace DesafioFornecedores.WebApp.Models
         public PhoneViewModel Phone { get; set; }
 
         //atributos fornecedor fisico
-         public string? FullName { get;  set; }
-        public string? Cpf { get;  set; }
-        public DateTime? BirthDate  { get;  set; }
+         public string FullName { get;  set; }
+        public string Cpf { get;  set; }
+        public DateTime BirthDate  { get;  set; }
 
 
         //atributos fornecedor juridico
-        public string? CompanyName { get; set; }
-        public string? Cnpj { get; set; }
+        public string CompanyName { get; set; }
+        public string Cnpj { get; set; }
         public DateTime? OpenDate { get; set; }
 
-        
     }
 }

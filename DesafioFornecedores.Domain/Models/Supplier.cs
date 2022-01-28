@@ -11,14 +11,14 @@ namespace DesafioFornecedores.Domain.Models
         
         public Email Email { get;private set; }
         public Address Address { get;private set; }
-        private List<Phone> Phone { get; set; }
+        protected List<Phone> Phone { get; set; }
         public IReadOnlyCollection<Phone> Phones { get{ return Phone;} }
 
         public Supplier()
         {
         }
 
-        public Supplier(bool active, Address address,Email email, Phone phone,string fantasyName)
+        public Supplier(bool active, Address address,Email email,Phone phone,string fantasyName)
         {
             Active = active;
             SetAddress(address);
@@ -33,12 +33,16 @@ namespace DesafioFornecedores.Domain.Models
             Active = false;
         }
         public void SetEmail(Email email){
+            email.SetSupplierId(this.Id);
             Email = email;
         }
         public void SetAddress(Address address){
+            address.SetSupplierId(this.Id);
             Address = address;
         }
         public void SetPhone(Phone phone){
+            Phone = new List<Phone>();
+            phone.SetSupplierId(this.Id);
             Phone.Add(phone);
         }
           public void SetFantasyName(string fantasyName){

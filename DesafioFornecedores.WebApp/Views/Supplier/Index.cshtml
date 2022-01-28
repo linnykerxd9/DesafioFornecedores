@@ -1,3 +1,5 @@
+@model IEnumerable<SupplierViewModel>
+
 @{
     ViewData["Title"] = "Supplier";
 }
@@ -14,29 +16,38 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Active</th>
+      <th scope="col">Fantasy Name</th>
+      <th scope="col">Full Name/Company Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phones</th>
+      <th scope="col">CPF/CNPJ</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>at</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>witter</td>
-    </tr>
+    @if(Model != null)
+     @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active ? "Active" : "deactivated")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FantasyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName == null ? item.CompanyName : item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email.EmailAddress)
+            </td>
+            <td>
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cpf == null ? item.Cnpj : item.Cpf)
+            </td>
+        </tr>
+    }
   </tbody>
 </table>

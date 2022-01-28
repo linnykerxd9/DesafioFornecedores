@@ -7,7 +7,8 @@ namespace DesafioFornecedores.Domain.Interface.Services
     public interface ISupplierService
     {
          Task<IEnumerable<Supplier>> ToList();
-
-         Task AddSupplier(Supplier supplier);
+        Task<Supplier> Find();
+         Task AddSupplier(SupplierJuridical supplier);
+         Task AddSupplier(SupplierPhysical supplier);
     }
 }

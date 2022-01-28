@@ -6287,11 +6287,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\DesafioFornecedores.WebApp.csproj",
+      "projectUniqueName": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\DesafioFornecedores.WebApp.csproj",
       "projectName": "DesafioFornecedores.WebApp",
-      "projectPath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\DesafioFornecedores.WebApp.csproj",
+      "projectPath": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\DesafioFornecedores.WebApp.csproj",
       "packagesPath": "C:\\Users\\jramosli\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\obj\\",
+      "outputPath": "C:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jramosli\\AppData\\Roaming\\NuGet\\NuGet.Config"

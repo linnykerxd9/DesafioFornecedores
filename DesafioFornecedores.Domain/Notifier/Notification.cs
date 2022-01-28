@@ -1,0 +1,12 @@
+namespace DesafioFornecedores.Domain.Notifier
+{
+    public class Notification
+    {
+        public string Erro { get; private set; }
+
+        public Notification(string erro)
+        {
+            Erro = erro;
+        }
+    }
+}
