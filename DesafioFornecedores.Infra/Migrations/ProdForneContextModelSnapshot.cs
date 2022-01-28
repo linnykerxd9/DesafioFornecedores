@@ -259,9 +259,11 @@ namespace DesafioFornecedores.Infra.Migrations
                     b.HasBaseType("DesafioFornecedores.Domain.Models.Supplier");
 
                     b.Property<string>("Cnpj")
-                        .HasColumnType("varchar(256)");
+                        .IsRequired()
+                        .HasColumnType("varchar(14)");
 
                     b.Property<string>("CompanyName")
+                        .IsRequired()
                         .HasColumnType("varchar(256)");
 
                     b.Property<DateTime>("OpenDate")
@@ -282,9 +284,11 @@ namespace DesafioFornecedores.Infra.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Cpf")
-                        .HasColumnType("varchar(256)");
+                        .IsRequired()
+                        .HasColumnType("varchar(11)");
 
                     b.Property<string>("FullName")
+                        .IsRequired()
                         .HasColumnType("varchar(256)");
 
                     b.HasIndex("Cpf")

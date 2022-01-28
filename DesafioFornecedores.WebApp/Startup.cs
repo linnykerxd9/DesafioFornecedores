@@ -40,6 +40,9 @@ namespace DesafioFornecedores.WebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddAutoMapper(typeof(Startup));
+            
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -54,13 +57,12 @@ namespace DesafioFornecedores.WebApp
             services.AddScoped<ProdForneContext>();
             services.AddScoped<ICategoryRepository,CategoryRepository>();
             services.AddScoped<IProductsRepository, ProductRepository>();
-            services.AddScoped<ISupplierJuridicalRepository, SupplierJuridicalRepository>();
-            services.AddScoped<ISupplierPhysicalRepository, SupplierPhysicalRepository>();
+            services.AddScoped<ISupplierRepository, SupplierRepository>();
 
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IProductService, ProductService>();
-            services.AddScoped<ISupplierJuridicalService, SupplierJuridicalService>();
-            services.AddScoped<ISupplierPhysicalService, SupplierPhysicalService>();
+            services.AddScoped<ISupplierService, SupplierService>();
+            services.AddScoped<INotificationService, NotificationService>();
 
         }
 

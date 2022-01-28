@@ -1,0 +1,53 @@
+@model IEnumerable<SupplierViewModel>
+
+@{
+    ViewData["Title"] = "Supplier";
+}
+
+<div class="text">
+    <h1 class="display-4">Supplier</h1>
+</div>
+<div>
+    <a asp-action="CreatePhysical" asp-controller="Supplier" class="btn btn-primary">New Supplier Physical</a>
+    <a asp-action="CreateJuridical"  asp-controller="Supplier" class="btn btn-primary">New Supplier Juridical</a>
+</div>
+<br/>
+<br/>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Active</th>
+      <th scope="col">Fantasy Name</th>
+      <th scope="col">Full Name/Company Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phones</th>
+      <th scope="col">CPF/CNPJ</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if(Model != null)
+     @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active ? "Active" : "deactivated")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FantasyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName == null ? item.CompanyName : item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email.EmailAddress)
+            </td>
+            <td>
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cpf == null ? item.Cnpj : item.Cpf)
+            </td>
+        </tr>
+    }
+  </tbody>
+</table>
