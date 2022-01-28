@@ -15,7 +15,6 @@ namespace DesafioFornecedores.Infra.Mapping
             builder.Property(x => x.Cnpj)
                    .IsRequired()
                    .HasColumnType("varchar(14)");
-
         }
     }
 }

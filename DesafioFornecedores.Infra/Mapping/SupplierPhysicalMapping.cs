@@ -18,7 +18,6 @@ namespace DesafioFornecedores.Infra.Mapping
 
             builder.Property(x => x.BirthDate)
                    .IsRequired();
-
         }
     }
 }
