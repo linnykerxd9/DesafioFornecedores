@@ -16,7 +16,7 @@ namespace DesafioFornecedores.Domain.Interface.Repository
         Task InsertPhone(Phone phone);
         Task RemovePhone(Phone phone);
         Task UpdatePhone(Phone phone);
-        Task<SupplierJuridical> FindJuridical(Expression<Func<SupplierJuridical,bool>> expression);
-        Task<SupplierPhysical> FindPhysical(Expression<Func<SupplierPhysical,bool>> expression);
+        Task<SupplierJuridical> FindJuridical(Expression<Func<SupplierJuridical, bool>> expression);
+        Task<SupplierPhysical> FindPhysical(Expression<Func<SupplierPhysical, bool>> expression);
     }
 }

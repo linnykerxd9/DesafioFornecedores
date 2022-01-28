@@ -3,10 +3,12 @@ using System.Threading.Tasks;
 using AutoMapper;
 using DesafioFornecedores.Domain.Interface.Services;
 using DesafioFornecedores.Domain.Models;
+using DesafioFornecedores.Infra.Data;
 using DesafioFornecedores.WebApp.Extensions;
 using DesafioFornecedores.WebApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace DesafioFornecedores.WebApp.Controllers
 {
@@ -14,17 +16,19 @@ namespace DesafioFornecedores.WebApp.Controllers
     {
 
         private readonly ISupplierService _supplierService;
-
-        public SupplierController(ISupplierService supplierService, IMapper mapper, INotificationService notificationService)
+        private readonly ProdForneContext context;
+        public SupplierController(ProdForneContext contexts,ISupplierService supplierService, IMapper mapper, INotificationService notificationService)
                                  : base(mapper, notificationService)
         {
             _supplierService = supplierService;
+            context = contexts;
         }
 
         [AllowAnonymous]
         [HttpGet]
-        public IActionResult Index(){
-            var suppliers = _supplierService.Find();
+        public async Task<IActionResult> Index(){
+            var suppliers = await _supplierService.ToList();
+            //var mappeade = _mapper.Map<IEnumerable<SupplierViewModel>>(suppliers);
             return View();
         }
 

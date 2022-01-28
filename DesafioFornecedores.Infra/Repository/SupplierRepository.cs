@@ -1,3 +1,5 @@
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,18 +46,22 @@ namespace DesafioFornecedores.Infra.Repository
         }
         public async Task<IEnumerable<Supplier>> ToList()
         {
-            return await _context.SupplierPhysical
-                                           .ToListAsync();
+            return await _dbSet.Include(x => x.Address).Include(x => x.Phone).Include(x => x.Email).ToListAsync();
+        }
+         public  async Task<SupplierJuridical> FindJuridical(Expression<Func<SupplierJuridical, bool>> expression)
+        {
+           return await _context.SupplierJuridical.Include(x => x.Address)
+                                             .Include(x => x.Phone)
+                                             .Include(x => x.Email)
+                                             .Where(expression).FirstOrDefaultAsync();
         }
 
-        public  async Task<SupplierJuridical> FindJuridical(Expression<Func<SupplierJuridical, bool>> expression)
+          public async Task<SupplierPhysical> FindPhysical(Expression<Func<SupplierPhysical, bool>> expression)
         {
-           return await _context.SupplierJuridical.Where(expression).FirstOrDefaultAsync();
+           return await _context.SupplierPhysical.Include(x => x.Address)
+                                             .Include(x => x.Phone)
+                                             .Include(x => x.Email)
+                                             .Where(expression).FirstOrDefaultAsync();
         }
-
-          public  async Task<SupplierPhysical> FindPhysical(Expression<Func<SupplierPhysical, bool>> expression)
-        {
-           return await _context.SupplierPhysical.Where(expression).FirstOrDefaultAsync();
-        }
-    }
+   }
 }

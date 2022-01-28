@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using DesafioFornecedores.Domain.Interface.Repository;
 using DesafioFornecedores.Domain.Interface.Services;
@@ -19,26 +21,30 @@ namespace DesafioFornecedores.Infra.Services
 
         public async Task AddSupplier(SupplierPhysical supplier)
         {
-           if(!supplier.Cpf.IsCpf()){
-               _notificationService.AddError($"CPF: {supplier.FantasyName} is not a valid");
-               return;
+           if(!supplier.Cpf.IsCpf() ||
+              !supplier.BirthDate.IsOlderAge() ||
+              !supplier.Email.EmailAddress.IsValidEmail())
+           {
+               if(!supplier.Cpf.IsCpf())
+                    _notificationService.AddError($"CPF: {supplier.FantasyName} is not a valid");
+
+                if(!supplier.BirthDate.IsOlderAge())
+                    _notificationService.AddError($"you're not old enough");
+
+                if(!supplier.Email.EmailAddress.IsValidEmail())
+                     _notificationService.AddError($"it's not a valid email");
+
+                return;
            }
-           if(!supplier.BirthDate.IsOlderAge()){
-               _notificationService.AddError($"you're not old enough");
-               return;
-           }
-           if(!supplier.Email.EmailAddress.IsValidEmail()){
-                _notificationService.AddError($"it's not a valid email");
-               return;
-           }
-           var SupplierFind = _supplierRepository.FindPhysical(x => x.Cpf.Contains(supplier.Cpf) ||
-                                                            x.FantasyName == supplier.FantasyName);
+           var SupplierFind = await _supplierRepository.FindPhysical(x => x.Cpf == supplier.Cpf
+                                                                    || x.FantasyName == supplier.FantasyName);
+
            if(SupplierFind != null) {
-               if(SupplierFind.Result.Cpf.Contains(supplier.Cpf))
+                if(SupplierFind.Cpf.Contains(supplier.Cpf))
                     _notificationService.AddError($"Cpf: {supplier.Cpf} already registered ");
 
-                if(SupplierFind.Result.FantasyName == supplier.FantasyName)
-                _notificationService.AddError($"Fantasy Name: {supplier.FantasyName} already registered ");
+                if(SupplierFind.FantasyName == supplier.FantasyName)
+                    _notificationService.AddError($"Fantasy Name: {supplier.FantasyName} already registered ");
 
                return;
            }
@@ -51,13 +57,13 @@ namespace DesafioFornecedores.Infra.Services
                _notificationService.AddError($"CPF: {supplier.FantasyName} is not a valid");
                return;
            }
-             var SupplierFind = _supplierRepository.FindJuridical(x => x.Cnpj.Contains(supplier.Cnpj) ||
+             var SupplierFind = await _supplierRepository.FindJuridical(x => x.Cnpj.Contains(supplier.Cnpj) ||
                                                             x.FantasyName == supplier.FantasyName);
            if(SupplierFind != null) {
-               if(SupplierFind.Result.Cnpj.Contains(supplier.Cnpj))
+               if(SupplierFind.Cnpj.Contains(supplier.Cnpj))
                     _notificationService.AddError($"Cpf: {supplier.Cnpj} already registered ");
 
-                if(SupplierFind.Result.FantasyName == supplier.FantasyName)
+                if(SupplierFind.FantasyName == supplier.FantasyName)
                 _notificationService.AddError($"Fantasy Name: {supplier.FantasyName} already registered ");
 
                return;
@@ -67,9 +73,9 @@ namespace DesafioFornecedores.Infra.Services
             await _supplierRepository.SaveChanges();
         }
 
-        public Task<Supplier> Find()
+        public async Task<Supplier> Find(Expression<Func<Supplier,bool>> expression)
         {
-            return _supplierRepository.Find(x => x.Id != null);
+            return await _supplierRepository.Find(expression);
         }
 
         public async Task<IEnumerable<Supplier>> ToList()

@@ -11,8 +11,7 @@ namespace DesafioFornecedores.Domain.Models
         
         public Email Email { get;private set; }
         public Address Address { get;private set; }
-        protected List<Phone> Phone { get; set; }
-        public IReadOnlyCollection<Phone> Phones { get{ return Phone;} }
+        public List<Phone> Phone { get;private set; }
 
         public Supplier()
         {
