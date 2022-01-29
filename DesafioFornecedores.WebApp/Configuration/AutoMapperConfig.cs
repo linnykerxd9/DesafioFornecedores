@@ -13,11 +13,13 @@ namespace DesafioFornecedores.WebApp.Configuration
             CreateMap<CategoryViewModel,Category>().ReverseMap();
             CreateMap<EmailViewModel,Email>().ReverseMap();
             CreateMap<PhoneViewModel,Phone>().ReverseMap();
-            CreateMap<IEnumerable<PhoneViewModel>,IEnumerable<Phone>>().ReverseMap();
             CreateMap<ProductViewModel,Product>().ReverseMap();
-            CreateMap<SupplierViewModel,Supplier>().ReverseMap();
-            CreateMap<SupplierViewModel,SupplierJuridical>().ReverseMap();
-            CreateMap<SupplierViewModel,SupplierPhysical>().ReverseMap();
+            CreateMap<SupplierCreateViewModel,SupplierPhysical>();
+            CreateMap<SupplierCreateViewModel,SupplierJuridical>();
+            CreateMap<SupplierCreateViewModel,Supplier>().ReverseMap();
+
+            CreateMap<SupplierPhysical,SupplierListViewModel>();
+            CreateMap<SupplierJuridical,SupplierListViewModel>();
         }
     }
 }

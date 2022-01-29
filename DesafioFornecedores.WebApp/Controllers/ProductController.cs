@@ -17,7 +17,7 @@ namespace DesafioFornecedores.WebApp.Controllers
             _productService = productService;
         }
 
-         [AllowAnonymous]
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Index(){
             return View();

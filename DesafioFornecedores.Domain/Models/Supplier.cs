@@ -32,16 +32,18 @@ namespace DesafioFornecedores.Domain.Models
             Active = false;
         }
         public void SetEmail(Email email){
-            email.SetSupplierId(this.Id);
+            email.SetSupplierId(Id);
             Email = email;
         }
         public void SetAddress(Address address){
-            address.SetSupplierId(this.Id);
+            address.SetSupplierId(Id);
             Address = address;
         }
         public void SetPhone(Phone phone){
-            Phone = new List<Phone>();
-            phone.SetSupplierId(this.Id);
+            if(Phone == null)
+                Phone = new List<Phone>();
+                
+            phone.SetSupplierId(Id);
             Phone.Add(phone);
         }
           public void SetFantasyName(string fantasyName){

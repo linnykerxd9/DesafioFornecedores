@@ -28,8 +28,7 @@ namespace DesafioFornecedores.WebApp.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(){
             var suppliers = await _supplierService.ToList();
-            //var mappeade = _mapper.Map<IEnumerable<SupplierViewModel>>(suppliers);
-            return View();
+            return View(_mapper.Map<IEnumerable<SupplierListViewModel>>(suppliers));
         }
 
         [AllowAnonymous]
@@ -39,7 +38,7 @@ namespace DesafioFornecedores.WebApp.Controllers
         }
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> CreateJuridical(SupplierViewModel viewModel){
+        public async Task<IActionResult> CreateJuridical(SupplierCreateViewModel viewModel){
             if(ModelState.IsValid) return View(viewModel);
 
             var supplierJuridical = _mapper.Map<SupplierJuridical>(viewModel);
@@ -57,7 +56,7 @@ namespace DesafioFornecedores.WebApp.Controllers
         }
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> CreatePhysical(SupplierViewModel viewModel){
+        public async Task<IActionResult> CreatePhysical(SupplierCreateViewModel viewModel){
             if(ModelState.IsValid) return View(viewModel);
 
             var supplierPhysical = _mapper.Map<SupplierPhysical>(viewModel);
