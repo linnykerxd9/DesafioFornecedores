@@ -26,11 +26,8 @@ namespace DesafioFornecedores.Domain.Models
             SetPhone(phone);
             SetFantasyName(fantasyName);
         }
-        protected void Activate() {
-            Active = true;
-        }
-        protected void Disable() {
-            Active = false;
+        public void SetActive(bool status) {
+            Active = status;
         }
         public void SetEmail(Email email){
             email.SetSupplierId(Id);
@@ -44,9 +41,9 @@ namespace DesafioFornecedores.Domain.Models
             foreach (var item in phone)
             {
                 item.SetSupplierId(this.Id);
-                  if(string.IsNullOrEmpty(item.Ddd) || item.Ddd.Length < 2 || item.Ddd.Length > 3)
+                  if(string.IsNullOrEmpty(item.Ddd))
                     throw new DomainExceptions("DDD is invalid");
-                 if(string.IsNullOrEmpty(item.Number) || item.Number.Length > 9 ||  item.Number.Length < 8)
+                 if(string.IsNullOrEmpty(item.Number))
                     throw new DomainExceptions("Number is invalid");
             }
             Phone = phone;
@@ -54,9 +51,6 @@ namespace DesafioFornecedores.Domain.Models
           public void SetFantasyName(string fantasyName){
             if(string.IsNullOrEmpty(fantasyName)) 
             throw new DomainExceptions($"Fantasy name cannot be empty");
-
-            if(fantasyName.Length < 2 || fantasyName.Length > 100)
-             throw new DomainExceptions($"the Fantasy name can only be between 2 to 100 characters");
 
             FantasyName = fantasyName;
         }

@@ -22,8 +22,5 @@ namespace DesafioFornecedores.WebApp.Extensions
         protected bool OperationValid(){
             return _notificationService.HAsError();
         }
-        protected IEnumerable<Notification> AllErrors(){
-            return _notificationService.AllError();
-        }
     }
 }

@@ -37,7 +37,7 @@ namespace DesafioFornecedores.WebApp.Controllers
         }
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> CreateJuridical(CreateOrEditSupplierViewModel viewModel){
+        public async Task<IActionResult> CreateJuridical(CreateSupplierViewModel viewModel){
             if(!ModelState.IsValid) return View(viewModel);
             viewModel = AddPhonesForList(viewModel);
             var supplierJuridical = _mapper.Map<SupplierJuridical>(viewModel);
@@ -55,7 +55,7 @@ namespace DesafioFornecedores.WebApp.Controllers
         }
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> CreatePhysical(CreateOrEditSupplierViewModel viewModel){
+        public async Task<IActionResult> CreatePhysical(CreateSupplierViewModel viewModel){
             if(!ModelState.IsValid) return View(viewModel);
             viewModel = AddPhonesForList(viewModel);
             var supplierPhysical = _mapper.Map<SupplierPhysical>(viewModel);
@@ -85,8 +85,8 @@ namespace DesafioFornecedores.WebApp.Controllers
 
         [AllowAnonymous]
         [HttpGet]
-        public async Task<IActionResult> Edit(string? identification){
-             if (identification == null)
+        public async Task<IActionResult> Edit(string identification){
+            if (identification == null)
                 return RedirectToAction(nameof(Index));
             Supplier supplier;
             if (identification.Length == 11)
@@ -97,13 +97,13 @@ namespace DesafioFornecedores.WebApp.Controllers
             if(supplier == null){
                 return RedirectToAction(nameof(Index));
             }
-            var SupplierMapping = AddPhonesForHtml(_mapper.Map<CreateOrEditSupplierViewModel>(supplier));
+            var SupplierMapping = AddPhonesForHtml(_mapper.Map<EditSupplierViewModel>(supplier));
             return View(SupplierMapping);
         }
 
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> Edit(CreateOrEditSupplierViewModel viewModel){
+        public async Task<IActionResult> Edit(EditSupplierViewModel viewModel){
             if(!ModelState.IsValid) return View(viewModel);
 
             viewModel = AddPhonesForList(viewModel);
@@ -119,15 +119,31 @@ namespace DesafioFornecedores.WebApp.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-        
-        public async void DeletePhone(InsertPhoneViewModel viewModel){
-            var phone = _mapper.Map<Phone>(viewModel);
-            await _supplierService.InsertPhone(phone);
 
+        [AllowAnonymous]
+        [HttpGet]
+        public async Task<IActionResult> Delete(string identification){
+          if (identification == null)
+                return RedirectToAction(nameof(Index));
+            Supplier supplier;
+            if (identification.Length == 11)
+                supplier = await _supplierService.FindPhysical(x => x.Cpf.Contains(identification));
+            else
+                supplier = await _supplierService.FindJuridical(x => x.Cnpj.Contains(identification));
 
-             RedirectToAction(nameof(Index));
+            if(supplier == null){
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
         }
-        private CreateOrEditSupplierViewModel AddPhonesForHtml(CreateOrEditSupplierViewModel viewModel){
+        [AllowAnonymous]
+        [HttpGet]
+        public async Task<IActionResult> Delete(DeleteSupplierViewModel identification){
+          if (identification == null)
+                return RedirectToAction(nameof(Index));
+            return View();
+        }
+        private EditSupplierViewModel AddPhonesForHtml(EditSupplierViewModel viewModel){
 
             if(viewModel.Phone.Count >= 1)
                 viewModel.FirstPhone = viewModel.Phone[0];
@@ -138,18 +154,28 @@ namespace DesafioFornecedores.WebApp.Controllers
 
             return viewModel;
         }
-        private CreateOrEditSupplierViewModel AddPhonesForList(CreateOrEditSupplierViewModel viewModel){
+        private EditSupplierViewModel AddPhonesForList(EditSupplierViewModel viewModel){
 
             if(viewModel.FirstPhone.Number != null){
-                if(viewModel.FirstPhone.Id == Guid.Empty) viewModel.FirstPhone.Id = Guid.NewGuid();
                 viewModel.Phone.Add(viewModel.FirstPhone);
             }
              if(viewModel.SecondPhone.Number != null){
-                if(viewModel.SecondPhone.Id == Guid.Empty) viewModel.SecondPhone.Id = Guid.NewGuid();
                 viewModel.Phone.Add(viewModel.SecondPhone);
              }
              if(viewModel.ThirdPhone.Number != null){
-                if(viewModel.ThirdPhone.Id == Guid.Empty) viewModel.ThirdPhone.Id = Guid.NewGuid();
+                viewModel.Phone.Add(viewModel.ThirdPhone);
+             }
+            return viewModel;
+        }
+        private CreateSupplierViewModel AddPhonesForList(CreateSupplierViewModel viewModel){
+
+            if(viewModel.FirstPhone.Number != null){
+                viewModel.Phone.Add(viewModel.FirstPhone);
+            }
+             if(viewModel.SecondPhone.Number != null){
+                viewModel.Phone.Add(viewModel.SecondPhone);
+             }
+             if(viewModel.ThirdPhone.Number != null){
                 viewModel.Phone.Add(viewModel.ThirdPhone);
              }
             return viewModel;

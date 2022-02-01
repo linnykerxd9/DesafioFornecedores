@@ -44,23 +44,23 @@ namespace DesafioFornecedores.WebApp.Controllers
 
             if(OperationValid()) return View(viewModel);
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index","Supplier");
         }
         [AllowAnonymous]
         [HttpGet]
-        public async Task<IActionResult> DeletePhone(UpdateOrDeletePhoneViewModel Identi){
+        public  IActionResult DeletePhone(DeletePhoneViewModel Identi){
             if (Identi == null) return RedirectToAction(nameof(Index));
             return View(Identi);
         }
 
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> DeletePhoneConfirmed(UpdateOrDeletePhoneViewModel phone){
-            if (phone == null) return RedirectToAction(nameof(Index));
+        public async Task<IActionResult> DeletePhoneConfirmed(DeletePhoneViewModel phone){
+            if (phone == null) return RedirectToAction(nameof(DeletePhone));
+            var teste = _mapper.Map<Phone>(phone);
+            await _supplierService.RemovePhone(teste);
 
-            await _supplierService.RemovePhone(_mapper.Map<Phone>(phone));
-
-            if(OperationValid()) return View(phone);
+            if(OperationValid()) return RedirectToAction(nameof(DeletePhone));
 
             return RedirectToAction("Index","Supplier");
         }

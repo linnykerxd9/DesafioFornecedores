@@ -12,6 +12,7 @@ namespace DesafioFornecedores.Domain.Interface.Repository
         Task UpdateEmail(Email email);
 
         Task UpdateAddress(Address address);
+        Task<ICollection<Phone>> FindPhonesToSupplier(Guid id);
 
         Task InsertPhone(Phone phone);
         Task RemovePhone(Phone phone);

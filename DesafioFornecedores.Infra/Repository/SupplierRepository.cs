@@ -15,11 +15,14 @@ namespace DesafioFornecedores.Infra.Repository
         public SupplierRepository(ProdForneContext context) : base(context)
         {
         }
+         public async Task<ICollection<Phone>> FindPhonesToSupplier(Guid id)
+        {
+           return await _context.Phones.AsNoTracking().Where(x => x.SupplierId == id).ToListAsync();
+        }
        public async Task InsertPhone(Phone phone)
         {
            await _context.Phones.AddAsync(phone);
         }
-
         public Task RemovePhone(Phone phone)
         {
            _context.Phones.Remove(phone);

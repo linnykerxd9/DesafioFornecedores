@@ -1,8 +1,9 @@
-@model CreateOrEditSupplierViewModel
+@model EditSupplierViewModel
 
 @{
     ViewData["Title"] = "Edit Supplier";
 }
+<vc:summary></vc:summary>
 
 <form asp-action="Edit" method="post">
   <h3>supplier's status </h3>
@@ -30,7 +31,7 @@
       }
   </div> 
    <div class="mb-3">
-    @if(Model.BirthDate != null){
+    @if(Model.Cpf != null){
         <label asp-for="BirthDate" class="form-label"></label>
         <input asp-for="BirthDate" type="date" class="form-control">    
     }else{
@@ -55,10 +56,11 @@
         <label asp-for="FirstPhone.Number" class="form-label"></label>
         <input asp-for="FirstPhone.Number" type="number" class="form-control">
     </div>
-          @Html.ActionLink("Delete Phone", "DeletePhone","Phone", new UpdateOrDeletePhoneViewModel
+          @Html.ActionLink("Delete Phone", "DeletePhone","Phone", new DeletePhoneViewModel
                                                                   { Id = Model.FirstPhone.Id,
                                                                     Ddd = Model.FirstPhone.Ddd,
                                                                     Number = Model.FirstPhone.Number,
+                                                                    SupplierId = Model.Id
                                                                   })
     }
     @if(Model.SecondPhone.Number != null)
@@ -69,10 +71,11 @@
         <label asp-for="SecondPhone.Number" class="form-label"></label>
         <input asp-for="SecondPhone.Number" type="number" class="form-control">
     </div>
-          @Html.ActionLink("Delete Phone", "DeletePhone","Phone", new UpdateOrDeletePhoneViewModel
+          @Html.ActionLink("Delete Phone", "DeletePhone","Phone", new DeletePhoneViewModel
                                                                   { Id = Model.SecondPhone.Id,
                                                                     Ddd = Model.SecondPhone.Ddd,
                                                                     Number = Model.SecondPhone.Number,
+                                                                    SupplierId = Model.Id
                                                                   })
     }
     @if (Model.ThirdPhone.Number != null)
@@ -83,10 +86,11 @@
         <label asp-for="ThirdPhone.Number" class="form-label"></label>
         <input asp-for="ThirdPhone.Number" type="number" class="form-control">
     </div>
-          @Html.ActionLink("Delete Phone", "DeletePhone","Phone", new UpdateOrDeletePhoneViewModel
+          @Html.ActionLink("Delete Phone", "DeletePhone","Phone", new DeletePhoneViewModel
                                                                   { Id = Model.ThirdPhone.Id,
                                                                     Ddd = Model.ThirdPhone.Ddd,
                                                                     Number = Model.ThirdPhone.Number,
+                                                                    SupplierId = Model.Id
                                                                   })
     }
     @if (Model.Phone.Count < 3)
@@ -133,8 +137,6 @@
     <input asp-for="Id" type="text" hidden>
     <input asp-for="Email.Id" type="text" hidden>
     <input asp-for="Address.Id" type="text" hidden>
-    <input asp-for="InsertDate" type="datetime" hidden>
-    <input asp-for="UpdateDate" type="datetime" hidden>
     @if(Model.FirstPhone.Number != null && Model.FirstPhone.Ddd != null)
     {
       <input asp-for="FirstPhone.Id" type="text" hidden>

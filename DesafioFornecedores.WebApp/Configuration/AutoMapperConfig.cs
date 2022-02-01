@@ -9,8 +9,10 @@ namespace DesafioFornecedores.WebApp.Configuration
     {
         public AutoMapperConfig()
         {
-            CreateMap<CreateOrEditSupplierViewModel, SupplierJuridical>().ReverseMap();
-            CreateMap<CreateOrEditSupplierViewModel, SupplierPhysical>().ReverseMap();
+            CreateMap<EditSupplierViewModel, SupplierJuridical>().ReverseMap();
+            CreateMap<EditSupplierViewModel, SupplierPhysical>().ReverseMap();
+            CreateMap<CreateSupplierViewModel, SupplierPhysical>().ReverseMap();
+            CreateMap<CreateSupplierViewModel, SupplierJuridical>().ReverseMap();
             CreateMap<SupplierPhysical, SupplierListViewModel>();
             CreateMap<SupplierJuridical, SupplierListViewModel>();
 
@@ -19,9 +21,10 @@ namespace DesafioFornecedores.WebApp.Configuration
             CreateMap<EmailViewModel, Email>().ReverseMap();
             CreateMap<InsertPhoneViewModel,Phone>().ReverseMap();
             CreateMap<PhoneViewModel, Phone>().ReverseMap();
+            CreateMap<DeletePhoneViewModel, Phone>().ReverseMap();
             CreateMap<AddressUpdateViewModel, Address>().ReverseMap();
             CreateMap<EmailUpdateViewModel, Email>().ReverseMap();
-            CreateMap<UpdateOrDeletePhoneViewModel, Phone>().ReverseMap();
+            CreateMap<UpdatePhoneViewModel, Phone>().ReverseMap();
 
         }
     }

@@ -25,7 +25,6 @@ namespace DesafioFornecedores.Domain.Models
 
         public void SetFullName(string fullName){
             StringEmptyOrNull(fullName,"Full name");
-            SizeIsValid(fullName.Length,2,250,"Full");
 
             FullName = fullName;
         }
@@ -39,8 +38,7 @@ namespace DesafioFornecedores.Domain.Models
         public void SetBirthDate(DateTime date){
             if(DateTime.Now < date)
                 throw new DomainExceptions("Date invalid");
-            if(!date.IsOlderAge())
-                throw new DomainExceptions("you need to be of age");
+
 
             BirthDate = date;
         }
@@ -50,10 +48,5 @@ namespace DesafioFornecedores.Domain.Models
              if(string.IsNullOrEmpty(text))
              throw new DomainExceptions($"{message} cannot be empty");
         }
-        private void SizeIsValid(int value, int lengMin, int lengMax,string message)
-         {
-                if(value < lengMin || value> lengMax)
-                throw new DomainExceptions($"the {message} name can only be between {lengMin} to {lengMax} characters");
-         }
     }
 }

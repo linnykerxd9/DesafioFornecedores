@@ -25,7 +25,7 @@ namespace DesafioFornecedores.WebApp.Models
         public DateTime? OpenDate { get; set; }
 
     }
-       public class CreateOrEditSupplierViewModel
+    public class EditSupplierViewModel
     {
         //atributos gerais
         public Guid Id {get; set;}
@@ -34,10 +34,10 @@ namespace DesafioFornecedores.WebApp.Models
         
         public  EmailUpdateViewModel Email { get; set;}
         public AddressUpdateViewModel Address { get; set; }
-        public List<UpdateOrDeletePhoneViewModel> Phone { get; set; } = new List<UpdateOrDeletePhoneViewModel>(3);
-        public UpdateOrDeletePhoneViewModel FirstPhone {get; set;} = new UpdateOrDeletePhoneViewModel();
-        public UpdateOrDeletePhoneViewModel SecondPhone {get ; set; } = new UpdateOrDeletePhoneViewModel();
-        public UpdateOrDeletePhoneViewModel ThirdPhone {get; set;} = new UpdateOrDeletePhoneViewModel();
+        public List<UpdatePhoneViewModel> Phone { get; set; } = new List<UpdatePhoneViewModel>(3);
+        public UpdatePhoneViewModel FirstPhone {get; set;} = new UpdatePhoneViewModel();
+        public UpdatePhoneViewModel SecondPhone {get ; set; } = new UpdatePhoneViewModel();
+        public UpdatePhoneViewModel ThirdPhone {get; set;} = new UpdatePhoneViewModel();
         //atributos fornecedor fisico
          public string FullName { get;  set; }
         public string Cpf { get;  set; }
@@ -47,7 +47,33 @@ namespace DesafioFornecedores.WebApp.Models
         public string CompanyName { get; set; }
         public string Cnpj { get; set; }
         public DateTime? OpenDate { get; set; }
-        public DateTime InsertDate { get; set; }
-        public DateTime? UpdateDate { get; set; }
+    }
+    public class CreateSupplierViewModel
+    {
+        //atributos gerais
+        public bool Active { get;  set; }
+        public string FantasyName { get;  set; }
+        
+        public  EmailViewModel Email { get; set;}
+        public AddressViewModel Address { get; set; }
+        public List<PhoneViewModel> Phone { get; set; } = new List<PhoneViewModel>(3);
+        public PhoneViewModel FirstPhone {get; set;} = new PhoneViewModel();
+        public PhoneViewModel SecondPhone {get ; set; } = new PhoneViewModel();
+        public PhoneViewModel ThirdPhone {get; set;} = new PhoneViewModel();
+        //atributos fornecedor fisico
+        public string FullName { get;  set; }
+        public string Cpf { get;  set; }
+        public DateTime BirthDate  { get;  set; }
+
+        //atributos fornecedor juridico
+        public string CompanyName { get; set; }
+        public string Cnpj { get; set; }
+        public DateTime? OpenDate { get; set; }
+    }
+    public class DeleteSupplierViewModel
+    {
+        public Guid Id {get; set;}
+        public bool Active { get;  set; }
+        public string FantasyName { get;  set; }
     }
 }

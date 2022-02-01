@@ -12432,6 +12432,23 @@
         }
       },
       {
+        "HashCode": -546117378,
+        "Kind": "MVC.ViewComponent",
+        "Name": "__Generated__SummaryViewComponentTagHelper",
+        "AssemblyName": "DesafioFornecedores.WebApp",
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "vc:summary"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "__Generated__SummaryViewComponentTagHelper",
+          "MVC.ViewComponent.Name": "Summary"
+        }
+      },
+      {
         "HashCode": 141407075,
         "Kind": "Components.Bind",
         "Name": "Bind",
@@ -14474,6 +14491,11 @@
     {
       "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Supplier\\Details.cshtml",
       "TargetPath": "Views\\Supplier\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Shared\\Components\\Summary\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\Summary\\Default.cshtml",
       "FileKind": "mvc"
     },
     {
