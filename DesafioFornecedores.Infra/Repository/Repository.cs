@@ -19,7 +19,7 @@ namespace DesafioFornecedores.Infra.Repository
             this._dbSet = context.Set<T>();
         }
 
-        public  async Task<T> Find(Expression<Func<T, bool>> expression)
+        public virtual async Task<T> Find(Expression<Func<T, bool>> expression)
         {
            return await _dbSet.Where(expression).FirstOrDefaultAsync();
         }
@@ -37,11 +37,11 @@ namespace DesafioFornecedores.Infra.Repository
 
         public async Task Update(T entity)
         {
-            _dbSet.Update(entity);
+            _dbSet.Update(entity).State = EntityState.Modified;
             await Task.CompletedTask;
         }
 
-        public async Task<int> SaveChanges()
+        public  async Task<int> SaveChanges()
         {
             return await _context.SaveChangesAsync();
         }

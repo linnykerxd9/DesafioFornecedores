@@ -23,9 +23,9 @@ namespace DesafioFornecedores.Domain.Models
         }
 
         public void SetNumber(string number){
-            if(string.IsNullOrEmpty(number) || number.Length != 9)
+            if(string.IsNullOrEmpty(number) || number.Length > 9 ||  number.Length < 8)
             throw new DomainExceptions("Number is invalid");
-
+            
             Number = number;
         }
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using DesafioFornecedores.Domain.Tools;
 
 namespace DesafioFornecedores.Domain.Models
@@ -14,7 +15,7 @@ namespace DesafioFornecedores.Domain.Models
         }
 
         public SupplierPhysical(string fantasyName, string fullName, string cpf, DateTime birthDate,
-                               bool active, Email email, Address address,Phone phone)
+                               bool active, Email email, Address address,List<Phone> phone)
                                 : base(active,address,email, phone,fantasyName)
         {
             SetFullName(fullName);

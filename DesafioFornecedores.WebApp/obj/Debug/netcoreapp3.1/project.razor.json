@@ -14427,6 +14427,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Supplier\\Edit.cshtml",
+      "TargetPath": "Views\\Supplier\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Supplier\\Index.cshtml",
       "TargetPath": "Views\\Supplier\\Index.cshtml",
       "FileKind": "mvc"
@@ -14434,6 +14439,11 @@
     {
       "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Supplier\\CreatePhysical.cshtml",
       "TargetPath": "Views\\Supplier\\CreatePhysical.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Phone\\DeletePhone.cshtml",
+      "TargetPath": "Views\\Phone\\DeletePhone.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14452,8 +14462,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Phone\\InsertPhone.cshtml",
+      "TargetPath": "Views\\Phone\\InsertPhone.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Supplier\\Details.cshtml",
+      "TargetPath": "Views\\Supplier\\Details.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using DesafioFornecedores.Domain.Tools;
 
 namespace DesafioFornecedores.Domain.Models
@@ -15,7 +16,7 @@ namespace DesafioFornecedores.Domain.Models
         }
 
         public SupplierJuridical(string companyName, string fantasyName, string cnpj,
-                                bool active, Email email, Address address,Phone phone)
+                                bool active, Email email, Address address,List<Phone> phone)
                                 : base(active,address, email, phone, fantasyName)
         {
             SetCompanyName(companyName);

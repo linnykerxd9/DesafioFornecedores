@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using AutoMapper;
 using DesafioFornecedores.Domain.Interface.Services;
+using DesafioFornecedores.Domain.Notifier;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +21,9 @@ namespace DesafioFornecedores.WebApp.Extensions
 
         protected bool OperationValid(){
             return _notificationService.HAsError();
+        }
+        protected IEnumerable<Notification> AllErrors(){
+            return _notificationService.AllError();
         }
     }
 }

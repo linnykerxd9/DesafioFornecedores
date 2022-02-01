@@ -1,0 +1,30 @@
+@model InsertPhoneViewModel
+
+@{
+    ViewData["Title"] = "Insert Phone";
+}
+
+<h2>
+    Register Phone for @Model.Name
+</h2>
+<br/>
+<br/>
+<br/>
+
+
+<form asp-action="InsertPhone" method="post">
+
+  <div class="row" style="gap: 10px;">
+    <div >
+        <label asp-for="Ddd" class="form-label"></label>
+        <input asp-for="Ddd" type="number" class="form-control">
+        <label asp-for="Number" class="form-label"></label>
+        <input asp-for="Number" type="number" class="form-control">
+    </div>
+  </div>
+    <input asp-for="SupplierId" type="text" hidden>
+<br/>
+<br/>
+  <button type="submit" class="btn btn-primary">Register</button>
+</form>
+

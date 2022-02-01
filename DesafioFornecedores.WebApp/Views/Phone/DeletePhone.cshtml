@@ -1,0 +1,31 @@
+@model UpdateOrDeletePhoneViewModel
+
+@{
+    ViewData["Title"] = "Delete Phones";
+}
+<h2>
+    Delete Phones 
+</h2>
+<br/>
+<br/>
+<br/>
+
+<form asp-action="DeletePhoneConfirmed" method="post">
+  <div class="row" style="gap: 21px;">
+  <div class="row" style="gap: 10px;">
+    <div >
+        <input asp-for="Id" type="text" hidden readonly>
+        <label asp-for="Ddd" class="form-label" ></label>
+        <input asp-for="Ddd" type="number" class="form-control" readonly >
+        <label asp-for="Number" class="form-label"></label>
+        <input asp-for="Number" type="number" class="form-control" readonly >
+    </div>
+  </div>
+  <br/>
+  <br/>
+  <div style="display: flex; justify-content: center; align-items: center;">
+    <button type="submit" class="btn btn-primary">Delete</button>
+  </div>
+ 
+  </div>
+</form>

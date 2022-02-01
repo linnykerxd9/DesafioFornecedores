@@ -795,3 +795,7 @@ C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFor
 C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Supplier\CreateJuridical.cshtml.g.cs
 C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Supplier\CreatePhysical.cshtml.g.cs
 C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Supplier\Index.cshtml.g.cs
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Supplier\Details.cshtml.g.cs
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Supplier\Edit.cshtml.g.cs
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Phone\DeletePhone.cshtml.g.cs
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Phone\InsertPhone.cshtml.g.cs

@@ -62,6 +62,12 @@
                     <p>@item.Cpf</p>
                 }
             </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { identification =item.Cpf != null ? item.Cpf : item.Cnpj})
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { identification =item.Cpf != null ? item.Cpf : item.Cnpj})
+            </td>
         </tr>
     }
   </tbody>
