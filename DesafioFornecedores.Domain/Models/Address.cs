@@ -14,6 +14,9 @@ namespace DesafioFornecedores.Domain.Models
         public string City { get; private set; }
         public string State { get; private set; }
         public Guid SupplierId { get; private set; }
+        public virtual Supplier Supplier { get; set;}
+
+
         protected Address() { }
         
         public Address(string zipCode, string street, string number, string neighborhood, string city, string state, Guid supplierId)

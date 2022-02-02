@@ -68,6 +68,9 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { identification =item.Cpf != null ? item.Cpf : item.Cnpj})
             </td>
+             <td>
+                @Html.ActionLink("Delete", "Delete", new { identification =item.Cpf != null ? item.Cpf : item.Cnpj })
+            </td>
         </tr>
     }
   </tbody>

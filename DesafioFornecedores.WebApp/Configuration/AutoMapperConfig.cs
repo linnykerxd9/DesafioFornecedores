@@ -13,18 +13,18 @@ namespace DesafioFornecedores.WebApp.Configuration
             CreateMap<EditSupplierViewModel, SupplierPhysical>().ReverseMap();
             CreateMap<CreateSupplierViewModel, SupplierPhysical>().ReverseMap();
             CreateMap<CreateSupplierViewModel, SupplierJuridical>().ReverseMap();
+            CreateMap<DeleteSupplierViewModel,Supplier>().ReverseMap();
             CreateMap<SupplierPhysical, SupplierListViewModel>();
             CreateMap<SupplierJuridical, SupplierListViewModel>();
-
             
-            CreateMap<AddressViewModel, Address>().ReverseMap();
-            CreateMap<EmailViewModel, Email>().ReverseMap();
             CreateMap<InsertPhoneViewModel,Phone>().ReverseMap();
             CreateMap<PhoneViewModel, Phone>().ReverseMap();
             CreateMap<DeletePhoneViewModel, Phone>().ReverseMap();
-            CreateMap<AddressUpdateViewModel, Address>().ReverseMap();
-            CreateMap<EmailUpdateViewModel, Email>().ReverseMap();
             CreateMap<UpdatePhoneViewModel, Phone>().ReverseMap();
+            CreateMap<AddressUpdateViewModel, Address>().ReverseMap();
+            CreateMap<AddressViewModel, Address>().ReverseMap();
+            CreateMap<EmailUpdateViewModel, Email>().ReverseMap();
+            CreateMap<EmailViewModel, Email>().ReverseMap();
 
         }
     }

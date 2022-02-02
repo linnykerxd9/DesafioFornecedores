@@ -16,6 +16,7 @@ namespace DesafioFornecedores.Domain.Interface.Services
          Task AddSupplier(SupplierPhysical supplier);
          Task UpdateSupplier(SupplierJuridical supplier);
          Task UpdateSupplier(SupplierPhysical supplier);
+         Task RemoveSupplier(Supplier supplier);
          
          Task InsertPhone(Phone phone);
          Task RemovePhone(Phone phone);

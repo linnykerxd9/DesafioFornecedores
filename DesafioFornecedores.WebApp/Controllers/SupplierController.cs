@@ -134,14 +134,20 @@ namespace DesafioFornecedores.WebApp.Controllers
             if(supplier == null){
                 return RedirectToAction(nameof(Index));
             }
-            return View();
+            var teste = _mapper.Map<DeleteSupplierViewModel>(supplier);
+            return View(teste);
         }
         [AllowAnonymous]
-        [HttpGet]
-        public async Task<IActionResult> Delete(DeleteSupplierViewModel identification){
-          if (identification == null)
+        [HttpPost]
+        public async Task<IActionResult> DeleteSupplierConfirmed(DeleteSupplierViewModel supplier){
+          if (supplier == null)
                 return RedirectToAction(nameof(Index));
-            return View();
+            
+            await _supplierService.RemoveSupplier(_mapper.Map<Supplier>(supplier));
+           
+           if(OperationValid()) return View("Delete",supplier);
+
+            return RedirectToAction(nameof(Index));
         }
         private EditSupplierViewModel AddPhonesForHtml(EditSupplierViewModel viewModel){
 

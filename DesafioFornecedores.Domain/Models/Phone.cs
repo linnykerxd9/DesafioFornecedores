@@ -8,6 +8,9 @@ namespace DesafioFornecedores.Domain.Models
         public string Ddd { get; private set; }
         public string Number { get; private set; }
         public Guid SupplierId { get;private set; }
+        public virtual Supplier Supplier { get; set;}
+
+
         protected Phone() { }
         public Phone(string ddd, string number,Guid supplierId)
         {

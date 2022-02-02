@@ -14424,6 +14424,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Supplier\\Delete.cshtml",
+      "TargetPath": "Views\\Supplier\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Supplier\\CreateJuridical.cshtml",
       "TargetPath": "Views\\Supplier\\CreateJuridical.cshtml",
       "FileKind": "mvc"

@@ -175,6 +175,17 @@ namespace DesafioFornecedores.Infra.Services
             await _supplierRepository.SaveChanges();
         }
 
+        public async Task RemoveSupplier(Supplier supplier){
+            if(supplier == null || supplier.Id == Guid.Empty){
+               if(supplier == null )
+                    _notificationService.AddError($"The Supplier object is null");
+                if(supplier.Id == Guid.Empty)
+                    _notificationService.AddError($"Required Id for remove Supplier");
+                return;
+            }
+            await _supplierRepository.Remove(supplier);
+            await _supplierRepository.SaveChanges();
+        }
         public async Task InsertPhone(Phone phone){
             if(!PhoneIsValid(new List<Phone>(){phone})) return;
 
