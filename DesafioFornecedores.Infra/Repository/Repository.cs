@@ -6,6 +6,7 @@ using DesafioFornecedores.Domain.Interface.Repository;
 using DesafioFornecedores.Domain.Models;
 using DesafioFornecedores.Infra.Data;
 using Microsoft.EntityFrameworkCore;
+using X.PagedList;
 
 namespace DesafioFornecedores.Infra.Repository
 {
@@ -22,6 +23,23 @@ namespace DesafioFornecedores.Infra.Repository
         public virtual async Task<T> Find(Expression<Func<T, bool>> expression)
         {
            return await _dbSet.Where(expression).FirstOrDefaultAsync();
+        }
+        public virtual async Task<PaginationModel<T>> Pagination(int page, int size, Expression<Func<T, bool>> expression = null)
+        {
+            IPagedList<T> listPagination;
+            if(expression == null){
+                listPagination = await _dbSet.AsNoTracking().ToPagedListAsync(page,size);
+            }else{
+                listPagination = await _dbSet.Where(expression).AsNoTracking().ToPagedListAsync(page,size);
+            }
+
+            return new PaginationModel<T>(){
+                List = listPagination.ToList(),
+                PageIndex = page,
+                PageSize = size,
+                Query = null,
+                TotalResult = listPagination.TotalItemCount
+            };
         }
 
         public async Task Insert(T entity)

@@ -1,0 +1,26 @@
+﻿@model IPagedViewModel
+
+@{
+  var prevDisable = @Model.PageIndex == 1 ? "disable" : "";
+  var nextDisable = @Model.PageIndex ==  (int)Model.PageIndex ? "disable" : "";
+}
+
+ <nav>
+    <ul class="pagination pagination-rounded mb-0">
+        <li class="page-item @prevDisable">
+        <a class="page-link" href="#" aria-label="Previous" asp-action="@Model.ReferenceAction">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+        </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+        </a>
+        </li>
+    </ul>
+    </nav>

@@ -8,7 +8,8 @@ namespace DesafioFornecedores.Domain.Interface.Services
 {
     public interface ISupplierService
     {
-         Task<IEnumerable<Supplier>> ToList();
+        Task<IEnumerable<Supplier>> ToList();
+        Task<PaginationModel<Supplier>> Pagination(int page, int size, string query);
         Task<Supplier> Find(Expression<Func<Supplier,bool>> expression);
         Task<SupplierJuridical> FindJuridical(Expression<Func<SupplierJuridical,bool>> expression);
         Task<SupplierPhysical> FindPhysical(Expression<Func<SupplierPhysical,bool>> expression);

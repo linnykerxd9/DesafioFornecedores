@@ -35,7 +35,14 @@ namespace DesafioFornecedores.Infra.Services
         {
            return await _supplierRepository.ToList();
         }
-
+        public async Task<PaginationModel<Supplier>> Pagination(int page, int size, string query)
+        {
+            if(string.IsNullOrEmpty(query)){
+                return await _supplierRepository.Pagination(page,size);
+            }else{
+                return await _supplierRepository.Pagination(page,size, x => x.FantasyName.ToLower().Contains(query.ToLower()));
+            }
+        }
         public async Task AddSupplier(SupplierPhysical supplier)
         {
             var ResultSupplierValidation = !SupplierPhysicalValidationIsValid(supplier);
@@ -183,8 +190,15 @@ namespace DesafioFornecedores.Infra.Services
                     _notificationService.AddError($"Required Id for remove Supplier");
                 return;
             }
-            await _supplierRepository.Remove(supplier);
-            await _supplierRepository.SaveChanges();
+            var removeSupplier = await _supplierRepository.Find(x => x.Id == supplier.Id);
+            if(removeSupplier == null){
+                _notificationService.AddError($"Supplier not found");
+                return;
+            }
+
+                await _supplierRepository.Remove(removeSupplier);
+                await _supplierRepository.SaveChanges();
+            
         }
         public async Task InsertPhone(Phone phone){
             if(!PhoneIsValid(new List<Phone>(){phone})) return;
@@ -314,5 +328,6 @@ namespace DesafioFornecedores.Infra.Services
 
               return true;
         }
+
     }
 }

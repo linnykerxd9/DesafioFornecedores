@@ -12449,6 +12449,38 @@
         }
       },
       {
+        "HashCode": -321955160,
+        "Kind": "MVC.ViewComponent",
+        "Name": "__Generated__PaginationViewComponentTagHelper",
+        "AssemblyName": "DesafioFornecedores.WebApp",
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "vc:pagination",
+            "Attributes": [
+              {
+                "Name": "paged-view-model"
+              }
+            ]
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "MVC.ViewComponent",
+            "Name": "paged-view-model",
+            "TypeName": "DesafioFornecedores.WebApp.Models.IPagedViewModel",
+            "Metadata": {
+              "Common.PropertyName": "pagedViewModel"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "__Generated__PaginationViewComponentTagHelper",
+          "MVC.ViewComponent.Name": "Pagination"
+        }
+      },
+      {
         "HashCode": 141407075,
         "Kind": "Components.Bind",
         "Name": "Bind",
@@ -14451,6 +14483,11 @@
     {
       "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Supplier\\Edit.cshtml",
       "TargetPath": "Views\\Supplier\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Shared\\Components\\Pagination\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\Pagination\\Default.cshtml",
       "FileKind": "mvc"
     },
     {

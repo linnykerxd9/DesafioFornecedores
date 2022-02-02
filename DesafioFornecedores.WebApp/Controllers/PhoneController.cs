@@ -60,7 +60,7 @@ namespace DesafioFornecedores.WebApp.Controllers
             var teste = _mapper.Map<Phone>(phone);
             await _supplierService.RemovePhone(teste);
 
-            if(OperationValid()) return RedirectToAction(nameof(DeletePhone));
+            if(OperationValid()) return View(nameof(DeletePhone),phone);
 
             return RedirectToAction("Index","Supplier");
         }

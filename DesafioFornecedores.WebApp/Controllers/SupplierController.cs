@@ -25,9 +25,20 @@ namespace DesafioFornecedores.WebApp.Controllers
 
         [AllowAnonymous]
         [HttpGet]
-        public async Task<IActionResult> Index(){
-            var suppliers = await _supplierService.ToList();
-            return View(_mapper.Map<IEnumerable<SupplierListViewModel>>(suppliers));
+        public async Task<IActionResult> Index(int pageSize = 10,int pageIndex = 1, string query = null){
+            var result = await _supplierService.Pagination(pageIndex,pageSize,query);
+            ICollection<SupplierListViewModel> listSuppliers = new List<SupplierListViewModel>();
+            foreach (var item in result.List)
+            {
+                listSuppliers.Add(_mapper.Map<SupplierListViewModel>(item));
+            }
+            return View(new PaginationViewModel<SupplierListViewModel>(){
+                List = listSuppliers,
+                PageIndex = pageIndex,
+                PageSize = pageSize,
+                Query = query,
+                TotalResult = result.TotalResult
+            });
         }
 
         [AllowAnonymous]

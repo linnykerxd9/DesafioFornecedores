@@ -7,6 +7,7 @@ using DesafioFornecedores.Domain.Interface.Repository;
 using DesafioFornecedores.Domain.Models;
 using DesafioFornecedores.Infra.Data;
 using Microsoft.EntityFrameworkCore;
+using X.PagedList;
 
 namespace DesafioFornecedores.Infra.Repository
 {
@@ -18,6 +19,31 @@ namespace DesafioFornecedores.Infra.Repository
          public async Task<ICollection<Phone>> FindPhonesToSupplier(Guid id)
         {
            return await _context.Phones.AsNoTracking().Where(x => x.SupplierId == id).ToListAsync();
+        }
+         public override async Task<PaginationModel<Supplier>> Pagination(int page, int size,Expression<Func<Supplier, bool>> expression = null)
+        {
+            IPagedList<Supplier> listPagination;
+            if(expression == null){
+                listPagination = await _dbSet.Include(x => x.Address)
+                                             .Include(x => x.Phone)
+                                             .Include(x => x.Email)
+                                             .AsNoTracking()
+                                             .ToPagedListAsync(page,size);
+            }else{
+                listPagination = await _dbSet.Include(x => x.Address)
+                                             .Include(x => x.Phone)
+                                             .Include(x => x.Email)
+                                             .Where(expression).AsNoTracking()
+                                             .ToPagedListAsync(page,size);
+            }
+
+            return new PaginationModel<Supplier>(){
+                List = listPagination.ToList(),
+                PageIndex = page,
+                PageSize = size,
+                Query = null,
+                TotalResult = listPagination.TotalItemCount
+            };
         }
        public async Task InsertPhone(Phone phone)
         {

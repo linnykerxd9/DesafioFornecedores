@@ -1,5 +1,6 @@
 using System.Linq;
 using DesafioFornecedores.Domain.Interface.Services;
+using DesafioFornecedores.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DesafioFornecedores.WebApp.Extensions.ViewComponents
@@ -17,6 +18,12 @@ namespace DesafioFornecedores.WebApp.Extensions.ViewComponents
            var result = _notificationService.AllError().Select(x => x.Erro).ToList();
             result.ForEach(x => ModelState.AddModelError(string.Empty, x));
             return View(result);
+        }
+    }
+     public class PaginationViewComponent : ViewComponent
+    {
+        public IViewComponentResult Invoke(IPagedViewModel pagedViewModel){
+            return View(pagedViewModel);
         }
     }
 }
