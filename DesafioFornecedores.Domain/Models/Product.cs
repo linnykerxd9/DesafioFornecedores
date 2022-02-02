@@ -14,11 +14,11 @@ namespace DesafioFornecedores.Domain.Models
         public decimal PriceSales { get; private set; }
         public decimal PricePurchase { get; private set; }
         public Guid CategoryId { get;private set; }
+        public virtual Category Category { get; set; }
 
-        private List<Image> Image { get; set; }
-        public IReadOnlyCollection<Image> Images { get{ return Image;} }
+        public List<Image> Image { get; private set; } = new List<Image>();
         protected Product() { }
-        public Product(string name, string barCode, int quantityStock, decimal priceSales, decimal pricePurchase, bool active,Guid categoryId,string imagePath)
+        public Product(string name, string barCode, int quantityStock, decimal priceSales, decimal pricePurchase, bool active,Guid categoryId,List<Image> images)
         {
             SetName(name);
             SetBarCode(barCode);
@@ -26,7 +26,7 @@ namespace DesafioFornecedores.Domain.Models
             SetPriceSales(priceSales);
             SetPricePurchase(pricePurchase);
             SetCategoryId(categoryId);
-            SetImage(new Image(imagePath,this.Id));
+            SetImage(images);
             Active = active;
         }
         public void SetName(string name){
@@ -54,11 +54,11 @@ namespace DesafioFornecedores.Domain.Models
             
             PricePurchase = privePurchase;
         }
-        public void SetImage(Image image){
+        public void SetImage(List<Image> image){
             if(image == null) throw new DomainExceptions("Image is null");
-
-            Image.Add(image);
-        }       
+            image.ForEach(x => x.SetProductId(this.Id));
+           Image.AddRange(image);
+        }
         public void SetCategoryId(Guid id){
             if(string.IsNullOrEmpty(id.ToString())) throw new DomainExceptions("Category Id is null or empty");
 

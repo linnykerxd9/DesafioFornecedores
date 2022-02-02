@@ -56,9 +56,13 @@ namespace DesafioFornecedores.Infra.Data
             modelBuilder.Entity<Supplier>().HasOne(x => x.Email).WithOne(x => x.Supplier).OnDelete(DeleteBehavior.ClientCascade);
             modelBuilder.Entity<Supplier>().HasOne(x => x.Address).WithOne(x => x.Supplier).OnDelete(DeleteBehavior.ClientCascade);
             modelBuilder.Entity<Supplier>().HasMany(x => x.Phone).WithOne(x => x.Supplier).OnDelete(DeleteBehavior.ClientCascade);
+            modelBuilder.Entity<Category>().HasMany(x => x.Product).WithOne(x => x.Category).OnDelete(DeleteBehavior.ClientCascade);
+            
+            
             modelBuilder.Entity<SupplierJuridical>(entity => entity.HasIndex(e => e.Cnpj).IsUnique());
             modelBuilder.Entity<SupplierPhysical>(entity => entity.HasIndex(e => e.Cpf).IsUnique());
             modelBuilder.Entity<Supplier>(entity => entity.HasIndex(e => e.FantasyName).IsUnique());
+            modelBuilder.Entity<Category>(entity => entity.HasIndex(e => e.Name).IsUnique());
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProdForneContext).Assembly);
         }

@@ -1,0 +1,69 @@
+@model PaginationViewModel<CategoryViewModel>
+
+@{
+    ViewData["Title"] = "Category";
+}
+
+<div class="text">
+    <h1 class="display-4">Categories</h1>
+</div>
+<div>
+    <a asp-action="Create" class="btn btn-primary">New Category</a>
+</div>
+<br/>
+
+<form asp-action="Index" method="get">
+  <div class="form-row" style="justify-content: space-between;">
+      
+    <div class="form-group col-md-2">
+    <p>Category per page</p>
+      <select class="form-control" asp-for="PageSize">
+          <option value="10">10</option>
+          <option value="50">50</option>
+          <option value="@int.MaxValue">All</option>
+      </select>
+    </div>
+    <div class="form-group col-md-3">
+    <p>Search</p>
+      <input type="text" asp-for="Query" placeholder="Search Fantasy Name">
+      <span>
+      <button type="submit" class="btn btn-secondary">Search</button>
+      </span>
+    </div>
+  </div>
+</form>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Status</th>
+      <th scope="col">Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if(Model != null)
+     @foreach (var item in Model.List)
+    {
+        <tr>
+            <td>
+                @if(item.Active){
+                    <p>Active</p>
+                }else{
+                    <p>deactivated</p>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-Name="@item.Name" class="btn btn-secondary">Edit</a>
+                <a asp-action="Details" asp-route-Name="@item.Name" class="btn btn-warning">Details</a>
+                <a asp-action="Delete" asp-route-Name="@item.Name" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+  </tbody>
+</table>
+  <div style="display: flex; justify-content: center; align-items: center;">
+   <vc:pagination paged-view-model="@Model"></vc:pagination>
+</div>

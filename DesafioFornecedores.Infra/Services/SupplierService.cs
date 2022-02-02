@@ -75,8 +75,9 @@ namespace DesafioFornecedores.Infra.Services
             var ResultPhoneValidation = !PhoneIsValid(supplier.Phone);
             var ResulTAddressValidation = !AddressIsValid(supplier.Address);
             if(ResultCnpjValidation || ResultPhoneValidation || ResulTAddressValidation){
-                 if(!supplier.Cnpj.IsCnpj())
+                 if(!supplier.Cnpj.IsCnpj()){
                     _notificationService.AddError($"Cnpj: {supplier.Cnpj} is not a valid");
+                 }
                return;
            }
 
@@ -259,8 +260,10 @@ namespace DesafioFornecedores.Infra.Services
         }
         private bool PhoneIsValid(ICollection<Phone> phones){
             bool HisValid = true;
-            if(phones.Count < 1 || phones.Count > 3)
+            if(phones.Count < 1 || phones.Count > 3){
                 _notificationService.AddError($"mandatory 1 phone and maximum 3");
+                HisValid = false;
+            }
             foreach (var item in phones)
             {
                 if(item.Ddd == null ||

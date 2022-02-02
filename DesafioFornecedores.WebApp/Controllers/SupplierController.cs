@@ -37,7 +37,9 @@ namespace DesafioFornecedores.WebApp.Controllers
                 PageIndex = pageIndex,
                 PageSize = pageSize,
                 Query = query,
+                ReferenceAction= "Index",
                 TotalResult = result.TotalResult
+                
             });
         }
 

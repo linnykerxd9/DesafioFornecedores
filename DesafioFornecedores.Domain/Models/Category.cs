@@ -8,8 +8,7 @@ namespace DesafioFornecedores.Domain.Models
     {
         public bool Active { get; private set; }
         public string Name { get; private set; }
-        private List<Product> Product { get; set; }
-        public IReadOnlyCollection<Product> Products { get{ return Product;} }
+        public List<Product> Product { get; private set; } = new List<Product>();
         protected Category() { }
         public Category(bool active, string name)
         {
@@ -25,16 +24,8 @@ namespace DesafioFornecedores.Domain.Models
 
             Name = name;
         }
-        public void SetProduct(Product product){
-            if(product == null) throw new DomainExceptions("Product is null");
-
-            Product.Add(product);
-        }
-        public void Activate() {
-            Active = true;
-        }
-        public void Disable() {
-            Active = false;
+        public void setActive(bool status) {
+            Active = status;
         }
     }
 }

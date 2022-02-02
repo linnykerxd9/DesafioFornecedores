@@ -85,11 +85,11 @@
             </td>
             <td>
                 @Html.ActionLink("Details", "Details", new { identification =item.Cpf != null ? item.Cpf : item.Cnpj},
-                                                       new { @class = "btn btn-secondary" })
+                                                       new { @class = "btn btn-primary" })
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { identification =item.Cpf != null ? item.Cpf : item.Cnpj},
-                                                 new { @class = "btn btn-primary" })
+                                                 new { @class = "btn btn-warning" })
             </td>
              <td>
                 @Html.ActionLink("Delete", "Delete", new { identification =item.Cpf != null ? item.Cpf : item.Cnpj },
@@ -100,5 +100,5 @@
   </tbody>
 </table>
   <div style="display: flex; justify-content: center; align-items: center;">
-   
+   <vc:pagination paged-view-model="@Model"></vc:pagination>
 </div>

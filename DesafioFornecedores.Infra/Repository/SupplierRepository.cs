@@ -74,7 +74,10 @@ namespace DesafioFornecedores.Infra.Repository
         
         public async Task<IEnumerable<Supplier>> ToList()
         {
-            return await _dbSet.Include(x => x.Address).Include(x => x.Phone).Include(x => x.Email).ToListAsync();
+            return await _dbSet.Include(x => x.Address)
+                                .Include(x => x.Phone)
+                                .Include(x => x.Email)
+                                .ToListAsync();
         }
         
          public  async Task<SupplierJuridical> FindJuridical(Expression<Func<SupplierJuridical, bool>> expression)
