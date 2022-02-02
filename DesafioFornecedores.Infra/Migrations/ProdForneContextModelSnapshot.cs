@@ -300,17 +300,19 @@ namespace DesafioFornecedores.Infra.Migrations
 
             modelBuilder.Entity("DesafioFornecedores.Domain.Models.Address", b =>
                 {
-                    b.HasOne("DesafioFornecedores.Domain.Models.Supplier", null)
+                    b.HasOne("DesafioFornecedores.Domain.Models.Supplier", "Supplier")
                         .WithOne("Address")
                         .HasForeignKey("DesafioFornecedores.Domain.Models.Address", "SupplierId")
+                        .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("DesafioFornecedores.Domain.Models.Email", b =>
                 {
-                    b.HasOne("DesafioFornecedores.Domain.Models.Supplier", null)
+                    b.HasOne("DesafioFornecedores.Domain.Models.Supplier", "Supplier")
                         .WithOne("Email")
                         .HasForeignKey("DesafioFornecedores.Domain.Models.Email", "SupplierId")
+                        .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
                 });
 
@@ -324,9 +326,10 @@ namespace DesafioFornecedores.Infra.Migrations
 
             modelBuilder.Entity("DesafioFornecedores.Domain.Models.Phone", b =>
                 {
-                    b.HasOne("DesafioFornecedores.Domain.Models.Supplier", null)
-                        .WithMany("Phones")
+                    b.HasOne("DesafioFornecedores.Domain.Models.Supplier", "Supplier")
+                        .WithMany("Phone")
                         .HasForeignKey("SupplierId")
+                        .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
                 });
 

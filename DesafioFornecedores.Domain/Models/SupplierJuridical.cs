@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using DesafioFornecedores.Domain.Tools;
 
 namespace DesafioFornecedores.Domain.Models
@@ -15,7 +16,7 @@ namespace DesafioFornecedores.Domain.Models
         }
 
         public SupplierJuridical(string companyName, string fantasyName, string cnpj,
-                                bool active, Email email, Address address,Phone phone)
+                                bool active, Email email, Address address,List<Phone> phone)
                                 : base(active,address, email, phone, fantasyName)
         {
             SetCompanyName(companyName);
@@ -25,7 +26,6 @@ namespace DesafioFornecedores.Domain.Models
 
         public void SetCompanyName(string companyName){
             StringEmptyOrNull(companyName,"Company name");
-            SizeIsValid(companyName.Length,2,250,"Company");
 
             CompanyName = companyName;
         }
@@ -47,10 +47,6 @@ namespace DesafioFornecedores.Domain.Models
              if(string.IsNullOrEmpty(text))
              throw new DomainExceptions($"{message} cannot be empty");
         }
-        private void SizeIsValid(int value, int lengMin, int lengMax,string message)
-         {
-                if(value < lengMin || value> lengMax)
-                throw new DomainExceptions($"the {message} name can only be between {lengMin} to {lengMax} characters");
-         }
+
     }
 }

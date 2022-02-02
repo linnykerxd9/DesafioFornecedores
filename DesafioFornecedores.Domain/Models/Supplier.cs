@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using DesafioFornecedores.Domain.Tools;
 using DesafioFornecedores.Domain.Interface.Repository;
+using System;
 
 namespace DesafioFornecedores.Domain.Models
 {
@@ -11,14 +12,13 @@ namespace DesafioFornecedores.Domain.Models
         
         public Email Email { get;private set; }
         public Address Address { get;private set; }
-        protected List<Phone> Phone { get; set; }
-        public IReadOnlyCollection<Phone> Phones { get{ return Phone;} }
+         public ICollection<Phone> Phone { get;private set; } = new List<Phone>();
 
         public Supplier()
         {
         }
 
-        public Supplier(bool active, Address address,Email email,Phone phone,string fantasyName)
+        public Supplier(bool active, Address address,Email email,List<Phone> phone,string fantasyName)
         {
             Active = active;
             SetAddress(address);
@@ -26,31 +26,31 @@ namespace DesafioFornecedores.Domain.Models
             SetPhone(phone);
             SetFantasyName(fantasyName);
         }
-        protected void Activate() {
-            Active = true;
-        }
-        protected void Disable() {
-            Active = false;
+        public void SetActive(bool status) {
+            Active = status;
         }
         public void SetEmail(Email email){
-            email.SetSupplierId(this.Id);
+            email.SetSupplierId(Id);
             Email = email;
         }
         public void SetAddress(Address address){
-            address.SetSupplierId(this.Id);
+            address.SetSupplierId(Id);
             Address = address;
         }
-        public void SetPhone(Phone phone){
-            Phone = new List<Phone>();
-            phone.SetSupplierId(this.Id);
-            Phone.Add(phone);
+        public void SetPhone(ICollection<Phone> phone){
+            foreach (var item in phone)
+            {
+                item.SetSupplierId(this.Id);
+                  if(string.IsNullOrEmpty(item.Ddd))
+                    throw new DomainExceptions("DDD is invalid");
+                 if(string.IsNullOrEmpty(item.Number))
+                    throw new DomainExceptions("Number is invalid");
+            }
+            Phone = phone;
         }
           public void SetFantasyName(string fantasyName){
             if(string.IsNullOrEmpty(fantasyName)) 
             throw new DomainExceptions($"Fantasy name cannot be empty");
-
-            if(fantasyName.Length < 2 || fantasyName.Length > 100)
-             throw new DomainExceptions($"the Fantasy name can only be between 2 to 100 characters");
 
             FantasyName = fantasyName;
         }

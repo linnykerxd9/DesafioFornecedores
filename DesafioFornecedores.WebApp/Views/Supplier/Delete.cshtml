@@ -1,0 +1,32 @@
+@model DeleteSupplierViewModel
+
+@{
+    ViewData["Title"] = "Delete Supplier";
+}
+
+<h2>
+    Delete Supplier 
+</h2>
+<p>do you really want to delete this Supplier?</p>
+<br/>
+<vc:summary></vc:summary>
+<br/>
+<br/>
+
+<form asp-action="DeleteSupplierConfirmed" method="post">
+  <div class="row" style="gap: 10px;">
+    <div >
+        <input asp-for="@Model.Id" type="text" hidden readonly>
+        <label asp-for="@Model.Active" class="form-label"></label>
+        <input asp-for="@Model.Active" type="text" class="form-control" readonly >
+        <label asp-for="@Model.FantasyName" class="form-label" ></label>
+        <input asp-for="@Model.FantasyName" type="text" class="form-control" readonly >
+    </div>
+  </div>
+  <br/>
+  <br/>
+  <div style="display: flex; justify-content: center; align-items: center;">
+    <button type="submit" class="btn btn-primary">Delete</button>
+  </div>
+ 
+</form>

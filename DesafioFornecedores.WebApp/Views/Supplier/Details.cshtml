@@ -1,0 +1,84 @@
+@model SupplierListViewModel
+
+@{
+    ViewData["Title"] = "Details Supplier";
+}
+
+<h2>
+    Supplier Details
+</h2>
+<br/>
+<br/>
+<br/>
+
+<dl class="row">
+  <dt class="col-sm-3">Status Supplier</dt>
+  <dd class="col-sm-9">
+        @if(Model.Active){
+                    <p>Active</p>
+                }else{
+                    <p>deactivated</p>
+                }
+  </dd>
+
+  <dt class="col-sm-3">Full Name/Company Name</dt>
+  <dd class="col-sm-9">
+     @if(Model.FullName != null){
+            <p>@Model.FullName</p>
+        }else{
+            <p>@Model.CompanyName</p>
+        }
+  </dd>
+
+  <dt class="col-sm-3">Fantasy Name</dt>
+  <dd class="col-sm-9">@Model.FantasyName</dd>
+
+  <dt class="col-sm-3 text-truncate">Email address</dt>
+  <dd class="col-sm-9">@Model.Email.EmailAddress</dd>
+  
+  <dt class="col-sm-3 text-truncate">Cnpj/CPF</dt>
+  <dd class="col-sm-9">
+         @if(Model.Cnpj != null){
+                    <p>@Model.Cnpj</p>
+                }else{
+                    <p>@Model.Cpf</p>
+                }
+    </dd>
+<dt class="col-sm-3 text-truncate">Phones</dt>
+  <dd class="col-sm-9">
+         @foreach (var item in Model.Phone)
+         {
+            <p>(@item.Ddd) - @item.Number</p>
+         }
+    </dd>
+
+  <h4>Address</h4>
+  <div class="row">
+
+    <dt class="col-sm-3 text-truncate">Street</dt>
+  <dd class="col-sm-9">@Model.Address.Street</dd>
+
+   <dt class="col-sm-3 text-truncate">Number</dt>
+  <dd class="col-sm-9">@Model.Address.Number</dd>
+
+   <dt class="col-sm-3 text-truncate">Neighborhood</dt>
+  <dd class="col-sm-9">@Model.Address.Neighborhood</dd>
+
+  <dt class="col-sm-3 text-truncate">ZipCode</dt>
+  <dd class="col-sm-9">@Model.Address.ZipCode</dd>
+
+   <dt class="col-sm-3 text-truncate">City</dt>
+  <dd class="col-sm-9">@Model.Address.City</dd>
+
+   <dt class="col-sm-3 text-truncate">State</dt>
+  <dd class="col-sm-9">@Model.Address.State</dd>
+
+   <dt class="col-sm-3 text-truncate">Complement</dt>
+  <dd class="col-sm-9">@Model.Address.Complement</dd>
+  
+  <dt class="col-sm-3 text-truncate">Reference</dt>
+  <dd class="col-sm-9">@Model.Address.Reference</dd>
+  </div>
+    @Html.ActionLink("Go To List", "Index")
+
+</dl>

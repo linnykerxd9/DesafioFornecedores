@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using AutoMapper;
 using DesafioFornecedores.Domain.Interface.Services;
+using DesafioFornecedores.Domain.Notifier;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

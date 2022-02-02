@@ -12,11 +12,12 @@ namespace DesafioFornecedores.Domain.Interface.Repository
         Task UpdateEmail(Email email);
 
         Task UpdateAddress(Address address);
+        Task<ICollection<Phone>> FindPhonesToSupplier(Guid id);
 
         Task InsertPhone(Phone phone);
         Task RemovePhone(Phone phone);
         Task UpdatePhone(Phone phone);
-        Task<SupplierJuridical> FindJuridical(Expression<Func<SupplierJuridical,bool>> expression);
-        Task<SupplierPhysical> FindPhysical(Expression<Func<SupplierPhysical,bool>> expression);
+        Task<SupplierJuridical> FindJuridical(Expression<Func<SupplierJuridical, bool>> expression);
+        Task<SupplierPhysical> FindPhysical(Expression<Func<SupplierPhysical, bool>> expression);
     }
 }

@@ -1,4 +1,4 @@
-@model SupplierViewModel
+@model CreateSupplierViewModel
 
 @{
     ViewData["Title"] = "Register Supplier Juridical";
@@ -7,25 +7,16 @@
     Register Supplier Juridical
 </h2>
 <br/>
+<vc:summary></vc:summary>
 <br/>
 <br/>
 
 <form asp-action="CreateJuridical" method="post">
     <h3>supplier's status </h3>
-    <div class="row" style="gap: 10px;">
-        <div class="form-check">
-            <input class="form-check-input" type="radio" asp-for="Active" value="1" checked>
-            <label class="form-check-label" asp-for="Active">
-                Active
-            </label>
-            </div>
-            <div class="form-check">
-            <input class="form-check-input" type="radio" asp-for="Active" value="0" >
-            <label class="form-check-label" asp-for="Active">
-                deactivated
-            </label>
-        </div>
-    </div>
+      <select asp-for="Active">
+        <option value="true">Active</option>
+        <option value="false">Deactivated</option>
+      </select>
     <br/>
   <div class="mb-3">
     <label asp-for="CompanyName" class="form-label"></label>
@@ -48,13 +39,23 @@
     <input asp-for="Email.EmailAddress" type="email" class="form-control">
   </div>
   <div class="row" style="gap: 10px;">
-    <div>
-        <label asp-for="Phone.Ddd" class="form-label"></label>
-        <input asp-for="Phone.Ddd" type="number" class="form-control">
+    <div >
+        <label asp-for="FirstPhone.Ddd" class="form-label"></label>
+        <input asp-for="FirstPhone.Ddd" type="number" class="form-control">
+        <label asp-for="FirstPhone.Number" class="form-label"></label>
+        <input asp-for="FirstPhone.Number" type="number" class="form-control">
     </div>
-    <div>
-        <label asp-for="Phone.Number" class="form-label"></label>
-        <input asp-for="Phone.Number" type="number" class="form-control">
+     <div>
+        <label asp-for="SecondPhone.Ddd" class="form-label"></label>
+        <input asp-for="SecondPhone.Ddd" type="number" class="form-control">
+        <label asp-for="SecondPhone.Number" class="form-label"></label>
+        <input asp-for="SecondPhone.Number" type="number" class="form-control">
+    </div>
+     <div>
+        <label asp-for="ThirdPhone.Ddd" class="form-label"></label>
+        <input asp-for="ThirdPhone.Ddd" type="number" class="form-control">
+        <label asp-for="ThirdPhone.Number" class="form-label"></label>
+        <input asp-for="ThirdPhone.Number" type="number" class="form-control">
     </div>
   </div>
     <div class="mb-3">

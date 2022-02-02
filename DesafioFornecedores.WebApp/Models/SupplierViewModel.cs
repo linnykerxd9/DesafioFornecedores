@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DesafioFornecedores.WebApp.Models
 {
-    public class SupplierViewModel
+     public class SupplierListViewModel
     {
         //atributos gerais
         public bool Active { get;  set; }
@@ -11,7 +11,7 @@ namespace DesafioFornecedores.WebApp.Models
         
         public EmailViewModel Email { get; set;}
         public AddressViewModel Address { get; set; }
-        public PhoneViewModel Phone { get; set; }
+        public IEnumerable<PhoneViewModel> Phone { get; set; } = new List<PhoneViewModel>(3);
 
         //atributos fornecedor fisico
          public string FullName { get;  set; }
@@ -24,5 +24,56 @@ namespace DesafioFornecedores.WebApp.Models
         public string Cnpj { get; set; }
         public DateTime? OpenDate { get; set; }
 
+    }
+    public class EditSupplierViewModel
+    {
+        //atributos gerais
+        public Guid Id {get; set;}
+        public bool Active { get;  set; }
+        public string FantasyName { get;  set; }
+        
+        public  EmailUpdateViewModel Email { get; set;}
+        public AddressUpdateViewModel Address { get; set; }
+        public List<UpdatePhoneViewModel> Phone { get; set; } = new List<UpdatePhoneViewModel>(3);
+        public UpdatePhoneViewModel FirstPhone {get; set;} = new UpdatePhoneViewModel();
+        public UpdatePhoneViewModel SecondPhone {get ; set; } = new UpdatePhoneViewModel();
+        public UpdatePhoneViewModel ThirdPhone {get; set;} = new UpdatePhoneViewModel();
+        //atributos fornecedor fisico
+         public string FullName { get;  set; }
+        public string Cpf { get;  set; }
+        public DateTime BirthDate  { get;  set; }
+
+        //atributos fornecedor juridico
+        public string CompanyName { get; set; }
+        public string Cnpj { get; set; }
+        public DateTime? OpenDate { get; set; }
+    }
+    public class CreateSupplierViewModel
+    {
+        //atributos gerais
+        public bool Active { get;  set; }
+        public string FantasyName { get;  set; }
+        
+        public  EmailViewModel Email { get; set;}
+        public AddressViewModel Address { get; set; }
+        public List<PhoneViewModel> Phone { get; set; } = new List<PhoneViewModel>(3);
+        public PhoneViewModel FirstPhone {get; set;} = new PhoneViewModel();
+        public PhoneViewModel SecondPhone {get ; set; } = new PhoneViewModel();
+        public PhoneViewModel ThirdPhone {get; set;} = new PhoneViewModel();
+        //atributos fornecedor fisico
+        public string FullName { get;  set; }
+        public string Cpf { get;  set; }
+        public DateTime BirthDate  { get;  set; }
+
+        //atributos fornecedor juridico
+        public string CompanyName { get; set; }
+        public string Cnpj { get; set; }
+        public DateTime? OpenDate { get; set; }
+    }
+    public class DeleteSupplierViewModel
+    {
+        public Guid Id {get; set;}
+        public bool Active { get;  set; }
+        public string FantasyName { get;  set; }
     }
 }

@@ -7,6 +7,7 @@ namespace DesafioFornecedores.Domain.Models
     {
         public string EmailAddress { get; private set; }
         public Guid SupplierId {get; private set;}
+        public virtual Supplier Supplier { get; set;}
         protected Email() {}
         public Email(string emailAddress, Guid supplierId)
         {

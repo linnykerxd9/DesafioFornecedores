@@ -1,4 +1,4 @@
-@model IEnumerable<SupplierViewModel>
+@model IEnumerable<SupplierListViewModel>
 
 @{
     ViewData["Title"] = "Supplier";
@@ -16,7 +16,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Active</th>
+      <th scope="col">Status</th>
       <th scope="col">Fantasy Name</th>
       <th scope="col">Full Name/Company Name</th>
       <th scope="col">Email</th>
@@ -30,22 +30,46 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Active ? "Active" : "deactivated")
+                @if(item.Active){
+                    <p>Active</p>
+                }else{
+                    <p>deactivated</p>
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FantasyName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FullName == null ? item.CompanyName : item.FullName)
+                @if(item.FullName != null){
+                    <p>@item.FullName</p>
+                }else{
+                    <p>@item.CompanyName</p>
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Email.EmailAddress)
             </td>
             <td>
-
+                @foreach (var phones in item.Phone)
+                {
+                    <p>(@phones.Ddd) - @phones.Number</p>
+                }
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Cpf == null ? item.Cnpj : item.Cpf)
+                @if(item.Cnpj != null){
+                    <p>@item.Cnpj</p>
+                }else{
+                    <p>@item.Cpf</p>
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { identification =item.Cpf != null ? item.Cpf : item.Cnpj})
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { identification =item.Cpf != null ? item.Cpf : item.Cnpj})
+            </td>
+             <td>
+                @Html.ActionLink("Delete", "Delete", new { identification =item.Cpf != null ? item.Cpf : item.Cnpj })
             </td>
         </tr>
     }
