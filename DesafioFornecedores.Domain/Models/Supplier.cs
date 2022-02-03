@@ -12,7 +12,8 @@ namespace DesafioFornecedores.Domain.Models
         
         public Email Email { get;private set; }
         public Address Address { get;private set; }
-         public ICollection<Phone> Phone { get;private set; } = new List<Phone>();
+        public ICollection<Phone> Phone { get;private set; } = new List<Phone>();
+        public ICollection<Product> Products {get; set;} = new List<Product>();
 
         public Supplier()
         {
@@ -20,7 +21,7 @@ namespace DesafioFornecedores.Domain.Models
 
         public Supplier(bool active, Address address,Email email,List<Phone> phone,string fantasyName)
         {
-            Active = active;
+            SetActive(active);
             SetAddress(address);
             SetEmail(email);
             SetPhone(phone);

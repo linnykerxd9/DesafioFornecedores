@@ -7,10 +7,12 @@ namespace DesafioFornecedores.Domain.Models
     {
         public string ImagePath { get; private set; }
         public Guid ProductId { get; private set; }
+        public Product Product{get; set;}
         protected Image() { }
         public Image(string imagePath,Guid productId)
         {
             SetImage(imagePath);
+            SetProductId(productId);
         }
 
         public void SetImage(string imagePath){

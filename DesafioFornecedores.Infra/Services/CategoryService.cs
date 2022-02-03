@@ -95,7 +95,7 @@ namespace DesafioFornecedores.Infra.Services
                 return;
             }
             result.SetName(category.Name);
-            result.setActive(category.Active);
+            result.SetActive(category.Active);
             await _categoryRepository.Update(result);
             await _categoryRepository.SaveChanges();
         }

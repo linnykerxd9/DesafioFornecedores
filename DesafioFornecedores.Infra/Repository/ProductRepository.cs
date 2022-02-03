@@ -1,10 +1,14 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using DesafioFornecedores.Domain.Interface;
 using DesafioFornecedores.Domain.Interface.Repository;
 using DesafioFornecedores.Domain.Models;
 using DesafioFornecedores.Infra.Data;
 using Microsoft.EntityFrameworkCore;
+using X.PagedList;
 
 namespace DesafioFornecedores.Infra.Repository
 {
@@ -17,8 +21,7 @@ namespace DesafioFornecedores.Infra.Repository
         {
             await _context.Images.AddAsync(image);
         }
-
-        public  Task RemoveImage(Image image)
+        public Task RemoveImage(Image image)
         {
             _context.Images.Remove(image);
             return Task.CompletedTask;
@@ -26,13 +29,33 @@ namespace DesafioFornecedores.Infra.Repository
 
         public async Task<IEnumerable<Product>> ToList()
         {
-            return await _dbSet.Include("Images").Include("Categories").ToListAsync();
+            return await _dbSet.Include(x => x.Image)
+                                .Include(x => x.Category)
+                                .Include(x => x.Supplier)
+                                .ToListAsync();
         }
 
-        public  Task Update(Image image)
+         public override async Task<PaginationModel<Product>> Pagination(int page, int size,Expression<Func<Product, bool>> expression = null)
         {
-           _context.Images.Update(image);
-            return Task.CompletedTask;
+            IPagedList<Product> listPagination;
+            if(expression == null){
+                listPagination = await _dbSet.Include(x => x.Supplier)
+                                             .Include(x => x.Category)
+                                             .AsNoTracking()
+                                             .ToPagedListAsync(page,size);
+            }else{
+                listPagination = await _dbSet.Include(x => x.Supplier)
+                                             .Include(x => x.Category)
+                                             .Where(expression).AsNoTracking()
+                                             .ToPagedListAsync(page,size);
+            }
+             return new PaginationModel<Product>(){
+                List = listPagination.ToList(),
+                PageIndex = page,
+                PageSize = size,
+                Query = null,
+                TotalResult = listPagination.TotalItemCount
+            };
         }
     }
 }

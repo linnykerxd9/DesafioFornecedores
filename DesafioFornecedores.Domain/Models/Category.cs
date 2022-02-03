@@ -12,7 +12,7 @@ namespace DesafioFornecedores.Domain.Models
         protected Category() { }
         public Category(bool active, string name)
         {
-            Active = active;
+            SetActive(active);
             SetName(name);
         }
         public void SetName(string name){
@@ -24,7 +24,7 @@ namespace DesafioFornecedores.Domain.Models
 
             Name = name;
         }
-        public void setActive(bool status) {
+        public void SetActive(bool status) {
             Active = status;
         }
     }

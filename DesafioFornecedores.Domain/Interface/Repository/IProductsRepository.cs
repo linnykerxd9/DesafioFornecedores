@@ -9,6 +9,5 @@ namespace DesafioFornecedores.Domain.Interface.Repository
         Task<IEnumerable<Product>> ToList();
         Task InsertImage(Image image);
         Task RemoveImage(Image image);
-        Task Update(Image image);
     }
 }

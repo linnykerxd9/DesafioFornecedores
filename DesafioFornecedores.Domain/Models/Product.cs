@@ -14,11 +14,13 @@ namespace DesafioFornecedores.Domain.Models
         public decimal PriceSales { get; private set; }
         public decimal PricePurchase { get; private set; }
         public Guid CategoryId { get;private set; }
-        public virtual Category Category { get; set; }
-
+        public Category Category { get; set; }
+        public Guid SupplierId { get;private set; }
+        public Supplier Supplier { get; set; }
         public List<Image> Image { get; private set; } = new List<Image>();
+
         protected Product() { }
-        public Product(string name, string barCode, int quantityStock, decimal priceSales, decimal pricePurchase, bool active,Guid categoryId,List<Image> images)
+        public Product(string name, string barCode, int quantityStock, decimal priceSales, decimal pricePurchase, bool active,Guid categoryId,Image images)
         {
             SetName(name);
             SetBarCode(barCode);
@@ -27,11 +29,10 @@ namespace DesafioFornecedores.Domain.Models
             SetPricePurchase(pricePurchase);
             SetCategoryId(categoryId);
             SetImage(images);
-            Active = active;
+            SetActive(active);
         }
         public void SetName(string name){
             StringEmptyOrNull(name,"Product Name");
-            SizeIsValid(name.Length, 5, 100,"Product");
             Name = name;
         }
         public void SetBarCode(string barCode){
@@ -54,21 +55,17 @@ namespace DesafioFornecedores.Domain.Models
             
             PricePurchase = privePurchase;
         }
-        public void SetImage(List<Image> image){
+        public void SetImage(Image image){
             if(image == null) throw new DomainExceptions("Image is null");
-            image.ForEach(x => x.SetProductId(this.Id));
-           Image.AddRange(image);
+           Image.Add(image);
         }
         public void SetCategoryId(Guid id){
             if(string.IsNullOrEmpty(id.ToString())) throw new DomainExceptions("Category Id is null or empty");
 
             CategoryId = id;
         }
-        public void Activate() {
-            Active = true;
-        }
-        public void Disable() {
-            Active = false;
+        public void SetActive(bool status) {
+            Active = status;
         }
 
 
@@ -76,10 +73,6 @@ namespace DesafioFornecedores.Domain.Models
              if(string.IsNullOrEmpty(text))
              throw new DomainExceptions($"{message} cannot be empty");
         }
-        private void SizeIsValid(int value, int lengMin, int lengMax,string message)
-         {
-                if(value < lengMin || value> lengMax)
-                throw new DomainExceptions($"the {message} name can only be between {lengMin} to {lengMax} characters");
-         }
+      
     }
 }
