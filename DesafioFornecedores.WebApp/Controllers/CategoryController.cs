@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using DesafioFornecedores.Domain.Interface.Services;
+using DesafioFornecedores.Domain.Models;
 using DesafioFornecedores.WebApp.Extensions;
 using DesafioFornecedores.WebApp.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -36,6 +37,84 @@ namespace DesafioFornecedores.WebApp.Controllers
                 ReferenceAction= "Index",
                 TotalResult = result.TotalResult
             });
+        }
+        [AllowAnonymous]
+        [HttpGet]
+       public  IActionResult Create(){
+           return View();
+        }
+        [AllowAnonymous]
+        [HttpPost]
+       public async Task<IActionResult> Create(CategoryCreateViewModel viewModel){
+           if(!ModelState.IsValid) return View(viewModel);
+
+           var category =  _mapper.Map<Category>(viewModel);
+           await _categoryService.AddCategory(category);
+
+            if(OperationValid()) return View(viewModel);
+
+           return RedirectToAction(nameof(Index));
+        }
+         [AllowAnonymous]
+        [HttpGet]
+       public async  Task<IActionResult> Edit(string Name){
+           if(Name == null) return RedirectToAction(nameof(Index));
+
+           var category = await _categoryService.Find(x => x.Name == Name);
+           if(category == null){
+               _notificationService.AddError("Category not found");
+               return RedirectToAction(nameof(Index));
+           }
+           return View(_mapper.Map<CategoryUpdateOrEditViewModel>(category));
+        }
+        [AllowAnonymous]
+        [HttpPost]
+       public async Task<IActionResult> Edit(CategoryUpdateOrEditViewModel viewModel){
+           if(!ModelState.IsValid) return View(viewModel);
+
+            await _categoryService.UpdateCategory(_mapper.Map<Category>(viewModel));
+           if(OperationValid()) return View(viewModel);
+
+           return RedirectToAction(nameof(Index));
+        }
+        [AllowAnonymous]
+        [HttpGet]
+       public async Task<IActionResult> Details(string Name){
+           if(Name == null) RedirectToAction(nameof(Index));
+
+           var category =await _categoryService.Find(x => x.Name == Name);
+           
+          if(category == null){
+               _notificationService.AddError("Category not found");
+               return RedirectToAction(nameof(Index));
+           }
+
+           return View(_mapper.Map<CategoryViewModel>(category));
+        }
+        [AllowAnonymous]
+        [HttpGet]
+       public async Task<IActionResult> Delete(string Name){
+          if(Name == null) RedirectToAction(nameof(Index));
+
+           var category = await _categoryService.Find(x => x.Name == Name);
+           
+          if(category == null){
+               _notificationService.AddError("Category not found");
+               return RedirectToAction(nameof(Index));
+           }
+
+           return View(_mapper.Map<CategoryUpdateOrEditViewModel>(category));
+        }
+        [AllowAnonymous]
+        [HttpPost]
+       public async Task<IActionResult> DeleteConfirmed(CategoryUpdateOrEditViewModel viewModel){
+            if(!ModelState.IsValid) return View(nameof(Delete),viewModel);
+
+            await _categoryService.RemoveCategory(_mapper.Map<Category>(viewModel));
+
+            if(OperationValid()) return View(nameof(Delete),viewModel);
+
+            return RedirectToAction("Index","Category");
         }
     }
 }

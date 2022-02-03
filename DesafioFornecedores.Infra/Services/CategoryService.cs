@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using DesafioFornecedores.Domain.Interface.Repository;
 using DesafioFornecedores.Domain.Interface.Services;
@@ -20,6 +21,10 @@ namespace DesafioFornecedores.Infra.Services
         public async Task<IEnumerable<Category>> ToList()
         {
            return await _categoryRepository.ToList();
+        }
+        public async Task<Category> Find(Expression<Func<Category, bool>> expression)
+        {
+           return await _categoryRepository.Find(expression);
         }
         public async Task AddCategory(Category category)
         {
@@ -58,7 +63,7 @@ namespace DesafioFornecedores.Infra.Services
                         _notificationService.AddError("CategoryId is null");
                     return;
                 }
-            var result = await _categoryRepository.Find(x => x.Id == category.Id);
+            var result = await _categoryRepository.Find(x => x.Id == category.Id || x.Name == category.Name);
             if(result == null){
                 _notificationService.AddError("Category NotFound");
                 return;

@@ -14451,6 +14451,11 @@
   "RootNamespace": "DesafioFornecedores.WebApp",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Category\\Details.cshtml",
+      "TargetPath": "Views\\Category\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
@@ -14468,6 +14473,11 @@
     {
       "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Category\\Create.cshtml",
+      "TargetPath": "Views\\Category\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14491,6 +14501,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Category\\Delete.cshtml",
+      "TargetPath": "Views\\Category\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Supplier\\Index.cshtml",
       "TargetPath": "Views\\Supplier\\Index.cshtml",
       "FileKind": "mvc"
@@ -14508,6 +14523,11 @@
     {
       "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Phone\\DeletePhone.cshtml",
       "TargetPath": "Views\\Phone\\DeletePhone.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jramosli\\WorkSpace\\Trilhas\\DesafioFornecedores\\DesafioFornecedores.WebApp\\Views\\Category\\Edit.cshtml",
+      "TargetPath": "Views\\Category\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {

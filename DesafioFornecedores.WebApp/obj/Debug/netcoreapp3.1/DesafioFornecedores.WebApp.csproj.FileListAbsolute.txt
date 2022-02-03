@@ -812,3 +812,7 @@ C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebA
 C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\bin\Debug\netcoreapp3.1\X.PagedList.Mvc.Core.dll
 C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Pagination\Default.cshtml.g.cs
 C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Category\Index.cshtml.g.cs
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Category\Create.cshtml.g.cs
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Category\Delete.cshtml.g.cs
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Category\Details.cshtml.g.cs
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Category\Edit.cshtml.g.cs

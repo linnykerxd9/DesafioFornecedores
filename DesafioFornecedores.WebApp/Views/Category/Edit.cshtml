@@ -1,0 +1,23 @@
+@model CategoryUpdateOrEditViewModel
+
+@{
+    ViewData["Title"] = "Edit Category";
+}
+<vc:summary></vc:summary>
+
+<form asp-action="Edit" method="post">
+    <input asp-for="Id" type="text" hidden>
+  <h3>Category's status </h3>
+      <select asp-for="Active">
+        <option value="true">Active</option>
+        <option value="false">Deactivated</option>
+      </select>
+    <br/>
+  <div class="col-4">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" type="text" class="form-control">
+    <br/>
+    <br/>
+    <button type="submit" class="btn btn-primary">Register</button>
+  </div>
+</form>

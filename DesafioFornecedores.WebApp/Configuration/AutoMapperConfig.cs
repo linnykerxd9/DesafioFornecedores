@@ -26,7 +26,11 @@ namespace DesafioFornecedores.WebApp.Configuration
             CreateMap<EmailUpdateViewModel, Email>().ReverseMap();
             CreateMap<EmailViewModel, Email>().ReverseMap();
 
-            CreateMap<Category, CategoryViewModel>();
+            CreateMap<Product, ProductViewModel>().ReverseMap();
+
+            CreateMap<CategoryCreateViewModel,Category>();
+            CreateMap<Category, CategoryViewModel>().ReverseMap();
+            CreateMap<CategoryUpdateOrEditViewModel,Category>().ReverseMap();
 
         }
     }

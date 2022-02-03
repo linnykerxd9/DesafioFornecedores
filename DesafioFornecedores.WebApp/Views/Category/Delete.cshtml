@@ -1,0 +1,22 @@
+@model CategoryUpdateOrEditViewModel
+
+@{
+    ViewData["Title"] = "Remove Category";
+}
+<vc:summary></vc:summary>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input asp-for="Id" type="text" hidden>
+  <h3>Category's status </h3>
+  <div class="col-4">
+      <input asp-for="Active" type="text" class="form-control" readonly>
+  </div>
+    <br/>
+  <div class="col-4">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" type="text" class="form-control" readonly>
+    <br/>
+    <br/>
+    <button type="submit" class="btn btn-primary" >Delete</button>
+  </div>
+</form>

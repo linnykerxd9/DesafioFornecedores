@@ -56,7 +56,8 @@ namespace DesafioFornecedores.WebApp.Controllers
         [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> DeletePhoneConfirmed(DeletePhoneViewModel phone){
-            if (phone == null) return RedirectToAction(nameof(DeletePhone));
+            if(!ModelState.IsValid) return View(nameof(DeletePhone),phone);
+
             var teste = _mapper.Map<Phone>(phone);
             await _supplierService.RemovePhone(teste);
 

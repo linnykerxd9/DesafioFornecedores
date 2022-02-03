@@ -19,8 +19,10 @@
     <div >
         <label asp-for="Ddd" class="form-label"></label>
         <input asp-for="Ddd" type="number" class="form-control">
+    @Html.ValidationMessageFor(model => Model.Ddd, "", new { @class = "text-danger" })
         <label asp-for="Number" class="form-label"></label>
         <input asp-for="Number" type="number" class="form-control">
+    @Html.ValidationMessageFor(model => Model.Number, "", new { @class = "text-danger" })
     </div>
   </div>
     <input asp-for="SupplierId" type="text" hidden>

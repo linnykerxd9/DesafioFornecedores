@@ -1,0 +1,32 @@
+@model CategoryViewModel
+
+@{
+    ViewData["Title"] = "Details Category";
+}
+
+<h2>
+    Supplier Category
+</h2>
+<br/>
+<br/>
+<br/>
+
+<dl class="row">
+  <dt class="col-sm-3">Status Category</dt>
+  <dd class="col-sm-9">
+        @if(Model.Active){
+                    <p>Active</p>
+                }else{
+                    <p>deactivated</p>
+                }
+  </dd>
+
+  <dt class="col-sm-3">Category Name</dt>
+  <dd class="col-sm-9">@Model.Name</dd>
+  <dt class="col-sm-3">Category products</dt>
+  @foreach (var item in Model.Product)
+  {
+    <dd class="col-sm-9">@item.Name</dd>
+  }
+
+</dl>
