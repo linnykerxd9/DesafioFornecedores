@@ -4,14 +4,16 @@ using DesafioFornecedores.Infra.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DesafioFornecedores.Infra.Migrations
 {
     [DbContext(typeof(ProdForneContext))]
-    partial class ProdForneContextModelSnapshot : ModelSnapshot
+    [Migration("20220203132126_atualizandoTabelaDeProdForne")]
+    partial class atualizandoTabelaDeProdForne
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

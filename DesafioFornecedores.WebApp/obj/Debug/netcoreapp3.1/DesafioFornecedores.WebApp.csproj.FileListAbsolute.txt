@@ -816,3 +816,12 @@ C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebA
 C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Category\Delete.cshtml.g.cs
 C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Category\Details.cshtml.g.cs
 C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Category\Edit.cshtml.g.cs
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.WebApp\bin\Debug\netcoreapp3.1\JetBrains.Annotations.dll
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.WebApp\bin\Debug\netcoreapp3.1\X.PagedList.dll
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.WebApp\bin\Debug\netcoreapp3.1\X.PagedList.Mvc.Core.dll
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Category\Create.cshtml.g.cs
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Category\Delete.cshtml.g.cs
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Category\Details.cshtml.g.cs
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Category\Edit.cshtml.g.cs
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Category\Index.cshtml.g.cs
+C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Pagination\Default.cshtml.g.cs
