@@ -825,3 +825,6 @@ C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFor
 C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Category\Edit.cshtml.g.cs
 C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Category\Index.cshtml.g.cs
 C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Pagination\Default.cshtml.g.cs
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Product\Index.cshtml.g.cs
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Product\Create.cshtml.g.cs
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Product\Details.cshtml.g.cs

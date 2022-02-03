@@ -17,6 +17,14 @@ namespace DesafioFornecedores.Infra.Repository
         public ProductRepository(ProdForneContext context) : base(context)
         {
         }
+        public override async Task<Product> Find(Expression<Func<Product, bool>> expression)
+        {
+           return await _dbSet.Include(x => x.Supplier)
+                              .Include(x => x.Category)
+                              .Include(x => x.Image)
+                              .Where(expression)
+                              .FirstOrDefaultAsync();
+        }
         public async Task InsertImage(Image image)
         {
             await _context.Images.AddAsync(image);

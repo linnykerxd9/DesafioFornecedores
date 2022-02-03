@@ -1,0 +1,52 @@
+@model ProductDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details Product";
+}
+
+<h2>
+    Details Product
+</h2>
+<br/>
+<br/>
+<br/>
+
+<dl class="row">
+  <dt class="col-sm-3">Status Product</dt>
+  <dd class="col-sm-9">
+        @if(Model.Active){
+                    <p>Active</p>
+                }else{
+                    <p>deactivated</p>
+                }
+  </dd>
+
+  <dt class="col-sm-3">Product Name</dt>
+  <dd class="col-sm-9">@Model.Name</dd>
+  <dt class="col-sm-3">Product BarCode</dt>
+  <dd class="col-sm-9">@Model.BarCode</dd>
+  <dt class="col-sm-3">Product QuantityStock</dt>
+  <dd class="col-sm-9">@Model.QuantityStock</dd>
+  <dt class="col-sm-3">Product PriceSales</dt>
+  <dd class="col-sm-9">@Model.PriceSales</dd>
+  <dt class="col-sm-3">Product PricePurchase</dt>
+  <dd class="col-sm-9">@Model.PricePurchase</dd>
+  <dt class="col-sm-3">Category</dt>
+  <dd class="col-sm-9">@Model.Category.Name</dd>
+  <dt class="col-sm-3">Supplier fantasy name</dt>
+  <dd class="col-sm-9">@Model.Supplier.FantasyName</dd>
+  @if(Model.Supplier.CompanyName != null) {
+    <dt class="col-sm-3">Supplier Company name</dt>
+    <dd class="col-sm-9">@Model.Supplier.CompanyName</dd>
+  }else{
+    <dt class="col-sm-3">Supplier Full name</dt>
+    <dd class="col-sm-9">@Model.Supplier.FullName</dd>
+  }
+  <dt class="col-sm-3">Images</dt>
+  @foreach (var item in Model.Images)
+  {
+    <dd class="col-sm-9"><img src="@item.ImagePath"></dd>
+  }
+  
+
+</dl>

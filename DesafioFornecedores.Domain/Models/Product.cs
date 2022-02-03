@@ -7,10 +7,10 @@ namespace DesafioFornecedores.Domain.Models
 {
     public class Product : Entity, IAggregateRoot
     {
+        public bool Active { get; private set; }
         public string Name { get; private set; }
         public string BarCode { get; private set; }
         public int QuantityStock { get; private set; }
-        public bool Active { get; private set; }
         public decimal PriceSales { get; private set; }
         public decimal PricePurchase { get; private set; }
         public Guid CategoryId { get;private set; }
@@ -57,6 +57,7 @@ namespace DesafioFornecedores.Domain.Models
         }
         public void SetImage(Image image){
             if(image == null) throw new DomainExceptions("Image is null");
+            image.SetProductId(this.Id);
            Image.Add(image);
         }
         public void SetCategoryId(Guid id){

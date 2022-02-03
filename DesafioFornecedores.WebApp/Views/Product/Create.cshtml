@@ -1,0 +1,69 @@
+@model ProductCreateViewModel
+
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<h2>
+    Create Product
+</h2>
+<br/>
+<vc:summary></vc:summary>
+<br/>
+<br/>
+
+
+<form asp-action="Create" method="post">
+
+ <div class="form-group">
+      <h3>Product status </h3>
+      <select asp-for="Active">
+        <option value="true">Active</option>
+        <option value="false">Deactivated</option>
+      </select>
+</div>
+
+<div class="form-group">
+          <label  class="control-label">Category</label>
+          <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Category"></select>
+           @Html.ValidationMessageFor(model => Model.CategoryId, "", new { @class = "text-danger" })
+</div>
+<div class="form-group">
+          <label class="control-label">Supplier</label>
+           <select asp-for="SupplierId" class="form-control" asp-items="ViewBag.Supplier"></select>
+          @Html.ValidationMessageFor(model => Model.SupplierId, "", new { @class = "text-danger" })
+</div>
+<div class="form-group">
+          <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+           @Html.ValidationMessageFor(model => Model.Name, "", new { @class = "text-danger" })
+</div>
+<div class="form-group">
+           <label asp-for="BarCode" class="control-label"></label>
+                <input asp-for="BarCode" class="form-control" />
+          @Html.ValidationMessageFor(model => Model.BarCode, "", new { @class = "text-danger" })
+</div><div class="form-group">
+            <label asp-for="QuantityStock" class="control-label"></label>
+                <input asp-for="QuantityStock" class="form-control" />
+           @Html.ValidationMessageFor(model => Model.QuantityStock, "", new { @class = "text-danger" })
+</div>
+<div class="form-group">
+          <label asp-for="PricePurchase" class="control-label"></label>
+                <input asp-for="PricePurchase" class="form-control" />
+          @Html.ValidationMessageFor(model => Model.PricePurchase, "", new { @class = "text-danger" })
+</div>
+<div class="form-group">
+          <label asp-for="PriceSales" class="control-label"></label>
+                <input asp-for="PriceSales" class="form-control" />
+          @Html.ValidationMessageFor(model => Model.PricePurchase, "", new { @class = "text-danger" })
+</div>
+<div class="form-group">
+          <label asp-for="ImageUpload.ImagePath" class="control-label"></label>
+          <input asp-for="ImageUpload.ImagePath" class="form-control" />
+          @Html.ValidationMessageFor(model => Model.ImageUpload.ImagePath, "", new { @class = "text-danger" })
+</div>
+<br/>
+<br/>
+  <button type="submit" class="btn btn-primary">Register</button>
+</form>
+

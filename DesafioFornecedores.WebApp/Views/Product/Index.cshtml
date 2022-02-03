@@ -1,0 +1,94 @@
+@model PaginationViewModel<ProductViewModel>
+
+@{
+    ViewData["Title"] = "Product";
+}
+
+<div class="text">
+    <h1 class="display-4">Products</h1>
+</div>
+<vc:summary></vc:summary>
+<div>
+    <a asp-action="Create" class="btn btn-primary">New Product</a>
+</div>
+<br/>
+
+<form asp-action="Index" method="get">
+  <div class="form-row" style="justify-content: space-between;">
+      
+    <div class="form-group col-md-2">
+    <p>Product per page</p>
+      <select class="form-control" asp-for="PageSize">
+          <option value="10">10</option>
+          <option value="50">50</option>
+          <option value="@int.MaxValue">All</option>
+      </select>
+    </div>
+    <div class="form-group col-md-3">
+    <p>Search</p>
+      <input type="text" asp-for="Query" placeholder="Search BarCode Or name">
+      <span>
+      <button type="submit" class="btn btn-secondary">Search</button>
+      </span>
+    </div>
+  </div>
+</form>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Status</th>
+      <th scope="col">Name</th>
+       <th scope="col">BarCode</th>
+      <th scope="col">QuantityStock</th>
+       <th scope="col">PriceSales</th>
+      <th scope="col">PricePurchase</th>
+      <th scope="col">Category</th>
+      <th scope="col">Supplier</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if(Model != null)
+     @foreach (var item in Model.List)
+    {
+        <tr>
+            <td>
+                @if(item.Active){
+                    <p>Active</p>
+                }else{
+                    <p>deactivated</p>
+                }
+            </td>
+            <td >
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BarCode)
+            </td>
+            <td >
+                @Html.DisplayFor(modelItem => item.QuantityStock)
+            </td>
+             <td >
+                @Html.DisplayFor(modelItem => item.PriceSales)
+            </td>
+             <td >
+                @Html.DisplayFor(modelItem => item.PricePurchase)
+            </td>
+             <td >
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+             <td >
+                  @Html.DisplayFor(modelItem => item.Supplier.FantasyName)
+            </td>
+            <input type="text" asp-for="@item.Id" readonly hidden>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-secondary">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-warning">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+  </tbody>
+</table>
+  <div style="display: flex; justify-content: center; align-items: center;">
+   <vc:pagination paged-view-model="@Model"></vc:pagination>
+</div>
