@@ -1,4 +1,7 @@
 @model PaginationViewModel<ProductViewModel>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
 @{
     ViewData["Title"] = "Product";
@@ -8,11 +11,13 @@
     <h1 class="display-4">Products</h1>
 </div>
 <vc:summary></vc:summary>
+@if (User.Identity.Name == "Admin@nttdata.com")
+{
 <div>
     <a asp-action="Create" class="btn btn-primary">New Product</a>
 </div>
+ }
 <br/>
-
 <form asp-action="Index" method="get">
   <div class="form-row" style="justify-content: space-between;">
       
@@ -81,9 +86,12 @@
             </td>
             <input type="text" asp-for="@item.Id" readonly hidden>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-secondary">Edit</a>
                 <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-warning">Details</a>
+              @if (User.Identity.Name == "Admin@nttdata.com")
+              {
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-secondary">Edit</a>
                 <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+              }
             </td>
         </tr>
     }

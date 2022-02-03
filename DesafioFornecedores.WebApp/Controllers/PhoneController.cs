@@ -21,10 +21,10 @@ namespace DesafioFornecedores.WebApp.Controllers
             _supplierService = supplierService;
         }
 
-        [AllowAnonymous]
+       [Authorize(Policy = "AdminOnly")]
         [HttpGet]
         public async Task<IActionResult> InsertPhone(Guid id){
-            if (id == null)
+            if (id == Guid.Empty)
                 return RedirectToAction(nameof(Index));
             Supplier supplier = await _supplierService.Find(x => x.Id == id);
             if(supplier == null){
@@ -35,7 +35,8 @@ namespace DesafioFornecedores.WebApp.Controllers
                 Name = supplier.FantasyName
             }));
         }
-        [AllowAnonymous]
+        
+       [Authorize(Policy = "AdminOnly")]
         [HttpPost]
         public async Task<IActionResult> InsertPhone(InsertPhoneViewModel viewModel){
             if(!ModelState.IsValid) return View(viewModel);
@@ -46,14 +47,16 @@ namespace DesafioFornecedores.WebApp.Controllers
 
             return RedirectToAction("Index","Supplier");
         }
-        [AllowAnonymous]
+        
+       [Authorize(Policy = "AdminOnly")]
         [HttpGet]
         public  IActionResult DeletePhone(DeletePhoneViewModel Identi){
             if (Identi == null) return RedirectToAction(nameof(Index));
             return View(Identi);
         }
 
-        [AllowAnonymous]
+        
+       [Authorize(Policy = "AdminOnly")]
         [HttpPost]
         public async Task<IActionResult> DeletePhoneConfirmed(DeletePhoneViewModel phone){
             if(!ModelState.IsValid) return View(nameof(DeletePhone),phone);

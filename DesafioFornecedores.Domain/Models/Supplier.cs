@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using DesafioFornecedores.Domain.Tools;
 using DesafioFornecedores.Domain.Interface.Repository;
 using System;
+using FluentValidation;
 
 namespace DesafioFornecedores.Domain.Models
 {
@@ -13,7 +14,7 @@ namespace DesafioFornecedores.Domain.Models
         public Email Email { get;private set; }
         public Address Address { get;private set; }
         public ICollection<Phone> Phone { get;private set; } = new List<Phone>();
-        public ICollection<Product> Products {get; set;} = new List<Product>();
+        public ICollection<Product> Product {get; set;} = new List<Product>();
 
         public Supplier()
         {
@@ -26,6 +27,7 @@ namespace DesafioFornecedores.Domain.Models
             SetEmail(email);
             SetPhone(phone);
             SetFantasyName(fantasyName);
+            isValid();
         }
         public void SetActive(bool status) {
             Active = status;
@@ -54,6 +56,26 @@ namespace DesafioFornecedores.Domain.Models
             throw new DomainExceptions($"Fantasy name cannot be empty");
 
             FantasyName = fantasyName;
+        }
+    public override bool isValid(){
+            var result = new SupplierValidator().Validate(this);
+            return result.IsValid;
+        }
+    }
+
+    public class SupplierValidator : AbstractValidator<Supplier>
+    {
+        public SupplierValidator()
+        {
+            RuleFor(x => x.Active)
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("Active is null");
+              RuleFor(x => x.FantasyName)
+                    .MaximumLength(256)
+                    .WithMessage("the Fantasy Name field for can have up to 256 characters").NotEmpty()
+                    .NotNull()
+                    .WithMessage("Fantasy Name is null");
         }
     }
 }

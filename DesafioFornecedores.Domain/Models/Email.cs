@@ -1,5 +1,6 @@
 using System;
 using DesafioFornecedores.Domain.Tools;
+using FluentValidation;
 
 namespace DesafioFornecedores.Domain.Models
 {
@@ -13,6 +14,7 @@ namespace DesafioFornecedores.Domain.Models
         {
             SetEmail(emailAddress);
             SetSupplierId(supplierId);
+            isValid();
         }
         public void SetEmail(string emailAddress)
         {
@@ -24,6 +26,18 @@ namespace DesafioFornecedores.Domain.Models
             if(string.IsNullOrEmpty(id.ToString())) throw new DomainExceptions("Id is null or empty");
 
             SupplierId = id;
+        }
+    public override bool isValid(){
+            var result = new EmailValidator().Validate(this);
+            return result.IsValid;
+        }
+    }
+
+    public class EmailValidator : AbstractValidator<Email>
+    {
+        public EmailValidator()
+        {
+            RuleFor(x => x.EmailAddress.IsValidEmail()).Equals(true);
         }
     }
 }

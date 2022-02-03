@@ -22,6 +22,7 @@ namespace DesafioFornecedores.Infra.Repository
            return await _dbSet.Include(x => x.Supplier)
                               .Include(x => x.Category)
                               .Include(x => x.Image)
+                              .AsNoTracking()
                               .Where(expression)
                               .FirstOrDefaultAsync();
         }

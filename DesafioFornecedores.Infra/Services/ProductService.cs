@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using DesafioFornecedores.Domain.Interface.Repository;
 using DesafioFornecedores.Domain.Interface.Services;
 using DesafioFornecedores.Domain.Models;
-using DesafioFornecedores.Infra.Models;
 
 namespace DesafioFornecedores.Infra.Services
 {
@@ -64,7 +63,6 @@ namespace DesafioFornecedores.Infra.Services
         {
             if(product == null ||
               product.Id == Guid.Empty){
-
                   if(product == null)
                         _notificationService.AddError("Product object is null");
                   if(product.Id == Guid.Empty)
@@ -79,11 +77,7 @@ namespace DesafioFornecedores.Infra.Services
         public async Task UpdateProduct(Product product)
         {
             if(!ProductIsValid(product)) return;
-            var categoryExists = await _categoryService.Find(x => x.Id == product.CategoryId);
-            if(categoryExists == null) {
-                _notificationService.AddError("Category not exists");
-                    return;
-            }
+
             var productUpdate = await _productsRepository.Find(x => x.Id == product.Id);
             if(productUpdate == null) {
                 _notificationService.AddError("Product not exists");
@@ -91,13 +85,12 @@ namespace DesafioFornecedores.Infra.Services
             }
             productUpdate.SetActive(product.Active);
             productUpdate.SetBarCode(product.BarCode);
-            productUpdate.SetCategoryId(product.CategoryId);
             productUpdate.SetName(product.Name);
             productUpdate.SetPricePurchase(product.PricePurchase);
             productUpdate.SetPriceSales(product.PriceSales);
             productUpdate.SetQuantityStock(product.QuantityStock);
 
-            await _productsRepository.Update(product);
+            await _productsRepository.Update(productUpdate);
             await _productsRepository.SaveChanges();
         }
         public async Task InsertImage(Image image)
@@ -139,14 +132,13 @@ namespace DesafioFornecedores.Infra.Services
                     return;
                 }
 
-            await _productsRepository.InsertImage(image);
+            await _productsRepository.RemoveImage(image);
             await _productsRepository.SaveChanges();
         }
 
         private bool ProductIsValid(Product product){
              if(product == null ||
-              product.SupplierId == Guid.Empty ||
-              product.CategoryId == Guid.Empty ||
+             product.Id == Guid.Empty ||
               product.PricePurchase < 0 ||
               product.PriceSales < 0 ||
               product.BarCode == null ||
@@ -154,10 +146,8 @@ namespace DesafioFornecedores.Infra.Services
               product.QuantityStock < 0){
                   if(product == null)
                         _notificationService.AddError("Product object is null");
-                  if(product.SupplierId == Guid.Empty)
-                        _notificationService.AddError("Product  is not connected to any supplier");
-                  if(product.CategoryId == Guid.Empty)
-                        _notificationService.AddError("Product  is not connected to any Category");
+                  if(product.Id == Guid.Empty)
+                        _notificationService.AddError("Product Id is Null");
                   if(product.PricePurchase < 0)
                         _notificationService.AddError("Price purchase is negative");
                   if(product.PriceSales < 0)

@@ -45,6 +45,8 @@ namespace DesafioFornecedores.Domain.Models
         {
             return !(a == b);
         }
-
+        public virtual bool isValid(){
+            throw new NotImplementedException();
+        }
     }
 }

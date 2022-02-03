@@ -1,0 +1,30 @@
+@model ImageInsertOrDeleteViewModel
+
+@{
+    ViewData["Title"] = "Insert Image";
+}
+
+<h2>
+    Register Image for @Model.Name
+</h2>
+<br/>
+<vc:summary></vc:summary>
+<br/>
+<br/>
+
+
+<form asp-action="InsertImage" method="post">
+
+  <div class="row" style="gap: 10px;">
+    <div >
+        <label asp-for="ImagePath" class="form-label"></label>
+        <input asp-for="ImagePath" type="text" class="form-control">
+    @Html.ValidationMessageFor(model => Model.ImagePath, "", new { @class = "text-danger" })
+    </div>
+  </div>
+    <input asp-for="ProductId" type="text" hidden>
+<br/>
+<br/>
+  <button type="submit" class="btn btn-primary">Register</button>
+</form>
+

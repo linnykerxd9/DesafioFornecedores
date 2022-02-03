@@ -1,5 +1,6 @@
 using System;
 using DesafioFornecedores.Domain.Tools;
+using FluentValidation;
 
 namespace DesafioFornecedores.Domain.Models
 {
@@ -28,6 +29,7 @@ namespace DesafioFornecedores.Domain.Models
             SetCity(city);
             SetState(state);
             SetSupplierId(supplierId);
+            isValid();
         }
 
         public void SetZipCode(string zipcode)
@@ -79,6 +81,57 @@ namespace DesafioFornecedores.Domain.Models
         private void StringEmptyOrNull(string text,string message){
              if(string.IsNullOrEmpty(text))
              throw new DomainExceptions($"{message} cannot be empty");
+        }
+        public override bool isValid(){
+            var result = new AddressValidator().Validate(this);
+            return result.IsValid;
+        }
+    }
+
+    public class AddressValidator : AbstractValidator<Address>
+    {
+        public AddressValidator()
+        {
+            RuleFor(x => x.City)
+                    .MaximumLength(256)
+                    .WithMessage("the city field for can have up to 256 characters")
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("City is null");
+            RuleFor(x => x.Street)
+                    .MaximumLength(256)
+                    .WithMessage("the street field for can have up to 256 characters")
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("street is null");
+            RuleFor(x => x.State)
+                    .MaximumLength(256)
+                    .NotEmpty()
+                    .NotNull();
+            RuleFor(x => x.Neighborhood)
+                    .MaximumLength(256)
+                    .WithMessage("the Neighborhood field for can have up to 256 characters")
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("Neighborhood is null");
+            RuleFor(x => x.Number)
+                    .Length(10)
+                    .WithMessage("the Neighborhood field for can have up to 10 characters")
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("Number is null");
+            RuleFor(x => x.ZipCode)
+                    .Length(8)
+                    .WithMessage("the field needs to be 8 characters long")
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("ZipCode is null");
+            RuleFor(x => x.Complement)
+                    .MaximumLength(256)
+                    .WithMessage("the Complement field for can have up to 256 characters");
+            RuleFor(x => x.Reference)
+                    .MaximumLength(256)
+                    .WithMessage("the Reference field for can have up to 256 characters");
         }
     }
 }

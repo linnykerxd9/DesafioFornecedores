@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using DesafioFornecedores.Domain.Tools;
+using FluentValidation;
 
 namespace DesafioFornecedores.Domain.Models
 {
@@ -21,6 +22,7 @@ namespace DesafioFornecedores.Domain.Models
         {
             SetCompanyName(companyName);
             SetCnpj(cnpj);
+            isValid();
         }
 
 
@@ -48,5 +50,33 @@ namespace DesafioFornecedores.Domain.Models
              throw new DomainExceptions($"{message} cannot be empty");
         }
 
+    public override bool isValid(){
+            var result = new SupplierValidator().Validate(this);
+            return result.IsValid;
+        }
+    }
+
+    public class SupplierJuridicalValidator : AbstractValidator<SupplierJuridical>
+    {
+        public SupplierJuridicalValidator()
+        {
+            RuleFor(x => x.Cnpj)
+                    .Length(14)
+                    .WithMessage("the field needs to be 14 characters long")
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("Active is null");
+              RuleFor(x => x.CompanyName)
+                    .MaximumLength(256)
+                    .WithMessage("the Company Name field for can have up to 256 characters")
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("Name is null");
+
+                RuleFor(x => x.OpenDate)
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("Name is null");
+        }
     }
 }

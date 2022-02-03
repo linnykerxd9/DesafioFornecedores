@@ -14,8 +14,8 @@ namespace DesafioFornecedores.WebApp.Configuration
             CreateMap<CreateSupplierViewModel, SupplierPhysical>().ReverseMap();
             CreateMap<CreateSupplierViewModel, SupplierJuridical>().ReverseMap();
             CreateMap<DeleteSupplierViewModel,Supplier>().ReverseMap();
-            CreateMap<SupplierPhysical, SupplierListViewModel>();
-            CreateMap<SupplierJuridical, SupplierListViewModel>();
+            CreateMap<SupplierPhysical, SupplierListViewModel>().ReverseMap();
+            CreateMap<SupplierJuridical, SupplierListViewModel>().ReverseMap();
             
             CreateMap<InsertPhoneViewModel,Phone>().ReverseMap();
             CreateMap<PhoneViewModel, Phone>().ReverseMap();
@@ -29,8 +29,12 @@ namespace DesafioFornecedores.WebApp.Configuration
             CreateMap<Product, ProductViewModel>().ReverseMap();
             CreateMap<Product, ProductCreateViewModel>().ReverseMap();
             CreateMap<Product, ProductDetailsViewModel>().ReverseMap();
+            CreateMap<Product, ProductEditViewModel>().ReverseMap();
+            CreateMap<Product, ProductDeleteViewModel>().ReverseMap();
 
             CreateMap<Image, ImageViewModel>().ReverseMap();
+            CreateMap<Image, ImageRemoveViewModel>().ReverseMap();
+            CreateMap<Image, ImageInsertOrDeleteViewModel>().ReverseMap();
 
             CreateMap<CategoryCreateViewModel,Category>();
             CreateMap<Category, CategoryViewModel>().ReverseMap();

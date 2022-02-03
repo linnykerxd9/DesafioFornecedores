@@ -19,7 +19,7 @@ namespace DesafioFornecedores.Infra.Repository
 
          public override async Task<Category> Find(Expression<Func<Category, bool>> expression)
         {
-           return await _dbSet.AsNoTracking().Include(x => x.Product)
+           return await _dbSet.AsNoTracking().Include(x => x.Product).ThenInclude(x => x.Image)
                                 .Where(expression).FirstOrDefaultAsync();
         }
         public async Task<IEnumerable<Category>> ToList()

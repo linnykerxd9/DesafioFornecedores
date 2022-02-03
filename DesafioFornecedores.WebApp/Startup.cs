@@ -63,7 +63,9 @@ namespace DesafioFornecedores.WebApp
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ISupplierService, SupplierService>();
             services.AddScoped<INotificationService, NotificationService>();
-
+            services.AddAuthorization(options => {
+                options.AddPolicy("AdminOnly", policy => policy.RequireUserName("Admin@nttdata.com"));
+            }); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

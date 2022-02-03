@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using DesafioFornecedores.Domain.Interface.Repository;
 using DesafioFornecedores.Domain.Tools;
+using FluentValidation;
 
 namespace DesafioFornecedores.Domain.Models
 {
@@ -30,6 +31,7 @@ namespace DesafioFornecedores.Domain.Models
             SetCategoryId(categoryId);
             SetImage(images);
             SetActive(active);
+            isValid();
         }
         public void SetName(string name){
             StringEmptyOrNull(name,"Product Name");
@@ -75,5 +77,43 @@ namespace DesafioFornecedores.Domain.Models
              throw new DomainExceptions($"{message} cannot be empty");
         }
       
+    public override bool isValid(){
+            var result = new ProductValidator().Validate(this);
+            return result.IsValid;
+        }
+    }
+
+    public class ProductValidator : AbstractValidator<Product>
+    {
+        public ProductValidator()
+        {
+            RuleFor(x => x.Active)
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("Active is null");
+              RuleFor(x => x.Name)
+                    .MaximumLength(256)
+                    .WithMessage("the Name field for can have up to 256 characters").NotEmpty()
+                    .NotNull()
+                    .WithMessage("Name is null");
+              RuleFor(x => x.BarCode)
+                    .MaximumLength(100)
+                    .WithMessage("the Name field for can have up to 100 characters")
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("BarCode is null");
+              RuleFor(x => x.QuantityStock)
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("QuantityStock is null");
+              RuleFor(x => x.PricePurchase)
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("PricePurchase is null");
+              RuleFor(x => x.PriceSales)
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("PriceSales is null");
+        }
     }
 }

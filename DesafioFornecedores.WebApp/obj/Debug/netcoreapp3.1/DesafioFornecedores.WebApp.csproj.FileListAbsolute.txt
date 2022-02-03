@@ -828,3 +828,12 @@ C:\Users\Viviane\Desktop\Nova pasta\NTT DATA\Trilha\Desafio 3 camadas\DesafioFor
 C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Product\Index.cshtml.g.cs
 C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Product\Create.cshtml.g.cs
 C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Product\Details.cshtml.g.cs
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Product\Edit.cshtml.g.cs
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Product\Delete.cshtml.g.cs
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Product\DeleteImage.cshtml.g.cs
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Product\InsertImage.cshtml.g.cs
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\bin\Debug\netcoreapp3.1\ClosedXML.dll
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\bin\Debug\netcoreapp3.1\DocumentFormat.OpenXml.dll
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\bin\Debug\netcoreapp3.1\ExcelNumberFormat.dll
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\bin\Debug\netcoreapp3.1\System.IO.Packaging.dll
+C:\Users\jramosli\WorkSpace\Trilhas\DesafioFornecedores\DesafioFornecedores.WebApp\bin\Debug\netcoreapp3.1\FluentValidation.dll

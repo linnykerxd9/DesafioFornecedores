@@ -27,6 +27,7 @@ namespace DesafioFornecedores.WebApp.Controllers
             _supplierService = supplierService;
         }
 
+        
         [AllowAnonymous]
         [HttpGet]
        public async Task<IActionResult> Index(int pageSize = 10,int pageIndex = 1, string query = null){
@@ -46,7 +47,8 @@ namespace DesafioFornecedores.WebApp.Controllers
             });
         }
         
-        [AllowAnonymous]
+        
+       [Authorize(Policy = "AdminOnly")]
         [HttpGet]
        public async Task<IActionResult> Create(){
             var categories = await _categoryService.ToList();
@@ -55,18 +57,32 @@ namespace DesafioFornecedores.WebApp.Controllers
             ViewBag.Supplier  = new SelectList(suppliers,"Id","FantasyName");
            return View();
         }
-        [AllowAnonymous]
+        
+       [Authorize(Policy = "AdminOnly")]
         [HttpPost]
        public async Task<IActionResult> Create(ProductCreateViewModel viewModel){
-           if(!ModelState.IsValid) return View(viewModel);
+           if(!ModelState.IsValid){
+                var categories = await _categoryService.ToList();
+                var suppliers = await _supplierService.ToList();
+                ViewBag.Category  = new SelectList(categories,"Id","Name");
+                ViewBag.Supplier  = new SelectList(suppliers,"Id","FantasyName");
+                return View(viewModel);
+           }
             viewModel.Image.Add(viewModel.ImageUpload);
            var product =  _mapper.Map<Product>(viewModel);
            await _productService.AddProduct(product);
 
-            if(OperationValid()) return View(viewModel);
+            if(OperationValid()){
+                 var categories = await _categoryService.ToList();
+                var suppliers = await _supplierService.ToList();
+                ViewBag.Category  = new SelectList(categories,"Id","Name");
+                ViewBag.Supplier  = new SelectList(suppliers,"Id","FantasyName");
+                return View(viewModel);
+            }
 
            return RedirectToAction(nameof(Index));
         }
+        
         [AllowAnonymous]
         [HttpGet]
        public async Task<IActionResult> Details(Guid id){
@@ -78,55 +94,106 @@ namespace DesafioFornecedores.WebApp.Controllers
                _notificationService.AddError("product not found");
                return RedirectToAction(nameof(Index));
            }
-
            return View(_mapper.Map<ProductDetailsViewModel>(product));
         }
-        /*[AllowAnonymous]
+        
+       [Authorize(Policy = "AdminOnly")]
         [HttpGet]
-       public async  Task<IActionResult> Edit(string Name){
-           if(Name == null) return RedirectToAction(nameof(Index));
+       public async  Task<IActionResult> Edit(Guid id){
+           if(id == Guid.Empty) return RedirectToAction(nameof(Index));
 
-           var category = await _.Find(x => x.Name == Name);
-           if(category == null){
-               _notificationService.AddError("Category not found");
+           var product = await _productService.Find(x => x.Id == id);
+           if(product == null){
+               _notificationService.AddError("product not found");
                return RedirectToAction(nameof(Index));
            }
-           return View(_mapper.Map<CategoryUpdateOrEditViewModel>(category));
+           return View(_mapper.Map<ProductEditViewModel>(product));
         }
-        [AllowAnonymous]
+        
+       [Authorize(Policy = "AdminOnly")]
         [HttpPost]
-       public async Task<IActionResult> Edit(CategoryUpdateOrEditViewModel viewModel){
+       public async Task<IActionResult> Edit(ProductEditViewModel viewModel){
            if(!ModelState.IsValid) return View(viewModel);
 
-            await _categoryService.UpdateCategory(_mapper.Map<Category>(viewModel));
+            await _productService.UpdateProduct(_mapper.Map<Product>(viewModel));
            if(OperationValid()) return View(viewModel);
 
            return RedirectToAction(nameof(Index));
         }
-        [AllowAnonymous]
+        
+       [Authorize(Policy = "AdminOnly")]
         [HttpGet]
-       public async Task<IActionResult> Delete(string Name){
-          if(Name == null) RedirectToAction(nameof(Index));
+       public async Task<IActionResult> Delete(Guid id){
+          if(id == Guid.Empty) RedirectToAction(nameof(Index));
 
-           var category = await _categoryService.Find(x => x.Name == Name);
+           var product = await _productService.Find(x => x.Id == id);
            
-          if(category == null){
-               _notificationService.AddError("Category not found");
+          if(product == null){
+               _notificationService.AddError("product not found");
                return RedirectToAction(nameof(Index));
            }
 
-           return View(_mapper.Map<CategoryUpdateOrEditViewModel>(category));
+           return View(_mapper.Map<ProductDeleteViewModel>(product));
         }
-        [AllowAnonymous]
+        
+       [Authorize(Policy = "AdminOnly")]
         [HttpPost]
-       public async Task<IActionResult> DeleteConfirmed(CategoryUpdateOrEditViewModel viewModel){
+       public async Task<IActionResult> DeleteConfirmed(ProductDeleteViewModel viewModel){
             if(!ModelState.IsValid) return View(nameof(Delete),viewModel);
 
-            await _categoryService.RemoveCategory(_mapper.Map<Category>(viewModel));
+            await _productService.RemoveProduct(_mapper.Map<Product>(viewModel));
 
             if(OperationValid()) return View(nameof(Delete),viewModel);
 
-            return RedirectToAction("Index","Category");
-        }*/
+            return RedirectToAction("Index","Product");
+        }
+        
+       [Authorize(Policy = "AdminOnly")]
+        [HttpGet]
+        public async Task<IActionResult> InsertImage(Guid idenfitication)
+        {
+            if (idenfitication == Guid.Empty) return RedirectToAction(nameof(Index));
+            
+            Product product = await _productService.Find(x => x.Id == idenfitication);
+            if(product == null){
+                return RedirectToAction(nameof(Index));
+            }
+            return View(new ImageInsertOrDeleteViewModel(){
+                ProductId = product.Id,
+                Name = product.Name
+            });
+        }
+        
+       [Authorize(Policy = "AdminOnly")]
+        [HttpPost]
+        public async Task<IActionResult> InsertImage(ImageInsertOrDeleteViewModel viewModel){
+            if(!ModelState.IsValid) return View(viewModel);
+            var image = _mapper.Map<Image>(viewModel);
+            await _productService.InsertImage(image);
+
+            if(OperationValid()) return View(viewModel);
+
+            return RedirectToAction("Index","Product");
+        }
+        
+       [Authorize(Policy = "AdminOnly")]
+        [HttpGet]
+        public  IActionResult DeleteImage(ImageInsertOrDeleteViewModel Identi){
+            if (Identi == null) return RedirectToAction(nameof(Index));
+            return View(Identi);
+        }
+
+        
+       [Authorize(Policy = "AdminOnly")]
+        [HttpPost]
+        public async Task<IActionResult> DeletePhoneConfirmed(ImageInsertOrDeleteViewModel image){
+            if(!ModelState.IsValid) return View(nameof(DeleteImage),image);
+
+            await _productService.RemoveImage(_mapper.Map<Image>(image));
+
+            if(OperationValid()) return View(nameof(DeleteImage),image);
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

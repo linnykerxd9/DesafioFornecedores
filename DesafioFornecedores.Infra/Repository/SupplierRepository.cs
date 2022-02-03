@@ -27,12 +27,14 @@ namespace DesafioFornecedores.Infra.Repository
                 listPagination = await _dbSet.Include(x => x.Address)
                                              .Include(x => x.Phone)
                                              .Include(x => x.Email)
+                                             .Include(x => x.Product)
                                              .AsNoTracking()
                                              .ToPagedListAsync(page,size);
             }else{
                 listPagination = await _dbSet.Include(x => x.Address)
                                              .Include(x => x.Phone)
                                              .Include(x => x.Email)
+                                             .Include(x => x.Product)
                                              .Where(expression).AsNoTracking()
                                              .ToPagedListAsync(page,size);
             }
@@ -77,6 +79,8 @@ namespace DesafioFornecedores.Infra.Repository
             return await _dbSet.Include(x => x.Address)
                                 .Include(x => x.Phone)
                                 .Include(x => x.Email)
+                                .Include(x => x.Product)
+                                .ThenInclude(x => x.Category)
                                 .ToListAsync();
         }
         
@@ -85,6 +89,7 @@ namespace DesafioFornecedores.Infra.Repository
            return await _context.SupplierJuridical.Include(x => x.Address)
                                              .Include(x => x.Phone)
                                              .Include(x => x.Email)
+                                             .Include(x => x.Product)
                                              .Where(expression).FirstOrDefaultAsync();
         }
 
@@ -93,6 +98,7 @@ namespace DesafioFornecedores.Infra.Repository
            return await _context.SupplierPhysical.Include(x => x.Address)
                                              .Include(x => x.Phone)
                                              .Include(x => x.Email)
+                                             .Include(x => x.Product)
                                              .Where(expression).FirstOrDefaultAsync();
         }
         public override async Task<Supplier> Find(Expression<Func<Supplier, bool>> expression)
@@ -100,6 +106,7 @@ namespace DesafioFornecedores.Infra.Repository
            return await _dbSet.Include(x => x.Address)
                                 .Include(x => x.Phone)
                                 .Include(x => x.Email)
+                                .Include(x => x.Product).ThenInclude(x => x.Image)
                                 .Where(expression).FirstOrDefaultAsync();
         }
     }

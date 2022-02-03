@@ -43,10 +43,12 @@
     <dd class="col-sm-9">@Model.Supplier.FullName</dd>
   }
   <dt class="col-sm-3">Images</dt>
-  @foreach (var item in Model.Images)
-  {
-    <dd class="col-sm-9"><img src="@item.ImagePath"></dd>
-  }
+    <dd class="col-sm-9">
+      @foreach (var item in Model.Image)
+      {
+          <img width="253px" src="@item.ImagePath">
+      }
+    </dd>
   
 
 </dl>

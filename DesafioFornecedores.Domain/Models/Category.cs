@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using DesafioFornecedores.Domain.Interface.Repository;
 using DesafioFornecedores.Domain.Tools;
+using FluentValidation;
 
 namespace DesafioFornecedores.Domain.Models
 {
@@ -14,6 +15,7 @@ namespace DesafioFornecedores.Domain.Models
         {
             SetActive(active);
             SetName(name);
+            isValid();
         }
         public void SetName(string name){
             if(string.IsNullOrEmpty(name))
@@ -27,5 +29,23 @@ namespace DesafioFornecedores.Domain.Models
         public void SetActive(bool status) {
             Active = status;
         }
+          public override bool isValid(){
+            var result = new CategoryValidator().Validate(this);
+            return result.IsValid;
+        }
     }
+
+    public class CategoryValidator : AbstractValidator<Category>
+    {
+        public CategoryValidator()
+        {
+            RuleFor(x => x.Name)
+                    .MaximumLength(100)
+                    .WithMessage("the Name field for can have up to 100 characters")
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("Name is null");
+        }
+    }
+    
 }

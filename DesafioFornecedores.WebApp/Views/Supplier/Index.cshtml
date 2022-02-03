@@ -1,4 +1,7 @@
 @model PaginationViewModel<SupplierListViewModel>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
 @{
     ViewData["Title"] = "Supplier";
@@ -8,10 +11,13 @@
     <h1 class="display-4">Supplier</h1>
 </div>
 <vc:summary></vc:summary>
+@if (User.Identity.Name == "Admin@nttdata.com")
+{
 <div>
     <a asp-action="CreatePhysical" asp-controller="Supplier" class="btn btn-primary">New Supplier Physical</a>
     <a asp-action="CreateJuridical"  asp-controller="Supplier" class="btn btn-primary">New Supplier Juridical</a>
 </div>
+}
 <br/>
 
 <form asp-action="Index" method="get">
@@ -88,6 +94,8 @@
                 @Html.ActionLink("Details", "Details", new { identification =item.Cpf != null ? item.Cpf : item.Cnpj},
                                                        new { @class = "btn btn-primary" })
             </td>
+            @if (User.Identity.Name == "Admin@nttdata.com")
+            {
             <td>
                 @Html.ActionLink("Edit", "Edit", new { identification =item.Cpf != null ? item.Cpf : item.Cnpj},
                                                  new { @class = "btn btn-warning" })
@@ -96,6 +104,7 @@
                 @Html.ActionLink("Delete", "Delete", new { identification =item.Cpf != null ? item.Cpf : item.Cnpj },
                                                      new { @class = "btn btn-danger" })
             </td>
+            }
         </tr>
     }
   </tbody>

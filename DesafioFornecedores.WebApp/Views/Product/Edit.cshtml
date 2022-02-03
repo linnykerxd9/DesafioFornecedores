@@ -1,0 +1,84 @@
+@model ProductEditViewModel
+
+@{
+    ViewData["Title"] = "Edit Product";
+}
+<vc:summary></vc:summary>
+
+<form asp-action="Edit" method="post">
+  <h3>Product's status </h3>
+      <select asp-for="Active">
+        <option value="true">Active</option>
+        <option value="false">Deactivated</option>
+      </select>
+    <br/>
+  <div class="mb-3">
+        <label asp-for="BarCode" class="form-label"></label>
+        <input asp-for="BarCode" type="text" class="form-control">
+           @Html.ValidationMessageFor(model => Model.BarCode, "", new { @class = "text-danger" })
+  </div>
+  <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" type="text" class="form-control">
+           @Html.ValidationMessageFor(model => Model.Name, "", new { @class = "text-danger" })
+
+  </div> 
+   <div class="mb-3">
+        <label asp-for="QuantityStock" class="form-label"></label>
+        <input asp-for="QuantityStock" type="number" class="form-control">    
+           @Html.ValidationMessageFor(model => Model.QuantityStock, "", new { @class = "text-danger" })
+
+
+  </div>
+  <div class="mb-3">
+    <label asp-for="PricePurchase" class="form-label"></label>
+    <input asp-for="PricePurchase" type="text" class="form-control">
+           @Html.ValidationMessageFor(model => Model.PricePurchase, "", new { @class = "text-danger" })
+
+  </div>
+  <div class="mb-3">
+    <label asp-for="PriceSales" class="form-label"></label>
+    <input asp-for="PriceSales" type="text" class="form-control">
+           @Html.ValidationMessageFor(model => Model.PriceSales, "", new { @class = "text-danger" })
+
+  </div>
+  <div class="mb-3">
+    <label asp-for="Category.Name" class="form-label"></label>
+    <input asp-for="Category.Name" type="text" class="form-control" readonly disabled>
+  </div>
+  @if(Model.Supplier.CompanyName != null){
+
+   <div class="mb-3">
+    <label asp-for="Supplier.CompanyName" class="form-label"></label>
+    <input asp-for="Supplier.CompanyName" type="text" class="form-control" readonly disabled>
+  </div>
+  }else
+  {
+    <div class="mb-3">
+      <label asp-for="Supplier.FullName" class="form-label"></label>
+      <input asp-for="Supplier.FullName" type="text" class="form-control" readonly disabled>
+    </div>
+  }
+  <div class="row" style="gap: 10px;">
+@foreach (var item in Model.Image)
+{
+  <div>
+      <input type="text" asp-for="@item.Id" hidden readonly>
+      <img width="150" src="@item.ImagePath">
+  </div>
+          @Html.ActionLink("Delete Image", "DeleteImage", new ImageInsertOrDeleteViewModel
+                                                                  { Id = item.Id,
+                                                                    ImagePath = item.ImagePath,
+                                                                    ProductId = Model.Id,
+                                                                    Name = Model.Name
+                                                                  })
+}
+    @if (Model.Image.Count < 5)
+    {
+      <div>
+          @Html.ActionLink("Insert Image", "InsertImage", new { idenfitication = Model.Id})
+      </div>
+    }
+  </div>
+  <button type="submit" class="btn btn-primary">Edit</button>
+</form>

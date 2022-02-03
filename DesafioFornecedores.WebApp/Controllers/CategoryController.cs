@@ -38,12 +38,12 @@ namespace DesafioFornecedores.WebApp.Controllers
                 TotalResult = result.TotalResult
             });
         }
-        [AllowAnonymous]
         [HttpGet]
+       [Authorize(Policy = "AdminOnly")]
        public  IActionResult Create(){
            return View();
         }
-        [AllowAnonymous]
+       [Authorize(Policy = "AdminOnly")]
         [HttpPost]
        public async Task<IActionResult> Create(CategoryCreateViewModel viewModel){
            if(!ModelState.IsValid) return View(viewModel);
@@ -55,7 +55,7 @@ namespace DesafioFornecedores.WebApp.Controllers
 
            return RedirectToAction(nameof(Index));
         }
-         [AllowAnonymous]
+       [Authorize(Policy = "AdminOnly")]
         [HttpGet]
        public async  Task<IActionResult> Edit(string Name){
            if(Name == null) return RedirectToAction(nameof(Index));
@@ -67,7 +67,7 @@ namespace DesafioFornecedores.WebApp.Controllers
            }
            return View(_mapper.Map<CategoryUpdateOrEditViewModel>(category));
         }
-        [AllowAnonymous]
+       [Authorize(Policy = "AdminOnly")]
         [HttpPost]
        public async Task<IActionResult> Edit(CategoryUpdateOrEditViewModel viewModel){
            if(!ModelState.IsValid) return View(viewModel);
@@ -91,7 +91,7 @@ namespace DesafioFornecedores.WebApp.Controllers
 
            return View(_mapper.Map<CategoryViewModel>(category));
         }
-        [AllowAnonymous]
+       [Authorize(Policy = "AdminOnly")]
         [HttpGet]
        public async Task<IActionResult> Delete(string Name){
           if(Name == null) RedirectToAction(nameof(Index));
@@ -105,7 +105,7 @@ namespace DesafioFornecedores.WebApp.Controllers
 
            return View(_mapper.Map<CategoryUpdateOrEditViewModel>(category));
         }
-        [AllowAnonymous]
+       [Authorize(Policy = "AdminOnly")]
         [HttpPost]
        public async Task<IActionResult> DeleteConfirmed(CategoryUpdateOrEditViewModel viewModel){
             if(!ModelState.IsValid) return View(nameof(Delete),viewModel);

@@ -5,6 +5,11 @@
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
+@if (User.Identity.Name == "Admin@nttdata.com"){
+    <li class="nav-item">
+        <a asp-controller="Report" asp-action="WriteDataToExcel"  class="btn btn-primary">Gerar Relatorio</a>
+    </li>
+    }
     <li class="nav-item">
         <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
     </li>

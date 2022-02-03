@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Threading.Tasks;
 using AutoMapper;
 using DesafioFornecedores.Domain.Interface.Services;
@@ -23,6 +24,7 @@ namespace DesafioFornecedores.WebApp.Controllers
             _supplierService = supplierService;
         }
 
+        
         [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> Index(int pageSize = 10,int pageIndex = 1, string query = null){
@@ -43,12 +45,14 @@ namespace DesafioFornecedores.WebApp.Controllers
             });
         }
 
-        [AllowAnonymous]
+        
+       [Authorize(Policy = "AdminOnly")]
         [HttpGet]
         public IActionResult CreateJuridical(){
             return View();
         }
-        [AllowAnonymous]
+        
+       [Authorize(Policy = "AdminOnly")]
         [HttpPost]
         public async Task<IActionResult> CreateJuridical(CreateSupplierViewModel viewModel){
             if(!ModelState.IsValid) return View(viewModel);
@@ -61,12 +65,14 @@ namespace DesafioFornecedores.WebApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [AllowAnonymous]
+        
+       [Authorize(Policy = "AdminOnly")]
         [HttpGet]
         public IActionResult CreatePhysical(){
             return View();
         }
-        [AllowAnonymous]
+        
+       [Authorize(Policy = "AdminOnly")]
         [HttpPost]
         public async Task<IActionResult> CreatePhysical(CreateSupplierViewModel viewModel){
             if(!ModelState.IsValid) return View(viewModel);
@@ -79,6 +85,7 @@ namespace DesafioFornecedores.WebApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        
         [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> Details(string identification){
@@ -96,7 +103,8 @@ namespace DesafioFornecedores.WebApp.Controllers
             return View(_mapper.Map<SupplierListViewModel>(supplier));
         }
 
-        [AllowAnonymous]
+        
+       [Authorize(Policy = "AdminOnly")]
         [HttpGet]
         public async Task<IActionResult> Edit(string identification){
             if (identification == null)
@@ -114,7 +122,8 @@ namespace DesafioFornecedores.WebApp.Controllers
             return View(SupplierMapping);
         }
 
-        [AllowAnonymous]
+        
+       [Authorize(Policy = "AdminOnly")]
         [HttpPost]
         public async Task<IActionResult> Edit(EditSupplierViewModel viewModel){
             if(!ModelState.IsValid) return View(viewModel);
@@ -133,7 +142,8 @@ namespace DesafioFornecedores.WebApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [AllowAnonymous]
+        
+       [Authorize(Policy = "AdminOnly")]
         [HttpGet]
         public async Task<IActionResult> Delete(string identification){
           if (identification == null)
@@ -150,7 +160,8 @@ namespace DesafioFornecedores.WebApp.Controllers
             var teste = _mapper.Map<DeleteSupplierViewModel>(supplier);
             return View(teste);
         }
-        [AllowAnonymous]
+        
+       [Authorize(Policy = "AdminOnly")]
         [HttpPost]
         public async Task<IActionResult> DeleteSupplierConfirmed(DeleteSupplierViewModel supplier){
           if (supplier == null)

@@ -1,5 +1,6 @@
 using System;
 using DesafioFornecedores.Domain.Tools;
+using FluentValidation;
 
 namespace DesafioFornecedores.Domain.Models
 {
@@ -13,10 +14,11 @@ namespace DesafioFornecedores.Domain.Models
         {
             SetImage(imagePath);
             SetProductId(productId);
+            isValid();
         }
 
         public void SetImage(string imagePath){
-            if(!System.IO.File.Exists(imagePath)) throw new DomainExceptions("File not exists");
+            if(string.IsNullOrEmpty(imagePath)) throw new DomainExceptions("imagePath is null");
 
             ImagePath = imagePath;
         }
@@ -25,6 +27,21 @@ namespace DesafioFornecedores.Domain.Models
             if(string.IsNullOrEmpty(id.ToString())) throw new DomainExceptions("Id is null or empty");
             
             ProductId = id;
+        }
+     public override bool isValid(){
+            var result = new ImageValidator().Validate(this);
+            return result.IsValid;
+        }
+    }
+
+    public class ImageValidator : AbstractValidator<Image>
+    {
+        public ImageValidator()
+        {
+            RuleFor(x => x.ImagePath)
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("ImagePath is null");
         }
     }
 }
