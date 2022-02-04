@@ -20,7 +20,7 @@ namespace DesafioFornecedores.WebApp.Controllers
             _categoryService = categoryService;
         }
 
-        [AllowAnonymous]
+        
         [HttpGet]
        public async Task<IActionResult> Index(int pageSize = 10,int pageIndex = 1, string query = null){
             var result = await _categoryService.Pagination(pageIndex,pageSize,query);
@@ -77,7 +77,7 @@ namespace DesafioFornecedores.WebApp.Controllers
 
            return RedirectToAction(nameof(Index));
         }
-        [AllowAnonymous]
+        
         [HttpGet]
        public async Task<IActionResult> Details(string Name){
            if(Name == null) RedirectToAction(nameof(Index));

@@ -25,7 +25,7 @@ namespace DesafioFornecedores.WebApp.Controllers
         }
 
         
-        [AllowAnonymous]
+        
         [HttpGet]
         public async Task<IActionResult> Index(int pageSize = 10,int pageIndex = 1, string query = null){
             var result = await _supplierService.Pagination(pageIndex,pageSize,query);
@@ -86,7 +86,7 @@ namespace DesafioFornecedores.WebApp.Controllers
         }
 
         
-        [AllowAnonymous]
+        
         [HttpGet]
         public async Task<IActionResult> Details(string identification){
             if (identification == null)

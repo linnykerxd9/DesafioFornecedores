@@ -69,8 +69,8 @@ namespace DesafioFornecedores.Infra.Services
                         _notificationService.AddError("Product id is null");
                     return;
               }
-                
-            await _productsRepository.Remove(product);
+            var productDelete = await _productsRepository.Find(x => x.Id == product.Id);
+            await _productsRepository.Remove(productDelete);
             await _productsRepository.SaveChanges();
         }
 

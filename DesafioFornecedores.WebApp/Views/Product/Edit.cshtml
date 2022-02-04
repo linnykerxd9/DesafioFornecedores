@@ -46,7 +46,7 @@
     <label asp-for="Category.Name" class="form-label"></label>
     <input asp-for="Category.Name" type="text" class="form-control" readonly disabled>
   </div>
-  @if(Model.Supplier.CompanyName != null){
+  @if(Model.Supplier.CompanyName != null && Model.Supplier != null){
 
    <div class="mb-3">
     <label asp-for="Supplier.CompanyName" class="form-label"></label>

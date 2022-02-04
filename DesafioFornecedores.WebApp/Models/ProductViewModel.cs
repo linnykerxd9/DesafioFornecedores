@@ -70,7 +70,6 @@ namespace DesafioFornecedores.WebApp.Models
         public decimal PriceSales { get;  set; }
         [Required]
         public decimal PricePurchase { get;  set; }
-        [Required]
         public EditSupplierViewModel Supplier {get;set;}
         public CategoryViewModel Category {get;set;}
         public ICollection<ImageRemoveViewModel> Image { get; set; } = new List<ImageRemoveViewModel>();
