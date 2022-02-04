@@ -43,20 +43,20 @@
 
   </div>
   <div class="mb-3">
-    <label asp-for="Category.Name" class="form-label"></label>
-    <input asp-for="Category.Name" type="text" class="form-control" readonly disabled>
+    <label asp-for="@Model.Category.Name" class="form-label"></label>
+    <input asp-for="@Model.Category.Name" type="text" class="form-control" readonly >
   </div>
   @if(Model.Supplier.CompanyName != null && Model.Supplier != null){
 
    <div class="mb-3">
-    <label asp-for="Supplier.CompanyName" class="form-label"></label>
-    <input asp-for="Supplier.CompanyName" type="text" class="form-control" readonly disabled>
+    <label asp-for="@Model.Supplier.CompanyName" class="form-label"></label>
+    <input asp-for="@Model.Supplier.CompanyName" type="text" class="form-control" readonly >
   </div>
   }else
   {
     <div class="mb-3">
-      <label asp-for="Supplier.FullName" class="form-label"></label>
-      <input asp-for="Supplier.FullName" type="text" class="form-control" readonly disabled>
+      <label asp-for="@Model.Supplier.FullName" class="form-label"></label>
+      <input asp-for="@Model.Supplier.FullName" type="text" class="form-control" readonly >
     </div>
   }
   <div class="row" style="gap: 10px;">
