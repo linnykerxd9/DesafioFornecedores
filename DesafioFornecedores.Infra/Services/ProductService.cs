@@ -16,13 +16,14 @@ namespace DesafioFornecedores.Infra.Services
         private readonly INotificationService _notificationService;
 
 
-        public ProductService(IProductsRepository productsRepository, 
+        public ProductService(IProductsRepository productsRepository,
                               ICategoryService categoryService,
-                              ISupplierService supplierService)
+                              ISupplierService supplierService, INotificationService notificationService)
         {
             _productsRepository = productsRepository;
             _categoryService = categoryService;
             _supplierService = supplierService;
+            _notificationService = notificationService;
         }
         public async Task<IEnumerable<Product>> ToList()
         {
@@ -112,6 +113,10 @@ namespace DesafioFornecedores.Infra.Services
                 _notificationService.AddError("Product Not exists");
                     return;
             }
+            if(productExists.Image.Count == 5){
+                    _notificationService.AddError("you can only have registered 5 Images");
+                    return;
+            }
             await _productsRepository.InsertImage(image);
             await _productsRepository.SaveChanges();
         }
@@ -131,7 +136,11 @@ namespace DesafioFornecedores.Infra.Services
                       _notificationService.AddError(" Id is null");
                     return;
                 }
-
+            var images = await _productsRepository.Find(x => x.Id == image.ProductId);
+            if(images.Image.Count == 1){
+                _notificationService.AddError("you need to have at least one Image registered");
+                return;
+            }
             await _productsRepository.RemoveImage(image);
             await _productsRepository.SaveChanges();
         }
