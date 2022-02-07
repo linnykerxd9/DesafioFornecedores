@@ -3,13 +3,14 @@
 Projeto proposto pelo Leandro na 2 fase do Cybertron, utilizando DDD.
 
 ### Frameworks Utilizados
-1.Asp.Net Core 3.1
-2.EntityFramework 
-3.AutoMapper 
-4.FluentValidation 
-5.PagedList 
-6.ClosedXML 
-7.AspNet Identity 
+
+1. Asp.Net Core 3.1
+2. EntityFramework 
+3. AutoMapper 
+4. FluentValidation 
+5. PagedList 
+6. ClosedXML 
+7. AspNet Identity 
 
 
 ### Recursos funcionais do sistema. 
