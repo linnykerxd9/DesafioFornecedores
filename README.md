@@ -14,10 +14,10 @@ Projeto proposto pelo Leandro na 2 fase do Cybertron, utilizando DDD.
 
 
 ### Recursos funcionais do sistema. 
-1.Deve ter um relatório em .XLSX que mostre todos os fornecedores e seus produtos. 
-2.Página de lista de produtos e fornecedores com paginação, total de exibidos e pesquisa. 
-3.Somente funcionários autorizados podem realizar cadastro, edição e exclusão. Deve ser cadastrado 2 usuários para testes, 1 administrator e 1 comum. 
-4.Todo mundo pode visualizar a lista de fornecedores e produtos. 
+1. Deve ter um relatório em .XLSX que mostre todos os fornecedores e seus produtos. 
+2. Página de lista de produtos e fornecedores com paginação, total de exibidos e pesquisa. 
+3. Somente funcionários autorizados podem realizar cadastro, edição e exclusão. Deve ser cadastrado 2 usuários para testes, 1 administrator e 1 comum. 
+4. Todo mundo pode visualizar a lista de fornecedores e produtos. 
 
 
 ### Imagem dos fornecedores
