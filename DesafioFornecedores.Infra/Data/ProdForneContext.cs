@@ -49,7 +49,7 @@ namespace DesafioFornecedores.Infra.Data
             {
                 property.SetColumnType("varchar(256)");
             }
-             foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
             {
                 relationship.DeleteBehavior = DeleteBehavior.ClientSetNull;
             }
