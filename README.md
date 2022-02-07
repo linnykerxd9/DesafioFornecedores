@@ -29,5 +29,5 @@ Projeto proposto pelo Leandro na 2 fase do Cybertron, utilizando DDD.
 ### Imagem dos Produtos
 ![alt text](https://user-images.githubusercontent.com/72765913/152855102-b7ebf25e-3df3-4c09-abc9-7aa5e0fe11dd.png)
 
-### Imagem do Relatorio em excel
+### Imagem do Relatório em excel
 ![alt text](https://user-images.githubusercontent.com/72765913/152855238-5aaf2e9f-ad00-4789-9aea-0ab7fee03427.png)
